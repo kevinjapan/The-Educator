@@ -1,0 +1,132 @@
+html {
+   margin:0;
+   padding:0;   
+}
+body {
+   background:white;
+   margin:0;
+   padding:0;
+}
+header {
+   background:white;
+   width:100%;
+   height:100px;
+   margin:0;
+}
+
+.menu-top-menu {
+   display:flex;
+}
+
+ul {
+   list-style:none;
+}
+ul.menu{
+   display:flex;
+   gap:1rem;
+}
+
+/* to keep track of templates during dev */
+.dev_notes {
+   width:fit-content;
+   color:lightgrey;
+   font-size:.9rem;
+   font-weight:100;
+   border:solid 1px lightgrey;
+   border-radius:.25rem;
+   margin:.25rem;
+   padding:.25rem;
+}
+
+
+/* 
+   adapt outlinecss nav to wordpress menu structure 
+*/
+
+/* style selection of menu item on top nav */
+li.menu-item {width:100%;}
+li.menu-item a,
+li.menu-item.current-menu-item > a {
+   width:fit-content;
+   border:solid 1px transparent;
+}
+li.menu-item:hover > a {
+   border-bottom:solid 1px white;
+}
+li.menu-item.current-menu-item > a {
+   border-bottom:solid 1px white;
+}
+
+.list_style_bullets {
+   list-style:circle;
+}
+
+
+
+/* 
+   customizing Block Patterns 
+*/
+
+
+/* 
+   Single Feature Columns
+   -------------------------------------------------------------
+   We build from WordPress media-text which only stacks at v. sm
+   We want it consistent w/ two-feature-columns breakpoints etc.
+   Also, image was distorted by resizing screen width.
+*/
+/*
+   switch off grid at sm/mobile - permits stacking at <782px
+*/
+.te-single-feature-columns {
+   display:unset;
+}
+/*
+   to retain pattern block integrity, we want img to keep height
+   Here, we force height but permit aspect to be retained (overflow permits x-cropping)
+*/
+.te-single-feature-columns figure, 
+.te-single-feature-columns figure img {
+   height:100%;
+   overflow:hidden
+}
+.te-single-feature-columns figure img {
+   object-fit: cover;
+}
+/* 
+   reset grid (WordPress default)
+   782px matches WordPress columns media break - consistency 
+*/
+@media screen and (min-width: 782px) {
+   .te-single-feature-columns {
+      display:grid;
+   }
+}
+
+
+/* 
+   Stacking Column Block Patterns
+   -------------------------------------------------------------
+   we incrse gap btwn 'columns' when stacking in sm/mobile for readability
+*/
+div.te-columns > div.wp-block-column {
+   margin-bottom:3rem;
+}
+@media screen and (min-width: 782px) {
+   div.te-columns > div.wp-block-column {
+      margin-bottom:0rem;
+   }
+}
+
+
+/* 
+future : 
+- layout of text on columns when stacked retains height and spacing 
+  of horizontal alignment - may look better more compact. 
+*/
+
+
+
+.te_card {
+   border:solid 3px orange;
+}
