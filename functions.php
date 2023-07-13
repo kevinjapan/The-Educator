@@ -30,8 +30,6 @@ add_action( 'pre_get_posts', 'te_enable_query_post_types' );
 
 
 function te_load_stylesheets() {
-   wp_register_style('te_stylesheet',get_template_directory_uri() . '/css/the-educator.css',array(),1,'all');
-   wp_enqueue_style('te_stylesheet');
    wp_register_style('outline',get_template_directory_uri() . '/css/outline.css',array(),1,'all');
    wp_enqueue_style('outline');
    wp_register_style('outline_custom_props',get_template_directory_uri() . '/css/outline-custom-props.css',array(),1,'all');
@@ -40,6 +38,8 @@ function te_load_stylesheets() {
    wp_enqueue_style('outline_layouts');
    wp_register_style('outline_utilities',get_template_directory_uri() . '/css/outline-utilities.css',array(),1,'all');
    wp_enqueue_style('outline_utilities');
+   wp_register_style('te_stylesheet',get_template_directory_uri() . '/css/the-educator.css',array(),1,'all');
+   wp_enqueue_style('te_stylesheet');
 }
 add_action('wp_enqueue_scripts','te_load_stylesheets');
 

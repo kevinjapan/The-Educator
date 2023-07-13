@@ -50,12 +50,12 @@ li.menu-item.current-menu-item > a {
    width:fit-content;
    border:solid 1px transparent;
 }
-li.menu-item:hover > a {
+/* li.menu-item:hover > a {
    border-bottom:solid 1px white;
 }
 li.menu-item.current-menu-item > a {
    border-bottom:solid 1px white;
-}
+} */
 
 .list_style_bullets {
    list-style:circle;
@@ -130,3 +130,66 @@ future :
 .te_card {
    border:solid 3px orange;
 }
+
+
+
+
+
+nav ul.menu .sub-menu li.menu-item:hover > a {
+   text-decoration:none !important;
+
+}
+
+   
+nav ul.sub-menu li.menu-item:hover > a {
+   position:relative;
+   /* outlinecss uses border to underline <a> for spacing */
+   border:solid 1px transparent;
+   text-decoration:none;
+}
+
+/* a {
+   border:solid 1px white;
+} */
+
+nav ul.menu li > a::after {
+   content:'';
+   width:0%;
+}
+
+nav ul.sub-menu li.menu-item { 
+   display:block;
+}
+nav ul.sub-menu li.menu-item > a,
+footer a {
+   display:block;
+   position:relative;   /* required to position ::after */
+   max-width:fit-content;
+}
+/* nav ul.sub-menu li.menu-item > a::after { */
+nav .menu a::after,
+footer a::after {
+   content:'';
+   position:absolute;
+   left:50%;
+   width:0%;
+   height:110%;
+   border-bottom:solid 1px white;
+   -webkit-transition:all .4s ease-in-out;
+   transition:all .4s ease-in-out;
+}
+nav .menu > li > a:after {height:70%;}
+/* nav ul.sub-menu li.menu-item > a:hover::after { */
+nav .menu a:hover::after,
+footer a:hover::after {
+   content:'';
+   position:absolute;
+   left:0%;
+   width:100%;
+   border-bottom:solid 1px white;
+   /* -webkit-transition:all .4s ease-in-out;
+   transition:all .4s ease-in-out; */
+}
+
+
+

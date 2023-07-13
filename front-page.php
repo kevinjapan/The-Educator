@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+
+
 <section class="front_page cover_block bg_navy fade_in">
 
       <?php if(has_post_thumbnail()):?>

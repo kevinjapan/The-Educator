@@ -1,6 +1,15 @@
 <?php get_header(); ?>
 
 
+
+
+
+<!-- taxonomy-te_school.php -->
+
+
+
+
+
 <?php
 
 //

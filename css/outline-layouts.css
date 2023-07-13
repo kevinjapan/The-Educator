@@ -461,11 +461,13 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       -webkit-box-pack:justify;
       -ms-flex-pack:justify;
       justify-content:space-between;
+
+      width:100%;
    }
    nav ul.menu:hover li a  {
       display:block;
    }
-   .sub-menu li {
+   nav ul.menu .sub-menu li {
       display:-webkit-box;
       display:-ms-flexbox;
       display:flex;
@@ -478,9 +480,12 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       -webkit-box-align:start;
       -ms-flex-align:start;
       align-items:flex-start;
-      gap:.5rem;
+      gap:0;
 
-      max-width:25%;
+      max-width:20%;border:solid 1px white;
+   }
+   nav ul.menu .sub-menu li a {
+      padding:0;
    }
    nav ul.menu ul.sub-menu {
       position:absolute;
@@ -494,7 +499,7 @@ we support from 1045px determined by four cols of reasonable text in dropdown
 
       -webkit-box-pack:justify;
       -ms-flex-pack:justify;
-      justify-content:space-between;
+      justify-content:flex-end;
 
       gap:.25rem;
 
@@ -515,8 +520,8 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       open it and keep it open 
       removed .menu_label from <a> for WordPress nav 
    */
-   nav ul.menu li a:hover + ul.sub-menu,
-   nav ul.menu li a + ul.sub-menu:hover {
+   nav ul.menu > li a:hover + ul.sub-menu,
+   nav ul.menu > li a + ul.sub-menu:hover {
       -webkit-transform:translateY(var(--nav_bar_height));
       -ms-transform:translateY(var(--nav_bar_height));
       transform:translateY(var(--nav_bar_height));
