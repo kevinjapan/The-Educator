@@ -1,118 +1,99 @@
 <?php get_header(); ?>
 
 
-<div style="color:lightgrey;margin-top:2rem;margin-bottom:2rem;">taxonomy-te_school.php test 43</div>
-
-<h1 class="fade_in"><?php __( single_cat_title(),'te'); ?></h1>
-
-
 <?php
+
+//
+// Information Architecture
+//
+// There are some differences in organisation eg:
+// - Agriculture has no departments (sub-schools) - only courses (direct children of the school).
+// - Engineering has departments - Mechanical & Structural - each of which contain courses.
+//   Engineering school itself has no child courses.
+//
 
 $term_id = get_queried_object()->term_id;
 $tax_name = 'te_school';
 $children = get_term_children($term_id,$tax_name);
 
 
+// school header & feature image
 //
-// to do : review and improve - crude, currently, we just assume no child taxonomy, then we are at lowest level..
-//
-if(count($children) > 0) {
-   echo '<ul>';
-
-   foreach($children as $child) {
-      $term = get_term_by('id',$child,$tax_name);
-      echo '<li><a href="' . get_term_link($child,$tax_name) . '">' . $term->name  . '</a></li>';
-   }
-
-   echo '</ul>';
-}
-else {
-
-
+$image = get_term_meta($term_id, 'category_image', true);
 ?>
-<section class="fade_in" style="display:flex;border:solid 1px navy;">
-   <ul>
-   <?php 
-      if(have_posts()) {
-         while(have_posts()) {
-            the_post();?>
-            
-            <li class="te_card">
-               <h4><?php the_title();?></h4>
-               <?php if(has_post_thumbnail()):?>
-                  <img src="<?php the_post_thumbnail_url('large'); ?>"/>
-               <?php endif;?>
-               <?php the_excerpt();?>
-               <a style="float:right;" href="<?php the_permalink(); ?>">read more</a>
-            </li>
-            <?php
-         } 
-      }
-   ?>
-   </ul>
+
+<section class="front_page cover_block bg_navy fade_in">
+
+      <?php if($image):?>
+         <img class="bg_img" src="<?php echo $image; ?>"/>
+      <?php endif;?>
+
+      <div class="overlay">
+         <h1><?php __( single_cat_title(),'te'); ?></h1>
+         <p>taxonomy-te_school.php</p>
+      </div>
+
 </section>
 
 <?php
+
+
+
+// if school has departments (child schools) - display them here
+//
+if(count($children) > 0) {
+   ?>
+      <section class="fade_in" style="display:flex;border:solid 3px navy;max-width:100%;">
+         <ul>
+            <?php 
+            foreach($children as $child) {
+               $term = get_term_by('id',$child,$tax_name);
+               $image = get_term_meta($child, 'category_image', true);
+               ?>
+               <li>
+                  <img src="<?php echo $image;?>" />
+                  <h6>Department of</h6>
+                  <h3><a href="<?php echo get_term_link($child,$tax_name);?>"><?php echo $term->name;?></a></h3>
+               </li>
+               <?php
+            }
+            ?>
+         </ul>
+      </section>
+   <?php
 }
+
+// if school has no departments - display courses here
+//
+else {
+?>
+   <section class="fade_in" style="display:flex;border:solid 1px navy;">
+      <ul>
+         <?php 
+            if(have_posts()) {
+               while(have_posts()) {
+                  the_post();?>
+                  <li class="te_card">
+                     <h6>course</h6>
+                     <h4><?php the_title();?></h4>
+                     <?php if(has_post_thumbnail()):?>
+                        <img src="<?php echo the_post_thumbnail_url('large'); ?>"/>
+                     <?php endif;?>
+                     <?php the_excerpt();?>
+                     <a style="float:right;" href="<?php the_permalink(); ?>">read more</a>
+                  </li>
+                  <?php
+               } 
+            }
+         ?>
+      </ul>
+   </section>
+<?php
+}
+
 ?>
 
 
-<!-- <section class="feature_tiles">
-   <ul>
-      <?php 
-      // 
-      // get list of terms for 'te_school' taxonomy
-      // rather this than a menu - since menu requires manual configuration.
-      //
-      $terms = get_terms( array( 
-         'taxonomy' => 'te_school',    // exclude all non 'school' taxonomies.
-         // 'parent'   => 0,              // top-level only
-         'hide_empty' => false         // show all regardless
-   ) );
-
-      foreach($terms as $term) {
-         ?>
-         <li>
-            <h3>
-               <a href="<?php echo get_term_link($term->name,'te_school'); ?>"><?php echo $term->name;?></a>
-            </h3>
-
-            <img src="<?php the_post_thumbnail_url('large'); ?>"/>
-
-         </li>
-         <?php
-      }
-      ?>
-   </ul>
-</section> -->
-
-
-
-
-
-
-<!-- <section class="feed_list fade_in">
-   <ul>
-   <?php 
-      if(have_posts()) {
-         while(have_posts()) {
-            the_post();?>
-            
-            <li>inside
-               <!-- <h4><?php the_title();?></h4>
-               <?php if(has_post_thumbnail()):?>
-                  <img src="<?php the_post_thumbnail_url('large'); ?>"/>
-               <?php endif;?>
-               <?php the_excerpt();?>
-               <a style="float:right;" href="<?php the_permalink(); ?>">read more</a> -->
-            </li>
-            <?php
-         } 
-      }
-   ?>
-   </ul>
-</section> -->
-below the bit
 
 
 
