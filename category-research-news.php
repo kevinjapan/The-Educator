@@ -1,13 +1,7 @@
 <?php get_header(); ?>
 <!-- category template -->
 
-<?php
-// we handle 'News' Posts here - our default.
-// we handle generic Posts here (any custom category falling through template hierarchy)
-?>
-
-<div class="show_page_name">category.php</div>
-
+<div class="show_page_name">category-research-news.php</div>
 
 <h1 class="fade_in"><?php single_cat_title();?></h1>
 
