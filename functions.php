@@ -20,10 +20,30 @@ if ( ! function_exists('te_theme_setup') ) {
 add_action( 'after_setup_theme', 'te_theme_setup' );
 
 
-// Set the main WordPress query to include our custom post types instead of only the default 'post' post type.
+
+
+
+// Set the main WordPress query to include our custom post types
+//
+// The type of posts you include will influence the template hierarchy selection.
+// There are three conflicting requirements in our case:
+// 1. agricultural school - taxonomy-te_school.php - has no sub-schools
+//    we want courses on the top level school - but only works if we enable pre_get_posts with 'te_course'
+// 2. all courses
+//    defaults to 'archive.php' if we have 'post' enabled and we have 'posts' mixed in with our 'courses'
+//    exclude 'post' and it resolves to archive-te_course.php correctly.
+// 3. news category
+//    requires 'post' in the $query->set() call or shows nothing.
+//
+// we have a working solution (see below) but this needs further reading!
+// note - we need 'page' to make homepage work.
+//
 function te_enable_query_post_types( $query ) {
-   if ($query->is_main_query() && !is_admin()) {
-      $query->set( 'post_type', array( 'page','post','te_course' ) );
+
+   // enable 'te_course' custom post type in results *if* we are not accessing a 'te_course' archive page,
+   // otherwise let that custom post type archive page handle it's own business.
+   if ($query->is_main_query() && !is_admin() && !$query->is_post_type_archive( 'te_course' ) ) {
+      $query->set( 'post_type', array('te_course','post','page' ) );
    }
 }
 add_action( 'pre_get_posts', 'te_enable_query_post_types' );
