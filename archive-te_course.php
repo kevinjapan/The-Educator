@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
-<div style="border:solid 1px lightgrey;color:lightgrey;">archive-te_course.php</div>
+<div class="show_page_name">archive-te_course.php</div>
 
 
-<section class="feed_list fade_in">
+<section class="feature_tiles fade_in">
    <ul>
       <?php 
          if(have_posts()) :
@@ -12,7 +12,7 @@
                $features = (array) get_post_meta(get_the_ID(),'_features_meta_key',true);
                ?>
                <li>
-                  <section class="feature_block" style="border:solid 1px orange;">
+                  
                         <?php if(has_post_thumbnail()):?>
                            <img src="<?php the_post_thumbnail_url('large'); ?>"/>
                         <?php endif;?>
@@ -34,7 +34,6 @@
                         <a href="<?php the_permalink(); ?>">read more</a>
 
                      </div>
-                  </section>
                   </li>
                <?php
             endwhile; 
@@ -42,6 +41,12 @@
       ?>
    </ul>
 </section>
+
 <!-- wp_link_pages() -->
+
+<section style="display:flex;">
+   <?php posts_nav_link('&nbsp;&nbsp;','prev','next'); ?>
+</section>
+
 
 <?php get_footer(); ?>

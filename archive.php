@@ -8,9 +8,11 @@ to do : currently, we can't access archive for courses...  'courses' link on men
 
 so will style here for now and work on that - then transfer when resolved to appropriate archive page.
 
+to do : this picks up all posts.. so we can't use it even temporarily for 'courses' -
+        need to get archive template for 'courses' working.
 -->
 
-<div style="border:solid 1px lightgrey;color:lightgrey;">archive.php</div>
+<div style="border:solid 1px lightgrey;color:lightgrey;">archive.php 222</div>
 
 <section class="feature_tiles fade_in">
    <ul>
@@ -40,6 +42,9 @@ so will style here for now and work on that - then transfer when resolved to app
    </ul>
 </section>
 
+<section style="display:flex;">
+   <?php posts_nav_link('&nbsp;&nbsp;','prev','next'); ?>
+</section>
 
 <!-- wp_link_pages() -->
 
