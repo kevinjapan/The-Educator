@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 
+<div class="show_page_name">taxonomy-te_school.php</div>
 
 
 
@@ -39,7 +40,8 @@ $image = get_term_meta($term_id, 'category_image', true);
 
       <div class="overlay">
          <h1><?php __( single_cat_title(),'te'); ?></h1>
-         <p>taxonomy-te_school.php</p>
+         <p><?php __( single_cat_title(),'te'); ?></p> <!-- to do : get description here -->
+         <p style="font-style:italic;font-size:.8rem;">taxonomy-te_school.php</p>
       </div>
 
 </section>
