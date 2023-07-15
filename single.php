@@ -1,7 +1,9 @@
 <?php get_header(); ?>
 
+<div class="show_page_name">single.php</div>
 
 <?php while ( have_posts() ) : the_post(); ?>
+
 
 <section class="front_page cover_block bg_navy fade_in">
       <?php if(has_post_thumbnail()):?>
@@ -9,12 +11,19 @@
       <?php endif;?>
       <div class="overlay">
          <h2><?php the_title(); ?></h2>
-         <p><?php echo get_post_meta( get_the_ID(), 'te_casestudy_tagline', true ); ?></p>
+         <p><?php echo get_post_meta( get_the_ID(), 'te_course_teacher', true ); ?></p>
       </div>
 </section>
 
 <?php the_content();?>
 
+
+<section>
+   teacher : 
+         <p><?php echo get_post_meta( get_the_ID(), 'te_course_teacher', true ); ?></p>
+   topics :
+         <p><?php echo get_post_meta( get_the_ID(), 'te_course_topics', true ); ?></p>
+</section>
 <?php endwhile; ?>
 
    <div style="display:flex;gap:2rem;">
