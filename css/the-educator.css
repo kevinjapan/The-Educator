@@ -195,7 +195,7 @@ footer a:hover::after {
 /* to do : remove these rules and in-page <div>s  - or display:none; here */
 .show_page_name {
    position:absolute;
-   z-index:999;
+   z-index:499;
    top:var(--nav_bar_height);
    right:.25rem;
    opacity:.4;
