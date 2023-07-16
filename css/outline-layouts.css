@@ -482,11 +482,16 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       align-items:flex-start;
       gap:0;
 
-      max-width:20%;border:solid 1px white;
+      max-width:20%;
    }
    nav ul.menu .sub-menu li a {
       padding:0;
+      color:var(--nav_dropdown_color);
    }
+
+   /* 
+      md/lg dropdown 
+   */
    nav ul.menu ul.sub-menu {
       position:absolute;
       top:0;
@@ -514,7 +519,10 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       transform:translateY(-100%);
       opacity:0;
       border-bottom:solid 3px transparent;
-      transition:transform .75s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out;
+      transition:transform .6s ease-in-out,opacity 3s ease-in-out .25s,border .25s ease-in-out;
+      
+      color:var(--nav_dropdown_color);
+      background:var(--nav_dropdown_bg);
    }
    /* 
       open it and keep it open 
@@ -527,7 +535,7 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       transform:translateY(var(--nav_bar_height));
       opacity:1;
       border-bottom:solid 3px hsl(0, 0%, 96%);
-      transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .5s ease-in-out;
+      transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .1s ease-in-out;
    }
 }
 
@@ -705,7 +713,7 @@ section.gallery > ul {
    margin-right:auto;
    padding:0;
 
-   list-style:none;border:solid 1px blue;
+   list-style:none;
 }
 section.gallery li {
    margin:0;
@@ -1076,6 +1084,7 @@ section.feature_tiles > ul > li > button {
       -ms-flex-direction:row;
       flex-direction:row;
 
+      /* we use spacing inside <li> for so we can use 33.333% for 'exact' widths at all screen sizes */
       gap:1rem;
 
       width:100%;
@@ -1084,14 +1093,15 @@ section.feature_tiles > ul > li > button {
       /* min-width:48%;
       max-width:48%; */
       flex-grow:0;      /* do not grow into free space */
+      min-width:48%;
    }
 }
-@media screen and (min-width: 910px) {
+@media screen and (min-width: 982px) {
    section.feature_tiles {
       padding:2rem;
    }
    section.feature_tiles > ul > li {
-      min-width:30%;
+      min-width:32%;
    }
 }
 

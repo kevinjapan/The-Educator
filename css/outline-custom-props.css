@@ -152,8 +152,8 @@
    --nav_bar_label_gap:3rem;
    --nav_bar_bg:          white;
    --nav_bar_text_color:  hsl(0, 24%, 35%);
-   --nav_dropdown_bg:       var(--primary_1_bg);
-   --nav_dropdown_color:  white;
+   --nav_dropdown_bg:       white;
+   --nav_dropdown_color:  blue;
 
    /* dim page under extended dropdown */
    --nav_dropdown_shadow:none;
