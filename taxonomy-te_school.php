@@ -41,7 +41,6 @@ $image = get_term_meta($term_id, 'category_image', true);
       <div class="overlay">
          <h1><?php __( single_cat_title(),'te'); ?></h1>
          <p><?php __( single_cat_title(),'te'); ?></p> <!-- to do : get description here -->
-         <p style="font-style:italic;font-size:.8rem;">taxonomy-te_school.php</p>
       </div>
 
 </section>
@@ -54,7 +53,7 @@ $image = get_term_meta($term_id, 'category_image', true);
 //
 if(count($children) > 0) {
    ?>
-      <section class="fade_in" style="display:flex;border:solid 3px navy;max-width:100%;">
+      <section class="feature_tiles fade_in" style="display:flex;border:solid 3px navy;max-width:100%;">
          <ul>
             <?php 
             foreach($children as $child) {
@@ -78,7 +77,7 @@ if(count($children) > 0) {
 //
 else {
 ?>
-   <section class="fade_in" style="display:flex;border:solid 1px navy;">
+   <section class="feature_tiles fade_in" style="display:flex;border:solid 1px navy;">
       <ul>
          <?php 
             if(have_posts()) {

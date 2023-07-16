@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
-<div style="border:solid 1px lightgrey;color:lightgrey;">archive-te_job 001.php</div>
+
+<div class="show_page_name">archive-te_job.php</div>
 
 
 <section class="feed_list fade_in">

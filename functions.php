@@ -42,9 +42,16 @@ function te_enable_query_post_types( $query ) {
 
    // enable 'te_course' custom post type in results *if* we are not accessing a 'te_course' archive page,
    // otherwise let that custom post type archive page handle it's own business.
-   if ($query->is_main_query() && !is_admin() && !$query->is_post_type_archive( 'te_course' ) ) {
-      $query->set( 'post_type', array('te_course','post','page' ) );
+   if ($query->is_main_query() && !is_admin() && !$query->is_post_type_archive('te_course') && !$query->is_post_type_archive('te_job') ) {
+      $query->set( 'post_type', array('te_course','post','page','te_job' ) );
    }
+
+   // Order courses by title
+   if($query->is_post_type_archive('te_course')) {
+      $query->set( 'orderby', 'post_title' );
+      $query->set( 'order', 'ASC');
+   }
+
 }
 add_action( 'pre_get_posts', 'te_enable_query_post_types' );
 
