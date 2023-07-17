@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+<div class="show_page_name">single-te_job.php</div>
 
    <?php while ( have_posts() ) : the_post(); ?>
  

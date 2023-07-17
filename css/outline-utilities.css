@@ -179,3 +179,7 @@ Access classes - use these to access the custom props
    transform:translateY(-100%);
    transition:transform .25s ease-in;
 }
+
+.float_right {
+   float:right;
+}

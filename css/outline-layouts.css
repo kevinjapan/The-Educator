@@ -184,6 +184,7 @@ nav div.logo_block    {
 
    color:white;
    background-color:var(--primary_1_bg);
+   font-size:1.2rem;
 }
 
 nav ul   {list-style:none;}
@@ -453,16 +454,23 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       renamed 'menu_dropdown' -> 'sub-menu' for WordPress nav
    */
    nav ul.menu .sub-menu {
-      -webkit-box-orient:horizontal;
+      /* -webkit-box-orient:horizontal;
       -webkit-box-direction:normal;
       -ms-flex-direction:row;
-      flex-direction:row;
+      flex-direction:row; */
+      -webkit-box-orient:vertical;
+      -webkit-box-direction:normal;
+      -ms-flex-direction:column;
+      flex-direction:column;
+
+      flex-wrap:wrap;
 
       -webkit-box-pack:justify;
       -ms-flex-pack:justify;
       justify-content:space-between;
 
       width:100%;
+      max-height:50vh;
    }
    nav ul.menu:hover li a  {
       display:block;
@@ -483,8 +491,12 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       gap:0;
 
       max-width:20%;
+      margin-left:2rem;
+      margin-right:2rem;
+      padding:0;
    }
    nav ul.menu .sub-menu li a {
+      margin:.5rem;
       padding:0;
       color:var(--nav_dropdown_color);
    }
@@ -519,7 +531,7 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       transform:translateY(-100%);
       opacity:0;
       border-bottom:solid 3px transparent;
-      transition:transform .6s ease-in-out,opacity 3s ease-in-out .25s,border .25s ease-in-out;
+      transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out;
       
       color:var(--nav_dropdown_color);
       background:var(--nav_dropdown_bg);
@@ -579,6 +591,14 @@ section > ul > li {
    /* mobile convention stacks w/ image at top - we facilitate w/ a default stack order */
    order:100;
 }
+/* images are height bound - we allow overlow-x:hidden to retain aspect-ratio */
+section ul li img {
+   display:block;  /* prevent browser's inline element spacing */
+   /* width:100%; */
+   height:var(--section_img_height);
+   object-fit: cover; 
+}
+
 /* utilities to re-order stacking */
 section > ul > li.stack_1 {order:1;}
 section > ul > li.stack_2 {order:2;}
@@ -607,12 +627,7 @@ section > ul > li.stack_4 {order:4;}
       padding-top:0;
       padding-bottom:0;
    }
-   section ul li img {
-      display:block;  /* prevent browser's inline element spacing */
-      width:100%;
-      height:var(--section_img_height);
-      object-fit: cover; 
-   }
+
 
    /* set all mobile stacking order to default - thus enabling normal flow order */ 
    section > ul > li.stack_1 {order:100;}
@@ -995,9 +1010,12 @@ section.feature_block > div > *:not(button) {
    }
 }
 
+
+
 /* 
    section.feature_tiles
 */
+
 section.feature_tiles {
    width:100%;
    height:fit-content;
@@ -1011,7 +1029,7 @@ section.feature_tiles > ul {
    gap:3rem;
 }
 section.feature_tiles > ul > li {
-   display:-webkit-box;
+   /* display:-webkit-box;
    display:-ms-flexbox;
    display:flex;
 
@@ -1022,11 +1040,13 @@ section.feature_tiles > ul > li {
 
    -webkit-box-pack:start;
    -ms-flex-pack:start;
-   justify-content:flex-start;         
+   justify-content:flex-start;          */
 
    /* gap:1rem; */
    
-   width:100%;
+   /* we don't want images to lose aspect ratio */
+   width:100% !important;
+   overflow-x:hidden !important;
    
    border:solid 1px lightgrey;
    border-radius:.25rem;
@@ -1047,21 +1067,64 @@ section.feature_tiles h6 {
    text-align:center;
 }
 section.feature_tiles  > ul > li > img {
-   max-width:100%;
-   min-width:200px;
+   /* max-width:100%;
+   min-width:200px; */
    min-height:300px;
    max-height:300px;
    -webkit-box-flex:2;
    -ms-flex-positive:2;
    flex-grow:2;
+
+   /* we don't want images to lose aspect ratio */
+   /* width:100%; - their width can expand.. containing li has overflow-x:hidden */
+   height:100%;
+   margin-bottom:-20px;
 }
 section.feature_tiles > ul > li > h5 {
    padding-top:1rem;
    padding-bottom:0;
 }
-div.feature_tile_content {
+section.feature_tiles.offset_titles > ul > li {
+   position:relative;
+   overflow:hidden;
+}
+section.feature_tiles.offset_titles > ul > li > h3 {
+   position:absolute;
+   z-index:3;
+   bottom:0%;
+   left:0;
+   width:100%;
+   text-align:left;
+   padding:0;
+}
+section.feature_tiles.offset_titles > ul > li > h3::before {
+   content:'';
+   position:absolute;
+   z-index:-1;
+   width:100%;
+   height:100%;
+   background:black;
+   opacity:.5;
+}
+section.feature_tiles.offset_titles > ul > li > h3 > a {
+   color:white;
+   padding:1rem;
+   display:block;
+}
+
+div.feature_tile_content {    /* to do : is this used atall? should be - probably useful */
    margin-bottom:2rem;
 }
+/* workaround since we don't have feature_tile_content */
+section.feature_tiles > ul > li > div {
+   width:94%;
+   margin:0 auto 0 auto;
+   margin-top:-30px;
+   background:white;
+   position:relative;
+   z-index:300;
+}
+
 section.feature_tiles p {
    margin-left:0;
    margin-right:0;
@@ -1084,14 +1147,11 @@ section.feature_tiles > ul > li > button {
       -ms-flex-direction:row;
       flex-direction:row;
 
-      /* we use spacing inside <li> for so we can use 33.333% for 'exact' widths at all screen sizes */
       gap:1rem;
 
       width:100%;
    }
    section.feature_tiles > ul > li {
-      /* min-width:48%;
-      max-width:48%; */
       flex-grow:0;      /* do not grow into free space */
       min-width:48%;
    }

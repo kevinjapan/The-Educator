@@ -13,25 +13,35 @@
                ?>
                <li>
                   
-                        <?php if(has_post_thumbnail()):?>
-                           <img src="<?php the_post_thumbnail_url('large'); ?>"/>
-                        <?php endif;?>
-                     <div style="background:white;margin-block:2rem;">
+                     <?php 
+                     if(has_post_thumbnail()) {
+                        ?>
+                        <img src="<?php the_post_thumbnail_url('large'); ?>"/>
+                        <?php
+                     }
+                     else {
+                        ?><p style="height:20px;"></p><?php
+                     }
+                     ?>
+                     <div style="background:white;">
                      
 
                         <h3><?php echo the_title();?></h3>
-                        <ul style="list-style:circle;">
+                        <!-- <ul>
                            <?php
                               foreach ($features as $feature) {
                                  ?><li><?php echo $feature;?></li><?php
                               }
                            ?>
-                        </ul>
+                        </ul> -->
+
+                        
                         <?php
+                        // to do : reduce len of excerpt.
                         the_excerpt();
                         ?>
 
-                        <a href="<?php the_permalink(); ?>">read more</a>
+                        <a class="float_right" href="<?php the_permalink(); ?>">read more</a>
 
                      </div>
                   </li>

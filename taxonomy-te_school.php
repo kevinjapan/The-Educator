@@ -84,13 +84,21 @@ else {
                while(have_posts()) {
                   the_post();?>
                   <li class="te_card">
-                     <h6>course</h6>
-                     <h4><?php the_title();?></h4>
-                     <?php if(has_post_thumbnail()):?>
-                        <img src="<?php echo the_post_thumbnail_url('large'); ?>"/>
-                     <?php endif;?>
-                     <?php the_excerpt();?>
-                     <a style="float:right;" href="<?php the_permalink(); ?>">read more</a>
+                     <?php 
+                     if(has_post_thumbnail()) {
+                        ?>
+                        <img src="<?php the_post_thumbnail_url('large'); ?>"/>
+                        <?php
+                     }
+                     else {
+                        ?><p style="height:20px;"></p><?php
+                     }
+                     ?>
+                     <div style="background:white;">
+                        <h4><?php the_title();?></h4>
+                        <?php the_excerpt();?>
+                        <a style="float:right;" href="<?php the_permalink(); ?>">read more</a>
+                     </div>
                   </li>
                   <?php
                } 

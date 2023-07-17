@@ -1,6 +1,11 @@
 <?php get_header(); ?>
 
 
+<?php
+// to do :
+// currently this cover_block is hardcoded into layout - fine
+// but it uses site_title - inflexible
+?>
 
 <section class="front_page cover_block bg_navy fade_in">
 

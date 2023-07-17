@@ -15,12 +15,12 @@
    
    <div class="logo_block">
       <a href="<?php echo get_site_url(); ?>" style="text-decoration:none;">
-      <?php echo get_bloginfo('name');?>
-      <?php 
-      // if ( function_exists( 'the_custom_logo' ) ) {
-      //    the_custom_logo();
-      // } 
-      ?>
+         <?php 
+         if ( function_exists( 'the_custom_logo' ) ) {
+            the_custom_logo();
+         } 
+         ?>
+         <?php echo get_bloginfo('name');?>
       </a>
    </div>
 

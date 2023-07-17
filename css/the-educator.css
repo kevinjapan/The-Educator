@@ -192,6 +192,14 @@ footer a:hover::after {
 }
 
 
+section.feature_tiles > ul > li.news_tile > h4{
+   text-align:left;
+   margin-top:.5rem;
+   margin-left:.5rem;
+   margin-right:.5rem;
+   padding-right:auto;
+}
+
 /* to do : remove these rules and in-page <div>s  - or display:none; here */
 .show_page_name {
    position:absolute;

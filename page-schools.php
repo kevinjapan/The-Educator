@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
 
+<div class="show_page_name">page-schools.php</div>
+
+
 <?php 
 
 // to do : url is ugly 
@@ -23,10 +26,9 @@ $args = array(
 );
 ?>
 
-<div style="color:lightgrey;margin-top:2rem;margin-bottom:2rem;">page-schools.php</div>
 
 
-<section class="feature_tiles">
+<section class="feature_tiles fade_in offset_titles">
    <ul>
       <?php 
       // 
@@ -42,23 +44,28 @@ $args = array(
          'compare'   => 'LIKE'
    ) );
 
+
       foreach($terms as $term) {
+   $image = get_term_meta($term->term_id, 'category_image', true);
          ?>
          <li>
+            <?php
+               //echo get_term_meta( $term->term_id, 'te_text', true )
+
+               if($image) {
+                  ?>
+                  <img src="<?php echo $image; ?>"/>
+                  <?php
+               }
+               else {
+                  ?><p style="height:20px;"></p><?php
+               }
+               ?>
+
             <h3>
                <a href="<?php echo get_term_link($term->name,'te_school'); ?>"><?php echo $term->name;?></a>
             </h3>
-            <p>
-               <?php
-                  //echo get_term_meta( $term->term_id, 'te_text', true )
 
-                  $image = get_term_meta($term->term_id, 'category_image', true);
-                  echo '<img src="'.$image.'" />';
-
-               ?>
-            </p>
-
-            <img src="<?php the_post_thumbnail_url('large'); ?>"/>
 
          </li>
          <?php

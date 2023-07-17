@@ -18,11 +18,14 @@
          while(have_posts()) {
             the_post();?>
             
-            <li>
-               <h4><?php the_title();?></h4>
+            <?php 
+               // to do : news should have more text than cf course
+            ?>
+            <li class="news_tile">
                <?php if(has_post_thumbnail()):?>
                   <img src="<?php the_post_thumbnail_url('large'); ?>"/>
                <?php endif;?>
+               <h4><?php the_title();?></h4>
                <?php the_excerpt();?>
                <a style="float:right;" href="<?php the_permalink(); ?>">read more</a>
             </li>
