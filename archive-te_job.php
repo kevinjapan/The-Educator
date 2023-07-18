@@ -5,6 +5,7 @@
 
 
 <section class="feed_list fade_in">
+   <h3>Current Vacancies</h3>
    <ul>
       <?php 
          if(have_posts()) :
@@ -12,7 +13,7 @@
                the_post();
                $features = (array) get_post_meta(get_the_ID(),'_features_meta_key',true);
                ?>
-               <li>
+               <li class="te_job_teaser">
                         <?php if(has_post_thumbnail()):?>
                            <img src="<?php the_post_thumbnail_url('large'); ?>"/>
                         <?php endif;?>

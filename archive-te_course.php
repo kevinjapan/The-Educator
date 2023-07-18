@@ -4,6 +4,7 @@
 
 
 <section class="feature_tiles fade_in">
+   <h3>Our Courses</h3>
    <ul>
       <?php 
          if(have_posts()) :
@@ -11,7 +12,7 @@
                the_post();
                $features = (array) get_post_meta(get_the_ID(),'_features_meta_key',true);
                ?>
-               <li>
+               <li style="border:none;margin-bottom:3rem;">
                   
                      <?php 
                      if(has_post_thumbnail()) {
@@ -23,7 +24,9 @@
                         ?><p style="height:20px;"></p><?php
                      }
                      ?>
-                     <div style="background:white;">
+
+                     <?php // to do : move styling to class rule ?>
+                     <div style="background:white;padding:0 1.5rem 1.5rem 1.5rem;border:solid 1px lightgrey;border-radius:.25rem;">
                      
 
                         <h3><?php echo the_title();?></h3>
@@ -37,8 +40,10 @@
 
                         
                         <?php
-                        // to do : reduce len of excerpt.
-                        the_excerpt();
+                        $excerpt = get_the_excerpt(); 
+                        $excerpt = substr($excerpt, 0, 240);
+                        $result = substr($excerpt, 0, strrpos($excerpt, ' '));
+                        echo $result . ' . .';
                         ?>
 
                         <a class="float_right" href="<?php the_permalink(); ?>">read more</a>

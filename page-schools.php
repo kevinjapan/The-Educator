@@ -29,6 +29,7 @@ $args = array(
 
 
 <section class="feature_tiles fade_in offset_titles">
+   <h3>Schools</h3>
    <ul>
       <?php 
       // 

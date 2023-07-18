@@ -183,3 +183,9 @@ Access classes - use these to access the custom props
 .float_right {
    float:right;
 }
+
+section.feed_list > ul > li.te_job_teaser {
+   border:solid 1px lightgrey;
+   border-radius:.25rem;
+   padding:.5rem 2rem .5rem 2rem;
+}

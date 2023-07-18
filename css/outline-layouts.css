@@ -1062,13 +1062,14 @@ section.feature_tiles h3,
 section.feature_tiles h4,
 section.feature_tiles h5,
 section.feature_tiles h6 {
-   margin-left:auto;
-   margin-right:auto;
-   text-align:center;
+   /* margin-left:auto;
+   margin-right:auto; */
+   text-align:left;
 }
 section.feature_tiles  > ul > li > img {
    /* max-width:100%;
    min-width:200px; */
+   min-width:100%;
    min-height:300px;
    max-height:300px;
    -webkit-box-flex:2;

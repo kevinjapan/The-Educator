@@ -83,7 +83,7 @@ else {
             if(have_posts()) {
                while(have_posts()) {
                   the_post();?>
-                  <li class="te_card">
+                  <li style="border:none;margin-bottom:3rem;">
                      <?php 
                      if(has_post_thumbnail()) {
                         ?>
@@ -93,10 +93,26 @@ else {
                      else {
                         ?><p style="height:20px;"></p><?php
                      }
-                     ?>
-                     <div style="background:white;">
-                        <h4><?php the_title();?></h4>
-                        <?php the_excerpt();?>
+                     ?><?php // to do : move styling to class rule ?>
+                     <div style="background:white;padding:0 1.5rem 1.5rem 1.5rem;border:solid 1px lightgrey;border-radius:.25rem;">
+                     
+
+                     <h3><?php echo the_title();?></h3>
+                        <!-- <ul>
+                           <?php
+                              foreach ($features as $feature) {
+                                 ?><li><?php echo $feature;?></li><?php
+                              }
+                           ?>
+                        </ul> -->
+
+                        
+                        <?php
+                        $excerpt = get_the_excerpt(); 
+                        $excerpt = substr($excerpt, 0, 240);
+                        $result = substr($excerpt, 0, strrpos($excerpt, ' '));
+                        echo $result . ' . .';
+                        ?>
                         <a style="float:right;" href="<?php the_permalink(); ?>">read more</a>
                      </div>
                   </li>
