@@ -4,7 +4,7 @@ require_once get_template_directory() . '/inc/te-sanitize.php';
 
 //
 // WebDevAgentPatternsCustomizer
-// Creates 'Web Dev Agent Block Patterns' in Customizer.
+// Creates 'The Educator Block Patterns' in Customizer.
 // Generates front-end CSS from the configured Settings.
 //
 
@@ -13,6 +13,10 @@ class WebDevAgentPatternsCustomizer {
    public function __construct() {}
 
    public static function register ( $wp_customize ) {
+
+      // optional text on all labels
+      $theme_title = '';               // 'The Educator ';
+
 
       //
       // Wed Dev Agent Block Patterns panel
@@ -23,9 +27,9 @@ class WebDevAgentPatternsCustomizer {
                'te_patterns_panel',
                array(
                   'priority' => 25,
-                  'title' => __( 'Web Dev Agent Block Patterns', 'te' ),
+                  'title' => __( 'The Educator Block Patterns', 'te' ),
                   'description' => 
-                     __('Apply customizations to Web Dev Agent Block Pattern types across the site.
+                     __('Apply customizations to The Educator Block Pattern types across the site.
                         <br>These changes will be applied to all instances
                         of the selected block pattern on your site,
                         thus ensuring consistency across your design.', 'te'))
@@ -37,50 +41,50 @@ class WebDevAgentPatternsCustomizer {
       // sections
       //
       $wp_customize->add_section( 'te_cover_patterns', 
-         array('title'       => __( 'Web Dev Agent Covers', 'te' ),
+         array('title'       => __( $theme_title . 'Covers', 'te' ),
                'priority'    => 10,
                'capability'  => 'edit_theme_options',
-               'description' => __('You can customize all Wed Dev Agent Covers across the site here.', 'te'),
+               'description' => __('You can customize all ' . $theme_title . 'Covers across the site here.', 'te'),
                'panel' => 'te_patterns_panel',
                'active_callback' => '') 
       );
       $wp_customize->add_section( 'te_column_patterns', 
-         array('title'       => __( 'Web Dev Agent Columns', 'te' ),
+         array('title'       => __( $theme_title . 'Columns', 'te' ),
                'priority'    => 20,
                'capability'  => 'edit_theme_options',
-               'description' => __('You can customize all Wed Dev Agent Columns across the site here.', 'te'),
+               'description' => __('You can customize all ' . $theme_title . 'Columns across the site here.', 'te'),
                'panel' => 'te_patterns_panel',
                'active_callback' => '') 
       );
       $wp_customize->add_section( 'te_title_lead_patterns', 
-         array('title'       => __( 'Web Dev Agent Title & Lead', 'te' ),
+         array('title'       => __( $theme_title . 'Title & Lead', 'te' ),
                'priority'    => 50,
                'capability'  => 'edit_theme_options',
-               'description' => __('You can customize all Wed Dev Agent Title & Leads across the site here.', 'te'),
+               'description' => __('You can customize all ' . $theme_title . 'Title & Leads across the site here.', 'te'),
                'panel' => 'te_patterns_panel',
                'active_callback' => '') 
       );
       $wp_customize->add_section( 'te_text_patterns', 
-         array('title'       => __( 'Web Dev Agent Texts', 'te' ),
+         array('title'       => __( $theme_title . 'Texts', 'te' ),
                'priority'    => 50,
                'capability'  => 'edit_theme_options',
-               'description' => __('You can customize all Wed Dev Agent Texts across the site here.', 'te'),
+               'description' => __('You can customize all ' . $theme_title . 'Texts across the site here.', 'te'),
                'panel' => 'te_patterns_panel',
                'active_callback' => '') 
       );
       $wp_customize->add_section( 'te_image_patterns', 
-         array('title'       => __( 'Web Dev Agent Images', 'te' ),
+         array('title'       => __( $theme_title . 'Images', 'te' ),
                'priority'    => 60,
                'capability'  => 'edit_theme_options',
-               'description' => __('You can customize all Wed Dev Agent Images and Galleries across the site here.', 'te'),
+               'description' => __('You can customize all ' . $theme_title . 'Images and Galleries across the site here.', 'te'),
                'panel' => 'te_patterns_panel',
                'active_callback' => '') 
       );
       $wp_customize->add_section( 'te_buttons_patterns', 
-         array('title'       => __( 'Web Dev Agent Buttons', 'te' ),
+         array('title'       => __( $theme_title . 'Buttons', 'te' ),
                'priority'    => 70,
                'capability'  => 'edit_theme_options',
-               'description' => __('You can customize all Wed Dev Agent Buttons across the site here.', 'te'),
+               'description' => __('You can customize all ' . $theme_title . 'Buttons across the site here.', 'te'),
                'panel' => 'te_patterns_panel',
                'active_callback' => '') 
       );
@@ -107,7 +111,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_cover_patterns',
                'label' => __( 'Covers','te'),
                'settings'   => 'te_cover_x_width', 
-               'description' => __( '% width for Web Dev Agent covers.','te'),
+               'description' => __( '% width for Covers.','te'),
                'input_attrs' => array( 'min' => 60, 'max' => 100, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -124,7 +128,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_cover_patterns',
                'label' => __( '','te'),
                'settings'   => 'te_cover_y_margins', 
-               'description' => __( '% above and below Web Dev Agent covers.','te'),
+               'description' => __( '% above and below Covers.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 1 )) 
       );
 
@@ -158,7 +162,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_column_patterns',
                'label' => __( 'Padding','te'),
                'settings'   => 'te_column_x_padding', 
-               'description' => __( '% horizontal padding for Web Dev Agent columns.','te'),
+               'description' => __( '% horizontal padding for Columns.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -175,7 +179,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_column_patterns',
                'label' => __( '','te'),
                'settings'   => 'te_column_top_padding', 
-               'description' => __( '% top padding for Web Dev Agent columns.','te'),
+               'description' => __( '% top padding for Columns.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -192,7 +196,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_column_patterns',
                'label' => __( '','te'),
                'settings'   => 'te_column_bottom_padding', 
-               'description' => __( '% bottom padding for Web Dev Agent columns.','te'),
+               'description' => __( '% bottom padding for Columns.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -215,7 +219,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_image_patterns',
                'label' => __( 'Images','te'),
                'settings'   => 'te_image_x_padding', 
-               'description' => __( '% horizontal padding for Web Dev Agent images.','te'),
+               'description' => __( '% horizontal padding for Images.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -232,7 +236,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_image_patterns',
                'label' => __( '','te'),
                'settings'   => 'te_image_y_margins', 
-               'description' => __( '% vertical spacing for Web Dev Agent images.','te'),
+               'description' => __( '% vertical spacing for Images.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -255,7 +259,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_image_patterns',
                'label' => __( 'Galleries','te'),
                'settings'   => 'te_gallery_x_padding', 
-               'description' => __( '% horizontal padding for Web Dev Agent galleries.','te'),
+               'description' => __( '% horizontal padding for Galleries.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -272,7 +276,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_image_patterns',
                'label' => __( '','te'),
                'settings'   => 'te_gallery_y_margins', 
-               'description' => __( '% vertical spacing for Web Dev Agent galleries.','te'),
+               'description' => __( '% vertical spacing for Galleries.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -294,7 +298,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_title_lead_patterns',
                'label' => __( 'Padding','te'),
                'settings'   => 'te_title_lead_btwn_padding', 
-               'description' => __( '% padding between title & lead.','te'),
+               'description' => __( '% padding between Title & Lead.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 5, 'style' => 'width: 80px;', 'step'	=> 1 ))
       );
 
@@ -316,7 +320,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_title_lead_patterns',
                'label' => __( '','te'),
                'settings'   => 'te_title_lead_x_padding', 
-               'description' => __( '% horizontal padding for Web Dev Agent title & lead.','te'),
+               'description' => __( '% horizontal padding for Title & Lead.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -333,7 +337,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_title_lead_patterns',
                'label' => __( '','te'),
                'settings'   => 'te_title_lead_top_padding', 
-               'description' => __( '% padding above Web Dev Agent title & lead.','te'),
+               'description' => __( '% padding above Title & Lead.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -350,7 +354,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_title_lead_patterns',
                'label' => __( '','te'),
                'settings'   => 'te_title_lead_bottom_padding', 
-               'description' => __( '% padding below for Web Dev Agent title & lead.','te'),
+               'description' => __( '% padding below for Title & Lead.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -372,7 +376,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_title_lead_patterns',
                'label' => __( 'Margins','te'),
                'settings'   => 'te_title_lead_top_margin', 
-               'description' => __( '% margin above Web Dev Agent title & lead.','te'),
+               'description' => __( '% margin above Title & Lead.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -389,7 +393,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_title_lead_patterns',
                'label' => __( '','te'),
                'settings'   => 'te_title_lead_bottom_margin', 
-               'description' => __( '% margin below for Web Dev Agent title & lead.','te'),
+               'description' => __( '% margin below for Title & Lead.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -411,7 +415,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_text_patterns',
                'label' => __( 'Simple Text','te'),
                'settings'   => 'te_text_x_padding', 
-               'description' => __( '% horizontal padding for Web Dev Agent texts.','te'),
+               'description' => __( '% horizontal padding for Texts.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -428,7 +432,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_text_patterns',
                'label' => __( '','te'),
                'settings'   => 'te_text_y_margins', 
-               'description' => __( '% vertical spacing for Web Dev Agent texts.','te'),
+               'description' => __( '% vertical spacing for Texts.','te'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -447,7 +451,7 @@ class WebDevAgentPatternsCustomizer {
                'section' => 'te_text_patterns',
                'label' => __( '','te'),
                'settings'   => 'te_text_text_align', 
-               'description' => __( 'Set text alignment for Web Dev Agent texts.','te'),
+               'description' => __( 'Set text alignment for Texts.','te'),
                'choices' => array(
                  'left' => __( 'Left' ),
                  'center' => __( 'Center' ),
@@ -460,7 +464,7 @@ class WebDevAgentPatternsCustomizer {
 
    public static function te_customizer_patterns_styles() {
 
-      ?><!-- Web Dev Agent Patterns Customizer CSS --> 
+      ?><!-- The Educator Patterns Customizer CSS --> 
 <style id="te-custom-patterns" type="text/css">
 <?php 
 
@@ -590,7 +594,7 @@ class WebDevAgentPatternsCustomizer {
       }
    
 </style> 
-<!--/ Web Dev Agent Patterns Customizer CSS -->
+<!--/ The Educator Patterns Customizer CSS -->
       <?php
    }
 }

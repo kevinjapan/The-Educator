@@ -2,7 +2,7 @@
 
 /*
  * sanitize funcs
- * @since Web Dev Agent 1.0
+ * @since The Educator 1.0
  */
 
 if ( ! function_exists( 'te_sanitize_number_range' ) ) :

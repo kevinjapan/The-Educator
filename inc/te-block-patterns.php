@@ -1,13 +1,13 @@
 <?php
 /*
- * Web Dev Agent Block Patterns
+ * The Educator Block Patterns
  * @package WordPress
  * @subpackage WebDevAgent
  * @since WebDevAgent 1.0
  */
 
 //
-// Web Dev Agent Block Patterns
+// The Educator Block Patterns
 // Registers Patterns in 'block inserter' in editor.
 // 
 
@@ -26,11 +26,11 @@
 // Register Block Pattern Categories
 //
 function te_register_block_pattern_categories() { 
-	register_block_pattern_category('te-cover-blocks', ['label' => __('Web Dev Agent Covers', 'te')]);
-	register_block_pattern_category('te-column-blocks', ['label' => __('Web Dev Agent Columns', 'te')]);  
-	register_block_pattern_category('te-texts', ['label' => __('Web Dev Agent Texts', 'te')]); 
-	register_block_pattern_category('te-images', ['label' => __('Web Dev Agent Images', 'te')]); 
-	register_block_pattern_category('te-buttons', ['label' => __('Web Dev Agent Buttons', 'te')]);   
+	register_block_pattern_category('te-cover-blocks', ['label' => __('The Educator Covers', 'te')]);
+	register_block_pattern_category('te-column-blocks', ['label' => __('The Educator Columns', 'te')]);  
+	register_block_pattern_category('te-texts', ['label' => __('The Educator Texts', 'te')]); 
+	register_block_pattern_category('te-images', ['label' => __('The Educator Images', 'te')]); 
+	register_block_pattern_category('te-buttons', ['label' => __('The Educator Buttons', 'te')]);   
 }
 add_action( 'init', 'te_register_block_pattern_categories' );
 
@@ -58,7 +58,7 @@ function te_register_block_patterns() {
          <!-- wp:columns -->
          <div class="wp-block-columns"><!-- wp:column -->
          <div class="wp-block-column"><!-- wp:heading -->
-         <h2>Introducing the Web Dev Agent Cover Block.</h2>
+         <h2>Introducing the The Educator Cover Block.</h2>
          <!-- /wp:heading --></div>
          <!-- /wp:column -->         
          <!-- wp:column -->
@@ -68,8 +68,8 @@ function te_register_block_patterns() {
             <br>You can customize the layout of this block pattern in the Dashboard menu:
             <br>- Appearance 
             <br>- - Customize
-            <br>- - - Web Dev Agent Block Patterns 
-            <br>- - - - Web Dev Agent Covers.</p>
+            <br>- - - The Educator Block Patterns 
+            <br>- - - - The Educator Covers.</p>
             <!-- /wp:paragraph -->
          </div>
          <!-- /wp:column --></div>
@@ -115,7 +115,7 @@ function te_register_block_patterns() {
    //       <!-- /wp:heading -->
    //       <!-- wp:paragraph {"align":"center"} -->
    //       <p class="has-text-align-center"> You can customize the layout of this block pattern 
-   //       in Appearance \ Customize \ Web Dev Agent Block Patterns \ Web Dev Agent Covers.. </p>
+   //       in Appearance \ Customize \ The Educator Block Patterns \ The Educator Covers.. </p>
    //       <!-- /wp:paragraph -->
    //       <!-- wp:button -->
    //      <button>read more link</button>
@@ -180,7 +180,7 @@ function te_register_block_patterns() {
    //         <!-- /wp:heading -->
    //         <!-- wp:paragraph {"align":"center"} -->
    //         <p class="has-text-align-center"> You can customize the layout of this block pattern 
-   //         in Appearance \ Customize \ Web Dev Agent Block Patterns \ Web Dev Agent Covers... </p>
+   //         in Appearance \ Customize \ The Educator Block Patterns \ The Educator Covers... </p>
    //         <!-- /wp:paragraph --> 
    //         <!-- wp:paragraph {"align":"center"} -->
    //         <p class="has-text-align-center">continue</p>
@@ -219,8 +219,8 @@ function te_register_block_patterns() {
          <p>You can customize the layout of this block pattern in the Dashboard menu:
          <br>- Appearance 
          <br>- - Customize
-         <br>- - - Web Dev Agent Block Patterns 
-         <br>- - - - Web Dev Agent Columns</p>
+         <br>- - - The Educator Block Patterns 
+         <br>- - - - The Educator Columns</p>
          <!-- /wp:paragraph -->
          <!-- wp:buttons -->
          <div class="wp-block-buttons te_buttons">            
@@ -279,7 +279,7 @@ function te_register_block_patterns() {
          <h2 class="has-text-align-center">title here</h2>
          <!-- /wp:heading -->
          <!-- wp:paragraph  {"align":"center"} -->
-         <p class="has-text-align-center">You can customize the layout of this block pattern in the Dashboard menu: Appearance \ Customize \ Web Dev Agent Block Patterns \ Web Dev Agent Columns</p>
+         <p class="has-text-align-center">You can customize the layout of this block pattern in the Dashboard menu: Appearance \ Customize \ The Educator Block Patterns \ The Educator Columns</p>
          <!-- /wp:paragraph -->
          <!-- wp:buttons -->
          <div class="wp-block-buttons te_buttons">
@@ -360,7 +360,7 @@ function te_register_block_patterns() {
             <h2 class="has-text-align-center">columns</h2>
             <!-- /wp:heading -->  
             <!-- wp:paragraph  {"align":"center"} -->
-            <p class="has-text-align-center">You can customize the layout of this block pattern in the Dashboard menu: Appearance \ Customize \ Web Dev Agent Block Patterns \ Web Dev Agent Columns</p>
+            <p class="has-text-align-center">You can customize the layout of this block pattern in the Dashboard menu: Appearance \ Customize \ The Educator Block Patterns \ The Educator Columns</p>
             <!-- /wp:paragraph -->
             <!-- wp:buttons -->
             <div class="wp-block-buttons te_buttons">            
@@ -492,7 +492,7 @@ function te_register_block_patterns() {
    //          <!-- /wp:heading -->
    //          <!-- wp:paragraph  {"textAlign":"center"} -->
    //          <p class="has-text-align-center">You can customize the layout of this block pattern 
-   //          in Appearance \ Customize \ Web Dev Agent Block Patterns \ Web Dev Agent Cover-Columns...</p>
+   //          in Appearance \ Customize \ The Educator Block Patterns \ The Educator Cover-Columns...</p>
    //          <!-- /wp:paragraph -->
    //          <!-- wp:paragraph {"textAlign":"center"} -->
    //          <p class="has-text-align-center">learn more</p>
@@ -529,7 +529,7 @@ function te_register_block_patterns() {
          <!-- wp:paragraph {"align":"center"} -->
          <p class="has-text-align-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.         
          <br>You can customize the layout of this block pattern in the Dashboard menu:
-         <br> Appearance \ Customize \ Web Dev Agent Block Patterns \ Web Dev Agent Texts </p>
+         <br> Appearance \ Customize \ The Educator Block Patterns \ The Educator Texts </p>
          <!-- /wp:paragraph -->
          </div>
          <!-- /wp:group -->'
@@ -553,7 +553,7 @@ function te_register_block_patterns() {
          <!-- /wp:paragraph -->
          <!-- wp:paragraph -->
          <p>You can customize the layout of this block pattern in the Dashboard menu:
-         <br> Appearance \ Customize \ Web Dev Agent Block Patterns \ Web Dev Agent Texts </p>
+         <br> Appearance \ Customize \ The Educator Block Patterns \ The Educator Texts </p>
          <!-- /wp:paragraph --></div>
          <!-- /wp:group -->'
 	]);
@@ -577,7 +577,7 @@ function te_register_block_patterns() {
    //       <!-- /wp:paragraph -->
    //       <!-- wp:paragraph -->
    //       <p>You can customize the layout of this block pattern 
-   //       in Appearance \ Customize \ Web Dev Agent Block Patterns \ Web Dev Agent Texts.</p>
+   //       in Appearance \ Customize \ The Educator Block Patterns \ The Educator Texts.</p>
    //       <!-- /wp:paragraph -->
    //       </div>
    //       <!-- /wp:group -->'
@@ -588,8 +588,8 @@ function te_register_block_patterns() {
    // te-image
    //
     register_block_pattern('te-image', [
-		'title' => __('Web Dev Agent Image', 'te'),
-      'description' => _x( 'Web Dev Agent Image.', 'An image block with Web Dev Agent customization.', 'te' ),            
+		'title' => __('The Educator Image', 'te'),
+      'description' => _x( 'The Educator Image.', 'An image block with The Educator customization.', 'te' ),            
 		'keywords' => ['image'],
 		'categories' => ['te-images'],
 		'viewportWidth' => 1000,
@@ -607,8 +607,8 @@ function te_register_block_patterns() {
    // te-gallery
    //
     register_block_pattern('te-gallery', [
-		'title' => __('Web Dev Agent Gallery', 'te'),
-      'description' => _x( 'Web Dev Agent Gallery.', 'An image gallery block with Web Dev Agent customization.', 'te' ),            
+		'title' => __('The Educator Gallery', 'te'),
+      'description' => _x( 'The Educator Gallery.', 'An image gallery block with The Educator customization.', 'te' ),            
 		'keywords' => ['gallery'],
 		'categories' => ['te-images'],
 		'viewportWidth' => 1000,
@@ -639,8 +639,8 @@ function te_register_block_patterns() {
    // te-buttons
    //
    register_block_pattern('te-buttons', [
-		'title' => __('Web Dev Agent Buttons', 'te'),
-      'description' => _x( 'Web Dev Agent Buttons.', 'A Web Dev Agent button block.', 'te' ),            
+		'title' => __('The Educator Buttons', 'te'),
+      'description' => _x( 'The Educator Buttons.', 'A The Educator button block.', 'te' ),            
 		'keywords' => ['button'],
 		'categories' => ['te-buttons'],
 		'viewportWidth' => 1000,

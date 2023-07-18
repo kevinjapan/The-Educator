@@ -63,12 +63,12 @@ function te_generate_complex_css_rule( $selector, $style, $mod_names, $prefixes=
 
 
 //
-// WebDevAgentThemeCustomizer
-// Creates 'Web Dev Agent' Theme Controls in Customizer.
+// TheEducatorThemeCustomizer
+// Creates 'The Educator' Theme Controls in Customizer.
 // Generates front-end CSS from the configured Settings.
 // 
 
-class WebDevAgentThemeCustomizer {
+class TheEducatorThemeCustomizer {
 
    public function __construct() {}
 
@@ -79,7 +79,7 @@ class WebDevAgentThemeCustomizer {
       $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
       //
-      // Wed Dev Agent Theme panel
+      // The Educator Theme panel
       //
       if ( class_exists( 'WP_Customize_Panel' ) ) {
          if ( ! $wp_customize->get_panel( 'te_layout_panel' ) ) {
@@ -87,8 +87,8 @@ class WebDevAgentThemeCustomizer {
                'te_layout_panel',
                array(
                   'priority' => 25,
-                  'title' => esc_html__( 'Wed Dev Agent','te'),
-                  'description' => esc_html__('Customize your Wed Dev Agent theme here.', 'te'))
+                  'title' => esc_html__( 'The Educator','te'),
+                  'description' => esc_html__('Customize your The Educator theme here.', 'te'))
             );
          }
       }
@@ -142,7 +142,7 @@ class WebDevAgentThemeCustomizer {
       //    array('title'       => esc_html( 'Blog Header Image', 'te' ),
       //          'priority'    => 40,
       //          'capability'  => 'edit_theme_options',
-      //          'description' => esc_html__('Web Dev Agent Blog Header Image customizations.', 'te'),
+      //          'description' => esc_html__('The Educator Blog Header Image customizations.', 'te'),
       //          'panel' => 'te_layout_panel',
       //          'active_callback' => 'te_is_blog_archive_page') 
       // );
@@ -813,6 +813,8 @@ class WebDevAgentThemeCustomizer {
    }
 
 
+   // to do : css rule names below eg evolution.. !
+
    //
    // frontend inline theme styles
    // 
@@ -942,11 +944,11 @@ class WebDevAgentThemeCustomizer {
 //
 // setup theme customizer settings and controls
 //
-add_action( 'customize_register', array( 'WebDevAgentThemeCustomizer' , 'register' ) );
+add_action( 'customize_register', array( 'TheEducatorThemeCustomizer' , 'register' ) );
 
 
 //
 // output custom css to frontend
 //
-add_action('wp_head', array( 'WebDevAgentThemeCustomizer' , 'te_customizer_theme_styles' ) );
+add_action('wp_head', array( 'TheEducatorThemeCustomizer' , 'te_customizer_theme_styles' ) );
 
