@@ -28,7 +28,7 @@ $args = array(
 
 
 
-<section class="feature_tiles fade_in offset_titles">
+<section class="feature_tiles fade_in">
    <h3>Schools</h3>
    <ul>
       <?php 
@@ -49,13 +49,13 @@ $args = array(
       foreach($terms as $term) {
    $image = get_term_meta($term->term_id, 'category_image', true);
          ?>
-         <li>
+         <li style="border:none;">
             <?php
                //echo get_term_meta( $term->term_id, 'te_text', true )
 
                if($image) {
                   ?>
-                  <img src="<?php echo $image; ?>"/>
+                  <img style="border-radius:.25rem;" src="<?php echo $image; ?>"/>
                   <?php
                }
                else {
@@ -63,7 +63,7 @@ $args = array(
                }
                ?>
 
-            <h3>
+            <h3 style="text-align:center;">
                <a href="<?php echo get_term_link($term->name,'te_school'); ?>"><?php echo $term->name;?></a>
             </h3>
 

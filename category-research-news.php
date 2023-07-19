@@ -5,7 +5,24 @@
 
 <h1 class="fade_in"><?php single_cat_title();?></h1>
 
-<section class="feature_tiles fade_in">
+<!-- 
+
+3 
+
+0 0 1
+1 0 0
+0 0 1
+1 0 0
+0 0 1
+1 0 0
+0 0 1
+1 0 0
+
+
+-->
+
+
+<section class="feature_tiles stagger_tiles fade_in">
    <ul>
    <?php 
       if(have_posts()) {
@@ -26,6 +43,7 @@
    ?>
    </ul>
 </section>
+
 
 
 <?php get_footer(); ?>

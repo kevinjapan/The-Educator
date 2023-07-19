@@ -48,22 +48,24 @@ $image = get_term_meta($term_id, 'category_image', true);
 <?php
 
 
+// to do : hard-coded styles below - move to css classes - rollout
+
 
 // if school has departments (child schools) - display them here
 //
 if(count($children) > 0) {
    ?>
-      <section class="feature_tiles fade_in" style="display:flex;border:solid 3px navy;max-width:100%;">
+      <section class="feature_tiles fade_in">
          <ul>
             <?php 
             foreach($children as $child) {
                $term = get_term_by('id',$child,$tax_name);
                $image = get_term_meta($child, 'category_image', true);
                ?>
-               <li>
-                  <img src="<?php echo $image;?>" />
-                  <h6>Department of</h6>
-                  <h3><a href="<?php echo get_term_link($child,$tax_name);?>"><?php echo $term->name;?></a></h3>
+               <li style="border:none;">
+                  <img src="<?php echo $image;?>" style="border-radius:.25rem;" />
+                  <h6 style="display:inline;padding:.5rem 1rem .5rem .5rem;background:white;border-radius:0 .25rem 0 0;">Department of</h6>
+                  <h3 style="padding:0;padding-left:1rem;"><a href="<?php echo get_term_link($child,$tax_name);?>"><?php echo $term->name;?></a></h3>
                </li>
                <?php
             }

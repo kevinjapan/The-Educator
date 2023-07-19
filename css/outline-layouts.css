@@ -180,7 +180,7 @@ nav div.logo_block    {
    -ms-flex-positive:2;
    flex-grow:2;
 
-   min-height:var(--nav_bar_height);
+   height:var(--nav_bar_height);
 
    color:white;
    background-color:var(--primary_1_bg);
@@ -1027,6 +1027,8 @@ section.feature_tiles > ul {
    -ms-flex-wrap:wrap;
    flex-wrap:wrap;
    gap:3rem;
+   margin:0;
+   padding:0;
 }
 section.feature_tiles > ul > li {
    /* display:-webkit-box;
@@ -1045,8 +1047,10 @@ section.feature_tiles > ul > li {
    /* gap:1rem; */
    
    /* we don't want images to lose aspect ratio */
-   width:100% !important;
-   overflow-x:hidden !important;
+   width:100%;
+   margin:0;
+   padding:1rem;
+   overflow-x:hidden;
    
    border:solid 1px lightgrey;
    border-radius:.25rem;
@@ -1066,6 +1070,7 @@ section.feature_tiles h6 {
    margin-right:auto; */
    text-align:left;
 }
+
 section.feature_tiles  > ul > li > img {
    /* max-width:100%;
    min-width:200px; */
@@ -1080,50 +1085,37 @@ section.feature_tiles  > ul > li > img {
    /* width:100%; - their width can expand.. containing li has overflow-x:hidden */
    height:100%;
    margin-bottom:-20px;
+      max-width:100%;
+  
+   /* since we rely on hiding x-overflow for image aspect-ratio, we can't show img right-side border effect  
+   - future : rounded border on imgs - use wrapper div?
+   border-radius:.25rem; */
 }
 section.feature_tiles > ul > li > h5 {
    padding-top:1rem;
    padding-bottom:0;
 }
-section.feature_tiles.offset_titles > ul > li {
-   position:relative;
-   overflow:hidden;
+
+section.feature_tiles > ul > li > h4 {
+   font-size:1.5rem;
 }
-section.feature_tiles.offset_titles > ul > li > h3 {
-   position:absolute;
-   z-index:3;
-   bottom:0%;
-   left:0;
-   width:100%;
-   text-align:left;
-   padding:0;
-}
-section.feature_tiles.offset_titles > ul > li > h3::before {
-   content:'';
-   position:absolute;
-   z-index:-1;
-   width:100%;
-   height:100%;
-   background:black;
-   opacity:.5;
-}
-section.feature_tiles.offset_titles > ul > li > h3 > a {
-   color:white;
-   padding:1rem;
-   display:block;
-}
+
+
 
 div.feature_tile_content {    /* to do : is this used atall? should be - probably useful */
    margin-bottom:2rem;
 }
 /* workaround since we don't have feature_tile_content */
 section.feature_tiles > ul > li > div {
-   width:94%;
-   margin:0 auto 0 auto;
-   margin-top:-30px;
-   background:white;
    position:relative;
    z-index:300;
+   width:94%;
+   margin:auto;
+   margin-top:-30px;
+   background:white;
+   padding:0 1.5rem 3rem 1.5rem;
+   border:solid 1px lightgrey;
+   border-radius:.25rem;
 }
 
 section.feature_tiles p {
@@ -1141,28 +1133,68 @@ section.feature_tiles > ul > li > button {
    margin-bottom:1rem;
 }
 @media screen and (min-width: 660px) {
+   
+   section.feature_tiles {
+      width:100%; 
+   }
    section.feature_tiles > ul {
 
       -webkit-box-orient:horizontal;
       -webkit-box-direction:normal;
       -ms-flex-direction:row;
       flex-direction:row;
-
-      gap:1rem;
-
+      gap:0;   /* for predictable spacing, we pad inside <li> */
       width:100%;
+      padding-left:auto;
+      padding-right:auto;
    }
    section.feature_tiles > ul > li {
-      flex-grow:0;      /* do not grow into free space */
-      min-width:48%;
+      flex-grow:0; /* do not grow into free space */
+      min-width:49%; /* tweak */
+   }
+
+   /* 
+      stagger_tiles      
+      rows:   1 2 3 3 / 4 4 5 6 / ..
+      we modify every 6th <li> starting at indexes 1 and 6.
+   */
+   section.feature_tiles.stagger_tiles > ul > li {
+      min-width:25%;
+   }
+   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+1) {
+      min-width:50%;
+   }
+   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+6) {
+      min-width:50%;
+   }
+
+   section.feature_tiles.stagger_tiles > ul > li > img {
+      max-width:100%;
+   }
+   
+   section.feature_tiles > ul > li > h4 {
+      font-size:1.4rem;
    }
 }
 @media screen and (min-width: 982px) {
-   section.feature_tiles {
-      padding:2rem;
+   section.feature_tiles > ul {
+      gap:0;padding:0;
    }
    section.feature_tiles > ul > li {
-      min-width:32%;
+      min-width:33.333333%;
+   }
+   /* stagger_tiles */
+   section.feature_tiles.stagger_tiles > ul > li {
+      min-width:25%;
+   }
+   section.feature_tiles.stagger_tiles > ul > li > ul > li:nth-child(6n+1) {
+      min-width:50%;
+   }
+   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+6) {
+      min-width:50%;
+   }
+   section.feature_tiles > ul > li > h4 {
+      font-size:2rem;
    }
 }
 

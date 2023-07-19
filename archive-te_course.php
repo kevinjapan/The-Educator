@@ -26,7 +26,7 @@
                      ?>
 
                      <?php // to do : move styling to class rule ?>
-                     <div style="background:white;padding:0 1.5rem 1.5rem 1.5rem;border:solid 1px lightgrey;border-radius:.25rem;">
+                     <div>
                      
 
                         <h3><?php echo the_title();?></h3>
@@ -49,7 +49,7 @@
                         <a class="float_right" href="<?php the_permalink(); ?>">read more</a>
 
                      </div>
-                  </li>
+               </li>
                <?php
             endwhile; 
          endif;
