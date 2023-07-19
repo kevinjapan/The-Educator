@@ -15,6 +15,7 @@ if ( ! function_exists('te_theme_setup') ) {
       add_theme_support('menus');
       add_theme_support('post-thumbnails');
       add_theme_support('custom-logo');
+      add_theme_support('widgets');
    }
 }
 add_action( 'after_setup_theme', 'te_theme_setup' );
@@ -84,6 +85,8 @@ function te_load_scripts() {
 add_action('wp_enqueue_scripts','te_load_scripts');
 
 
+// to do : use/verify footer menu on UI
+
 // menu location
 register_nav_menus(
    array(
@@ -97,6 +100,47 @@ add_image_size('cover',1920,600,true);
 add_image_size('large',1200,630,true);
 add_image_size('medium',600,305,true);
 add_image_size('small',200,200,true);
+
+
+/* 
+ * widget sidebars         to do : tidy/rename/enable this on some templates..
+ */
+function evolutiondesuka_sidebars_init() {
+   register_sidebar(
+      array(
+         'name' => esc_html__('Page Sidebar','evolutiondesuka'),
+			'description' => esc_html__( 'Add widgets here to appear alongside your pages.', 'evolutiondesuka' ),
+         'id' => 'page-sidebar',
+         'before_widget' => '<div class="site_sidebar">',
+         'after_widget' => '</div>',
+         'before_title' => '<h4 class="">',
+         'after_title' => '</h4>'
+      )
+   );
+   register_sidebar(
+      array(
+         'name' => esc_html__('Post Sidebar','evolutiondesuka'),
+			'description' => esc_html__( 'Add widgets here to appear alongside your posts.', 'evolutiondesuka' ),
+         'id' => 'post-sidebar',
+         'before_widget' => '<div class="site_sidebar">',
+         'after_widget' => '</div>',
+         'before_title' => '<h4 class="">',
+         'after_title' => '</h4>'
+      )
+   );
+   register_sidebar(
+      array(
+         'name' => esc_html__('Footer Sidebar','evolutiondesuka'),
+			'description' => esc_html__( 'Add widgets here to appear in your footer.', 'evolutiondesuka' ),
+         'id' => 'footer-sidebar',
+         'before_title' => '<h4 class="footer_widget_title">',
+         'after_title' => '</h4>'
+      )
+   );
+}
+add_action( 'widgets_init', 'evolutiondesuka_sidebars_init' );
+
+
 
 
 require_once get_template_directory() . '/inc/te-block-patterns.php';
