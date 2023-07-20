@@ -191,6 +191,7 @@
    /* 
       headings
    */
+   --heading_color:hsl(0, 0%,25%);
    --heading_1_size:4rem;
    --heading_2_size:3rem;
    --heading_3_size:2.5rem;

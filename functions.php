@@ -22,6 +22,11 @@ add_action( 'after_setup_theme', 'te_theme_setup' );
 
 
 
+function te_custom_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'te_custom_excerpt_length', 999 );
+
 
 
 // Set the main WordPress query to include our custom post types

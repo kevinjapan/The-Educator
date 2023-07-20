@@ -65,7 +65,9 @@ if(count($children) > 0) {
                <li style="border:none;">
                   <img src="<?php echo $image;?>" style="border-radius:.25rem;" />
                   <h6 style="display:inline;padding:.5rem 1rem .5rem .5rem;background:white;border-radius:0 .25rem 0 0;">Department of</h6>
-                  <h3 style="padding:0;padding-left:1rem;"><a href="<?php echo get_term_link($child,$tax_name);?>"><?php echo $term->name;?></a></h3>
+                  <h4 style="padding:0;padding-left:1rem;margin-top:0;">
+                     <a href="<?php echo get_term_link($child,$tax_name);?>"><?php echo $term->name;?></a>
+                  </h4>
                </li>
                <?php
             }
