@@ -3,7 +3,7 @@
 
 <div style="color:lightgrey;margin-top:2rem;margin-bottom:2rem;">taxonomy-te_course.php test 43</div>
 
-<h1 class="fade_in"><?php __( single_cat_title(),'te'); ?></h1>
+<h1 class="fade_in"><?php __( single_cat_title(),'the-educator'); ?></h1>
 
 
 <?php

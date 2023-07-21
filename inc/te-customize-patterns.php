@@ -27,12 +27,12 @@ class WebDevAgentPatternsCustomizer {
                'te_patterns_panel',
                array(
                   'priority' => 25,
-                  'title' => __( 'The Educator Block Patterns', 'te' ),
+                  'title' => __( 'The Educator Block Patterns', 'the-educator' ),
                   'description' => 
                      __('Apply customizations to The Educator Block Pattern types across the site.
                         <br>These changes will be applied to all instances
                         of the selected block pattern on your site,
-                        thus ensuring consistency across your design.', 'te'))
+                        thus ensuring consistency across your design.', 'the-educator'))
             );
          }
       }
@@ -41,50 +41,50 @@ class WebDevAgentPatternsCustomizer {
       // sections
       //
       $wp_customize->add_section( 'te_cover_patterns', 
-         array('title'       => __( $theme_title . 'Covers', 'te' ),
+         array('title'       => __( $theme_title . 'Covers', 'the-educator' ),
                'priority'    => 10,
                'capability'  => 'edit_theme_options',
-               'description' => __('You can customize all ' . $theme_title . 'Covers across the site here.', 'te'),
+               'description' => __('You can customize all ' . $theme_title . 'Covers across the site here.', 'the-educator'),
                'panel' => 'te_patterns_panel',
                'active_callback' => '') 
       );
       $wp_customize->add_section( 'te_column_patterns', 
-         array('title'       => __( $theme_title . 'Columns', 'te' ),
+         array('title'       => __( $theme_title . 'Columns', 'the-educator' ),
                'priority'    => 20,
                'capability'  => 'edit_theme_options',
-               'description' => __('You can customize all ' . $theme_title . 'Columns across the site here.', 'te'),
+               'description' => __('You can customize all ' . $theme_title . 'Columns across the site here.', 'the-educator'),
                'panel' => 'te_patterns_panel',
                'active_callback' => '') 
       );
       $wp_customize->add_section( 'te_title_lead_patterns', 
-         array('title'       => __( $theme_title . 'Title & Lead', 'te' ),
+         array('title'       => __( $theme_title . 'Title & Lead', 'the-educator' ),
                'priority'    => 50,
                'capability'  => 'edit_theme_options',
-               'description' => __('You can customize all ' . $theme_title . 'Title & Leads across the site here.', 'te'),
+               'description' => __('You can customize all ' . $theme_title . 'Title & Leads across the site here.', 'the-educator'),
                'panel' => 'te_patterns_panel',
                'active_callback' => '') 
       );
       $wp_customize->add_section( 'te_text_patterns', 
-         array('title'       => __( $theme_title . 'Texts', 'te' ),
+         array('title'       => __( $theme_title . 'Texts', 'the-educator' ),
                'priority'    => 50,
                'capability'  => 'edit_theme_options',
-               'description' => __('You can customize all ' . $theme_title . 'Texts across the site here.', 'te'),
+               'description' => __('You can customize all ' . $theme_title . 'Texts across the site here.', 'the-educator'),
                'panel' => 'te_patterns_panel',
                'active_callback' => '') 
       );
       $wp_customize->add_section( 'te_image_patterns', 
-         array('title'       => __( $theme_title . 'Images', 'te' ),
+         array('title'       => __( $theme_title . 'Images', 'the-educator' ),
                'priority'    => 60,
                'capability'  => 'edit_theme_options',
-               'description' => __('You can customize all ' . $theme_title . 'Images and Galleries across the site here.', 'te'),
+               'description' => __('You can customize all ' . $theme_title . 'Images and Galleries across the site here.', 'the-educator'),
                'panel' => 'te_patterns_panel',
                'active_callback' => '') 
       );
       $wp_customize->add_section( 'te_buttons_patterns', 
-         array('title'       => __( $theme_title . 'Buttons', 'te' ),
+         array('title'       => __( $theme_title . 'Buttons', 'the-educator' ),
                'priority'    => 70,
                'capability'  => 'edit_theme_options',
-               'description' => __('You can customize all ' . $theme_title . 'Buttons across the site here.', 'te'),
+               'description' => __('You can customize all ' . $theme_title . 'Buttons across the site here.', 'the-educator'),
                'panel' => 'te_patterns_panel',
                'active_callback' => '') 
       );
@@ -109,9 +109,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_cover_patterns',
-               'label' => __( 'Covers','te'),
+               'label' => __( 'Covers','the-educator'),
                'settings'   => 'te_cover_x_width', 
-               'description' => __( '% width for Covers.','te'),
+               'description' => __( '% width for Covers.','the-educator'),
                'input_attrs' => array( 'min' => 60, 'max' => 100, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -126,9 +126,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_cover_patterns',
-               'label' => __( '','te'),
+               'label' => __( '','the-educator'),
                'settings'   => 'te_cover_y_margins', 
-               'description' => __( '% above and below Covers.','te'),
+               'description' => __( '% above and below Covers.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 1 )) 
       );
 
@@ -160,9 +160,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_column_patterns',
-               'label' => __( 'Padding','te'),
+               'label' => __( 'Padding','the-educator'),
                'settings'   => 'te_column_x_padding', 
-               'description' => __( '% horizontal padding for Columns.','te'),
+               'description' => __( '% horizontal padding for Columns.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -177,9 +177,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_column_patterns',
-               'label' => __( '','te'),
+               'label' => __( '','the-educator'),
                'settings'   => 'te_column_top_padding', 
-               'description' => __( '% top padding for Columns.','te'),
+               'description' => __( '% top padding for Columns.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -194,9 +194,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_column_patterns',
-               'label' => __( '','te'),
+               'label' => __( '','the-educator'),
                'settings'   => 'te_column_bottom_padding', 
-               'description' => __( '% bottom padding for Columns.','te'),
+               'description' => __( '% bottom padding for Columns.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -217,9 +217,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_image_patterns',
-               'label' => __( 'Images','te'),
+               'label' => __( 'Images','the-educator'),
                'settings'   => 'te_image_x_padding', 
-               'description' => __( '% horizontal padding for Images.','te'),
+               'description' => __( '% horizontal padding for Images.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -234,9 +234,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_image_patterns',
-               'label' => __( '','te'),
+               'label' => __( '','the-educator'),
                'settings'   => 'te_image_y_margins', 
-               'description' => __( '% vertical spacing for Images.','te'),
+               'description' => __( '% vertical spacing for Images.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -257,9 +257,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_image_patterns',
-               'label' => __( 'Galleries','te'),
+               'label' => __( 'Galleries','the-educator'),
                'settings'   => 'te_gallery_x_padding', 
-               'description' => __( '% horizontal padding for Galleries.','te'),
+               'description' => __( '% horizontal padding for Galleries.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -274,9 +274,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_image_patterns',
-               'label' => __( '','te'),
+               'label' => __( '','the-educator'),
                'settings'   => 'te_gallery_y_margins', 
-               'description' => __( '% vertical spacing for Galleries.','te'),
+               'description' => __( '% vertical spacing for Galleries.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -296,9 +296,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_title_lead_patterns',
-               'label' => __( 'Padding','te'),
+               'label' => __( 'Padding','the-educator'),
                'settings'   => 'te_title_lead_btwn_padding', 
-               'description' => __( '% padding between Title & Lead.','te'),
+               'description' => __( '% padding between Title & Lead.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 5, 'style' => 'width: 80px;', 'step'	=> 1 ))
       );
 
@@ -318,9 +318,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_title_lead_patterns',
-               'label' => __( '','te'),
+               'label' => __( '','the-educator'),
                'settings'   => 'te_title_lead_x_padding', 
-               'description' => __( '% horizontal padding for Title & Lead.','te'),
+               'description' => __( '% horizontal padding for Title & Lead.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -335,9 +335,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_title_lead_patterns',
-               'label' => __( '','te'),
+               'label' => __( '','the-educator'),
                'settings'   => 'te_title_lead_top_padding', 
-               'description' => __( '% padding above Title & Lead.','te'),
+               'description' => __( '% padding above Title & Lead.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -352,9 +352,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_title_lead_patterns',
-               'label' => __( '','te'),
+               'label' => __( '','the-educator'),
                'settings'   => 'te_title_lead_bottom_padding', 
-               'description' => __( '% padding below for Title & Lead.','te'),
+               'description' => __( '% padding below for Title & Lead.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -374,9 +374,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_title_lead_patterns',
-               'label' => __( 'Margins','te'),
+               'label' => __( 'Margins','the-educator'),
                'settings'   => 'te_title_lead_top_margin', 
-               'description' => __( '% margin above Title & Lead.','te'),
+               'description' => __( '% margin above Title & Lead.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -391,9 +391,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_title_lead_patterns',
-               'label' => __( '','te'),
+               'label' => __( '','the-educator'),
                'settings'   => 'te_title_lead_bottom_margin', 
-               'description' => __( '% margin below for Title & Lead.','te'),
+               'description' => __( '% margin below for Title & Lead.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -413,9 +413,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 10,
                'section' => 'te_text_patterns',
-               'label' => __( 'Simple Text','te'),
+               'label' => __( 'Simple Text','the-educator'),
                'settings'   => 'te_text_x_padding', 
-               'description' => __( '% horizontal padding for Texts.','te'),
+               'description' => __( '% horizontal padding for Texts.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
       );
 
@@ -430,9 +430,9 @@ class WebDevAgentPatternsCustomizer {
          array('type' => 'number',
                'priority' => 11,
                'section' => 'te_text_patterns',
-               'label' => __( '','te'),
+               'label' => __( '','the-educator'),
                'settings'   => 'te_text_y_margins', 
-               'description' => __( '% vertical spacing for Texts.','te'),
+               'description' => __( '% vertical spacing for Texts.','the-educator'),
                'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
       );
 
@@ -449,9 +449,9 @@ class WebDevAgentPatternsCustomizer {
                'priority' => 12,
                'type' => 'radio',
                'section' => 'te_text_patterns',
-               'label' => __( '','te'),
+               'label' => __( '','the-educator'),
                'settings'   => 'te_text_text_align', 
-               'description' => __( 'Set text alignment for Texts.','te'),
+               'description' => __( 'Set text alignment for Texts.','the-educator'),
                'choices' => array(
                  'left' => __( 'Left' ),
                  'center' => __( 'Center' ),

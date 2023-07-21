@@ -26,11 +26,11 @@
 // Register Block Pattern Categories
 //
 function te_register_block_pattern_categories() { 
-	register_block_pattern_category('te-cover-blocks', ['label' => __('The Educator Covers', 'te')]);
-	register_block_pattern_category('te-column-blocks', ['label' => __('The Educator Columns', 'te')]);  
-	register_block_pattern_category('te-texts', ['label' => __('The Educator Texts', 'te')]); 
-	register_block_pattern_category('te-images', ['label' => __('The Educator Images', 'te')]); 
-	register_block_pattern_category('te-buttons', ['label' => __('The Educator Buttons', 'te')]);   
+	register_block_pattern_category('te-cover-blocks', ['label' => __('The Educator Covers', 'the-educator')]);
+	register_block_pattern_category('te-column-blocks', ['label' => __('The Educator Columns', 'the-educator')]);  
+	register_block_pattern_category('te-texts', ['label' => __('The Educator Texts', 'the-educator')]); 
+	register_block_pattern_category('te-images', ['label' => __('The Educator Images', 'the-educator')]); 
+	register_block_pattern_category('te-buttons', ['label' => __('The Educator Buttons', 'the-educator')]);   
 }
 add_action( 'init', 'te_register_block_pattern_categories' );
 
@@ -44,8 +44,8 @@ function te_register_block_patterns() {
    // single feature cover block
    //
 	register_block_pattern('te-single-feature-cover', [
-		'title' => __('Single Feature Cover', 'te'),
-      'description' => _x( 'Single Feature Cover.', 'A Cover block with a single feature.', 'te' ),            
+		'title' => __('Single Feature Cover', 'the-educator'),
+      'description' => _x( 'Single Feature Cover.', 'A Cover block with a single feature.', 'the-educator' ),            
 		'keywords' => ['single,cover'],
 		'categories' => ['te-cover-blocks'],
 		'viewportWidth' => 1000,
@@ -84,8 +84,8 @@ function te_register_block_patterns() {
    // two feature cover block
    //
    // register_block_pattern('te-two-feature-cover', [
-	// 	'title' => __('Two Feature Cover', 'te'),
-   //    'description' => _x( 'Two Feature Cover.', 'A Cover block with two features columns.', 'te' ),            
+	// 	'title' => __('Two Feature Cover', 'the-educator'),
+   //    'description' => _x( 'Two Feature Cover.', 'A Cover block with two features columns.', 'the-educator' ),            
 	// 	'keywords' => ['two,cover'],
 	// 	'categories' => ['te-cover-blocks'],
 	// 	'viewportWidth' => 1000,
@@ -130,8 +130,8 @@ function te_register_block_patterns() {
    // three feature cover block  
    // 
 	// register_block_pattern('te-three-feature-cover', [
-	// 	'title' => __('Three Feature Cover', 'te'),
-   //    'description' => _x( 'Three Feature Cover.', 'A Cover block with three features columns.', 'te' ),            
+	// 	'title' => __('Three Feature Cover', 'the-educator'),
+   //    'description' => _x( 'Three Feature Cover.', 'A Cover block with three features columns.', 'the-educator' ),            
 	// 	'keywords' => ['three,cover'],
 	// 	'categories' => ['te-cover-blocks'],
 	// 	'viewportWidth' => 1000,
@@ -200,8 +200,8 @@ function te_register_block_patterns() {
    // we use wp-block-media-text instead of wp-columms since it already has desired styling in two column pattern w/out additionals
    //
    register_block_pattern('te-single-feature-column', [
-   'title' => __('Single Feature Column', 'te'),
-   'description' => _x( 'Single Feature Column.', 'A Column block with a single feature.', 'te' ),            
+   'title' => __('Single Feature Column', 'the-educator'),
+   'description' => _x( 'Single Feature Column.', 'A Column block with a single feature.', 'the-educator' ),            
    'keywords' => ['single,column'],
    'categories' => ['te-column-blocks'],
    'viewportWidth' => 1000,
@@ -239,8 +239,8 @@ function te_register_block_patterns() {
    // two feature columns block
    //
 	register_block_pattern('te-two-feature-columns', [
-		'title' => __('Two Feature Columns', 'te'),
-      'description' => _x( 'Two Feature Clolumns.', 'A Columns block with two features.', 'te' ),            
+		'title' => __('Two Feature Columns', 'the-educator'),
+      'description' => _x( 'Two Feature Clolumns.', 'A Columns block with two features.', 'the-educator' ),            
 		'keywords' => ['two,columns'],
 		'categories' => ['te-column-blocks'],
 		'viewportWidth' => 1000,
@@ -299,8 +299,8 @@ function te_register_block_patterns() {
    // three feature columns block   
    //
 	register_block_pattern('te-three-feature-columns', [
-		'title' => __('Three Feature Columns', 'te'),
-      'description' => _x( 'Three Feature Columns.', 'A Columns block with three features.', 'te' ),            
+		'title' => __('Three Feature Columns', 'the-educator'),
+      'description' => _x( 'Three Feature Columns.', 'A Columns block with three features.', 'the-educator' ),            
 		'keywords' => ['three,keywords'],
 		'categories' => ['te-column-blocks'],
 		'viewportWidth' => 1000,
@@ -379,8 +379,8 @@ function te_register_block_patterns() {
    // six feature columns block
    //
    register_block_pattern('te-six-feature-column', [
-      'title' => __('Six Feature Columns', 'te'),
-      'description' => _x( 'Six Feature Columns.', 'A Columns block with six features.', 'te' ),            
+      'title' => __('Six Feature Columns', 'the-educator'),
+      'description' => _x( 'Six Feature Columns.', 'A Columns block with six features.', 'the-educator' ),            
       'keywords' => ['six,columns'],
       'categories' => ['te-column-blocks'],
       'viewportWidth' => 1000,
@@ -437,8 +437,8 @@ function te_register_block_patterns() {
    // three feature cover-columns block
    //
    //  register_block_pattern('te-three-feature-cover-columns', [
-	// 	'title' => __('Three Feature Cover-Columns', 'te'),
-   //    'description' => _x( 'Three Feature Cover Columns.', 'Combining three feature columns over a cover block.', 'te' ),            
+	// 	'title' => __('Three Feature Cover-Columns', 'the-educator'),
+   //    'description' => _x( 'Three Feature Cover Columns.', 'Combining three feature columns over a cover block.', 'the-educator' ),            
 	// 	'keywords' => ['three,cover-column'],
 	// 	'categories' => ['te-cover-column-blocks'],
 	// 	'viewportWidth' => 1000,
@@ -515,8 +515,8 @@ function te_register_block_patterns() {
    // title & lead text
    //
 	register_block_pattern('te-title-lead', [
-		'title' => __('Title And Lead Text', 'te'),
-      'description' => _x( 'You can style all block patterns of this type in the customizer.', 'A title and lead text block.', 'te' ),            
+		'title' => __('Title And Lead Text', 'the-educator'),
+      'description' => _x( 'You can style all block patterns of this type in the customizer.', 'A title and lead text block.', 'the-educator' ),            
 		'keywords' => ['title,lead,text'],
 		'categories' => ['te-texts'],
 		'viewportWidth' => 1000,
@@ -540,8 +540,8 @@ function te_register_block_patterns() {
    // simple text
    //
 	register_block_pattern('te-simple-text', [
-		'title' => __('Simple Text', 'te'),
-      'description' => _x( 'Simple Text.', 'A simple text block.', 'te' ),            
+		'title' => __('Simple Text', 'the-educator'),
+      'description' => _x( 'Simple Text.', 'A simple text block.', 'the-educator' ),            
 		'keywords' => ['text'],
 		'categories' => ['te-texts'],
 		'viewportWidth' => 1000,
@@ -563,8 +563,8 @@ function te_register_block_patterns() {
    // te-columns-text : future release
    //
 	// register_block_pattern('te-columns-text', [
-	// 	'title' => __('Columns Text', 'te'),
-   //    'description' => _x( 'Columns Text.', 'A title and text block supporting columns on wider screens.', 'te' ),            
+	// 	'title' => __('Columns Text', 'the-educator'),
+   //    'description' => _x( 'Columns Text.', 'A title and text block supporting columns on wider screens.', 'the-educator' ),            
 	// 	'keywords' => ['text,columns'],
 	// 	'categories' => ['te-texts'],
 	// 	'viewportWidth' => 1000,
@@ -588,8 +588,8 @@ function te_register_block_patterns() {
    // te-image
    //
     register_block_pattern('te-image', [
-		'title' => __('The Educator Image', 'te'),
-      'description' => _x( 'The Educator Image.', 'An image block with The Educator customization.', 'te' ),            
+		'title' => __('The Educator Image', 'the-educator'),
+      'description' => _x( 'The Educator Image.', 'An image block with The Educator customization.', 'the-educator' ),            
 		'keywords' => ['image'],
 		'categories' => ['te-images'],
 		'viewportWidth' => 1000,
@@ -607,8 +607,8 @@ function te_register_block_patterns() {
    // te-gallery
    //
     register_block_pattern('te-gallery', [
-		'title' => __('The Educator Gallery', 'te'),
-      'description' => _x( 'The Educator Gallery.', 'An image gallery block with The Educator customization.', 'te' ),            
+		'title' => __('The Educator Gallery', 'the-educator'),
+      'description' => _x( 'The Educator Gallery.', 'An image gallery block with The Educator customization.', 'the-educator' ),            
 		'keywords' => ['gallery'],
 		'categories' => ['te-images'],
 		'viewportWidth' => 1000,
@@ -639,8 +639,8 @@ function te_register_block_patterns() {
    // te-buttons
    //
    register_block_pattern('te-buttons', [
-		'title' => __('The Educator Buttons', 'te'),
-      'description' => _x( 'The Educator Buttons.', 'A The Educator button block.', 'te' ),            
+		'title' => __('The Educator Buttons', 'the-educator'),
+      'description' => _x( 'The Educator Buttons.', 'A The Educator button block.', 'the-educator' ),            
 		'keywords' => ['button'],
 		'categories' => ['te-buttons'],
 		'viewportWidth' => 1000,

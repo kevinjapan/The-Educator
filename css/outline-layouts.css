@@ -1231,7 +1231,7 @@ section.cover_block {
    position:relative;
    width:100%;
    height:var(--cover_block_height);
-   padding-top:5rem;
+   padding-top:10rem;
    padding-bottom:5rem;
    overflow:hidden;
    background-color:transparent;
@@ -1251,7 +1251,8 @@ section.cover_block .bg_img {
 }
 section.cover_block .overlay {
    height:fit-content;
-   padding:0 1rem 1rem 1rem;
+   margin:0 auto 0 auto;
+   padding:1rem 1rem 1rem 1rem;
 }
 section.cover_block .overlay p {
    line-height:2rem;
@@ -1271,13 +1272,14 @@ section.cover_block .overlay::before {
    background:black;
    padding-left:1rem;
    padding-right:1rem;
-   opacity:0.3;
+   opacity:0.15;
 }
 section.cover_block h1 {
-   /* font-size:5rem; */
-   font-weight:900;
+   font-size:5rem;
+   font-weight:400;
    margin:0;
    padding:0;
+   text-align:center;
 }
 section.cover_block p {
    font-size:2rem;
@@ -1571,4 +1573,23 @@ p {
 /* we have to cater for all WP modifying classes.. */
 p.has-large-font-size {
    line-height:2.5rem;
+}
+
+
+
+
+/* 
+   Title & Lead text
+*/
+/* 
+future : move te-title-lead to a <section> for consistency.. 
+*/
+div.te-title-lead h2 {
+   font-size:3.25rem;
+}
+div.te-title-lead p {
+   font-size:2rem;
+   line-height:3rem;
+   font-weight:300;
+
 }

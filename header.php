@@ -20,7 +20,7 @@
             the_custom_logo();
          } 
          ?>
-         <?php echo get_bloginfo('name');?>
+         <!-- <?php echo get_bloginfo('name');?> -->
       </a>
    </div>
 

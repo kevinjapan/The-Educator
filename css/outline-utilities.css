@@ -189,3 +189,19 @@ section.feed_list > ul > li.te_job_teaser {
    border-radius:.25rem;
    padding:.5rem 2rem .5rem 2rem;
 }
+
+
+
+/* future : enable this - requires ensuring all possible sibling sections have backgrounds.
+   fixed Cover Block 
+   - requires immediate adjacent sibling is a section
+   - provides spacing to display fixed Cover Block
+*/
+/* 
+section.cover_block.fixed {
+   position:fixed;
+}
+section.cover_block.fixed + section {
+   margin-top:calc(var(--cover_block_height) - var(--nav_bar_height)); 
+}
+*/

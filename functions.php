@@ -2,12 +2,6 @@
 
 // to do : replace screenshot.png
 
-// to do : nav - multiple level menus w/ md/lg dropdown.
-
-// to do : build plugin as a single plugin loading all custom post types etc.
-//         research - complex plugin build.
-//         create a single one first to get started..
-
 
 if ( ! function_exists('te_theme_setup') ) {
 	// theme defaults and support for WordPress features.
@@ -89,9 +83,6 @@ function te_load_scripts() {
 }
 add_action('wp_enqueue_scripts','te_load_scripts');
 
-
-// to do : use/verify footer menu on UI
-
 // menu location
 register_nav_menus(
    array(
@@ -107,14 +98,15 @@ add_image_size('medium',600,305,true);
 add_image_size('small',200,200,true);
 
 
+
 /* 
- * widget sidebars         to do : tidy/rename/enable this on some templates..
+ * widget sidebars
  */
-function evolutiondesuka_sidebars_init() {
+function te_sidebars_init() {
    register_sidebar(
       array(
-         'name' => esc_html__('Page Sidebar','evolutiondesuka'),
-			'description' => esc_html__( 'Add widgets here to appear alongside your pages.', 'evolutiondesuka' ),
+         'name' => esc_html__('Page Sidebar','the-educator'),
+			'description' => esc_html__( 'Add widgets here to appear alongside your pages.', 'the-educator' ),
          'id' => 'page-sidebar',
          'before_widget' => '<div class="site_sidebar">',
          'after_widget' => '</div>',
@@ -124,8 +116,8 @@ function evolutiondesuka_sidebars_init() {
    );
    register_sidebar(
       array(
-         'name' => esc_html__('Post Sidebar','evolutiondesuka'),
-			'description' => esc_html__( 'Add widgets here to appear alongside your posts.', 'evolutiondesuka' ),
+         'name' => esc_html__('Post Sidebar','the-educator'),
+			'description' => esc_html__( 'Add widgets here to appear alongside your posts.', 'the-educator' ),
          'id' => 'post-sidebar',
          'before_widget' => '<div class="site_sidebar">',
          'after_widget' => '</div>',
@@ -135,15 +127,15 @@ function evolutiondesuka_sidebars_init() {
    );
    register_sidebar(
       array(
-         'name' => esc_html__('Footer Sidebar','evolutiondesuka'),
-			'description' => esc_html__( 'Add widgets here to appear in your footer.', 'evolutiondesuka' ),
+         'name' => esc_html__('Footer Sidebar','the-educator'),
+			'description' => esc_html__( 'Add widgets here to appear in your footer.', 'the-educator' ),
          'id' => 'footer-sidebar',
          'before_title' => '<h4 class="footer_widget_title">',
          'after_title' => '</h4>'
       )
    );
 }
-add_action( 'widgets_init', 'evolutiondesuka_sidebars_init' );
+add_action( 'widgets_init', 'te_sidebars_init' );
 
 
 

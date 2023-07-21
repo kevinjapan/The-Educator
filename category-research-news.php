@@ -5,22 +5,12 @@
 
 <h1 class="fade_in"><?php single_cat_title();?></h1>
 
-<!-- 
-
-to do : currently, half-width has too much white space 0
-- simple solution - make larger width have larger font-size..
-- or change img sizes.. ?
-
-- common solution is to have larger feature as a small cover block itself (image is 100% cover)
-
--->
-
 <?php 
 // future : improve layout of 'stagger_tiles'
 // but ensure we retain underlying functionality - this remains a modification of 'feature_tiles'
 ?>
 
-<section class="feature_tiles stagger_tiles fade_in">
+<section class="feature_tiles stagger fade_in">
    <ul>
    <?php 
       if(have_posts()) {

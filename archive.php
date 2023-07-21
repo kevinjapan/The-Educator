@@ -1,16 +1,4 @@
 <?php get_header(); ?>
-<!-- archive template 2 -->
-
-<!-- 
-
-
-to do : currently, we can't access archive for courses...  'courses' link on menu
-
-so will style here for now and work on that - then transfer when resolved to appropriate archive page.
-
-to do : this picks up all posts.. so we can't use it even temporarily for 'courses' -
-        need to get archive template for 'courses' working.
--->
 
 <div style="border:solid 1px lightgrey;color:lightgrey;">archive.php 222</div>
 

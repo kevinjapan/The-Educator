@@ -12,7 +12,10 @@ const init_fade_ins = () => {
       history.navigationMode = 'compatible';
       $(document).ready( function(){
          faders.forEach((fader) => {
-            fader.style.opacity = 1;
+
+            // to do : we want this to solve issue above, but this disables 'fade_in' for everything 
+            // below first element on all page loads. (likely a timing - we just get lucky w/ the first one..)
+            //fader.style.opacity = 1;   
          });
       });
    });

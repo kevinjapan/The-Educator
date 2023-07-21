@@ -39,8 +39,8 @@ $image = get_term_meta($term_id, 'category_image', true);
       <?php endif;?>
 
       <div class="overlay">
-         <h1><?php __( single_cat_title(),'te'); ?></h1>
-         <p><?php __( single_cat_title(),'te'); ?></p> <!-- to do : get description here -->
+         <h1><?php __( single_cat_title(),'the-educator'); ?></h1>
+         <p><?php __( single_cat_title(),'the-educator'); ?></p> <!-- to do : get description here -->
       </div>
 
 </section>

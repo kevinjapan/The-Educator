@@ -17,10 +17,6 @@
       if(have_posts()) {
          while(have_posts()) {
             the_post();?>
-            
-            <?php 
-               // to do : news should have more text than cf course
-            ?>
             <li class="news_tile" style="border:none;">
                <?php if(has_post_thumbnail()):?>
                   <img src="<?php the_post_thumbnail_url('large'); ?>"/>
