@@ -39,6 +39,8 @@ function te_register_block_patterns() {
 
    $site_uri = get_template_directory_uri();
    
+   
+   // to do : need 'fade_in' on these blocks?
 
    // 
    // single feature cover block
@@ -51,7 +53,7 @@ function te_register_block_patterns() {
 		'viewportWidth' => 1000,
 		'content' =>  
          '<!-- wp:cover {"url":"' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg","id":248,"dimRatio":50,"isDark":false,"className":"te-cover"} -->
-         <div class="wp-block-cover has-background-dim te-cover">
+         <div class="wp-block-cover has-text-color has-background-dim te-cover">
          <img class="wp-block-cover__image-background wp-image-248" alt="image of columns" 
          src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" data-object-fit="cover"/>
          <div class="wp-block-cover__inner-container">
@@ -212,9 +214,9 @@ function te_register_block_patterns() {
          <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns" />
          </figure>
          <div class="wp-block-media-text__content">
-         <!-- wp:paragraph {"placeholder":"Content…","fontSize":"large"} -->
-         <p class="has-large-font-size">Introducing the single feature column.</p>
-         <!-- /wp:paragraph -->
+         <!-- wp:heading  {"level":2} -->
+         <h2>Introducing the single feature column.</h2>
+         <!-- /wp:heading -->
          <!-- wp:paragraph -->
          <p>You can customize the layout of this block pattern in the Dashboard menu:
          <br>- Appearance 
@@ -512,6 +514,30 @@ function te_register_block_patterns() {
    // to insert 'fade_in' in 'div.te-title-lead' below
 
    //
+   // the big title & lead text
+   //
+	register_block_pattern('te-big-title-lead', [
+		'title' => __('Big Title And Lead Text', 'the-educator'),
+      'description' => _x( 'You can style all block patterns of this type in the customizer.', 'The big title and lead text block.', 'the-educator' ),            
+		'keywords' => ['big,title,lead,text'],
+		'categories' => ['te-texts'],
+		'viewportWidth' => 1000,
+		'content' =>  
+         '<!-- wp:group {"className":"te-big-title-lead"} -->
+         <div class="wp-block-group te-big-title-lead">
+         <!-- wp:heading {"textAlign":"center","level":2} -->
+         <h2 class="te-big-title-lead__title has-text-align-center">Big Title & Lead Text</h2>
+         <!-- /wp:heading -->
+         <!-- wp:paragraph {"align":"center"} -->
+         <p class="has-text-align-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.         
+         <br>You can customize the layout of this block pattern in the Dashboard menu:
+         <br> Appearance \ Customize \ The Educator Block Patterns \ The Educator Texts </p>
+         <!-- /wp:paragraph -->
+         </div>
+         <!-- /wp:group -->'
+   ]);
+ 
+   //
    // title & lead text
    //
 	register_block_pattern('te-title-lead', [
@@ -534,8 +560,7 @@ function te_register_block_patterns() {
          </div>
          <!-- /wp:group -->'
    ]);
- 
-   
+
    //
    // simple text
    //

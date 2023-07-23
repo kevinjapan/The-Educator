@@ -31,15 +31,157 @@ Access classes - use these to access the custom props
 .bg_navy button:hover   {color:white;border:solid 1px white;}
 
 
-.primary_bg,.primary_1_bg {
-   background-color:var(--primary_1_bg);
-   color:white;
+
+
+/* 
+      bg_primary
+*/
+section.bg_primary {
+   color:var(--bg_primary_text);
+   background-color:var(--bg_primary);
+}
+section.bg_primary h1,section.bg_primary h2,section.bg_primary h3,
+section.bg_primary h4,section.bg_primarbg_secondary_lightery h5,section.bg_primary h6,
+section.bg_primary p {
+   color:var(--bg_primary_text);
+}
+
+/* 
+      bg_primary_lighter
+*/
+section.bg_primary_lighter {
+   color:var(--bg_primary_lighter_text);
+   background-color:var(--bg_primary_lighter);
+}
+section.bg_primary_lighter h1,section.bg_primary_lighter h2,section.bg_primary_lighter h3,
+section.bg_primary_lighter h4,section.bg_primary_lighter h5,section.bg_primary_lighter h6,
+section.bg_primary_lighter p {
+   color:var(--bg_primary_lighter_text);
 }
 
 
+/* 
+      bg_secondary
+*/
+section.bg_secondary {
+   color:var(--bg_secondary_text);
+   background-color:var(--bg_secondary);
+}
+section.bg_secondary h1,section.bg_secondary h2,section.bg_secondary h3,
+section.bg_secondary h4,section.bg_secondary h5,section.bg_secondary h6,
+section.bg_secondary p {
+   color:var(--bg_secondary_text);
+}
+/* 
+section.bg_secondary button         {color:hsl(0, 0%, 90%);border:solid 1px hsl(0, 0%, 90%);}
+section.bg_secondary button a       {color:hsl(0, 0%, 90%);}
+section.bg_secondary button:hover   {color:white;border:solid 1px white;}
+section.bg_secondary button:hover a {color:white;}
+*/
 
 
-/* to do : review below.. */
+/* 
+      bg_secondary_lighter
+*/
+section.bg_secondary_lighter {
+   color:var(--bg_secondary_lighter_text);
+   background-color:var(--bg_secondary_lighter);
+}
+section.bg_secondary_lighter h1,section.bg_secondary_lighter h2,section.bg_secondary_lighter h3,
+section.bg_secondary_lighter h4,section.bg_secondary_lighter h5,section.bg_secondary_lighter h6,
+section.bg_secondary_lighter p  */
+section.bg_secondary_lighter * {
+   color:var(--bg_secondary_lighter_text);
+}
+section.bg_secondary_lighter button         {color:hsl(0, 0%, 90%);border:solid 1px hsl(0, 0%, 90%);}
+section.bg_secondary_lighter button a       {color:hsl(0, 0%, 90%);}
+section.bg_secondary_lighter button:hover   {color:white;border:solid 1px white;}
+section.bg_secondary_lighter button:hover a {color:white;}
+
+
+/* 
+      bg_light
+*/
+section.bg_light {
+   color:var(--bg_light_text);
+   background-color:var(--bg_light);
+}
+section.bg_light h1,section.bg_light h2,section.bg_light h3,
+section.bg_light h4,section.bg_light h5,section.bg_light h6,
+section.bg_light p {
+   color:var(--bg_light_text);
+}
+/*
+section.bg_light button         {color:hsl(0, 0%, 90%);border:solid 1px hsl(0, 0%, 90%);}
+section.bg_light button a       {color:hsl(0, 0%, 90%);}
+section.bg_light button:hover   {color:white;border:solid 1px white;}
+section.bg_light button:hover a {color:white;}
+*/
+
+
+/* 
+      bg_light_darker
+*/
+section.bg_light_darker {
+   color:var(--bg_light_darker_text);
+   background-color:var(--bg_light_darker);
+}
+section.bg_light_darker h1,section.bg_light_darker h2,section.bg_light_darker h3,
+section.bg_light_darker h4,section.bg_light_darker h5,section.bg_light_darker h6,
+section.bg_light_darker p {
+   color:var(--bg_light_darker_text);
+}
+/*
+section.bg_light_darker button         {color:hsl(0, 0%, 90%);border:solid 1px hsl(0, 0%, 90%);}
+section.bg_light_darker button a       {color:hsl(0, 0%, 90%);}
+section.bg_light_darker button:hover   {color:white;border:solid 1px white;}
+section.bg_light_darker button:hover a {color:white;}
+*/
+
+
+/* 
+      bg_dark
+*/
+section.bg_dark {
+   color:var(--bg_dark_text);
+   background-color:var(--bg_dark);
+}
+section.bg_dark h1,section.bg_dark h2,section.bg_dark h3,
+section.bg_dark h4,section.bg_dark h5,section.bg_dark h6,
+section.bg_dark p {
+   color:var(--bg_dark_text);
+}
+/*
+section.bg_dark button         {color:hsl(0, 0%, 90%);border:solid 1px hsl(0, 0%, 90%);}
+section.bg_dark button a       {color:hsl(0, 0%, 90%);}
+section.bg_dark button:hover   {color:white;border:solid 1px white;}
+section.bg_dark button:hover a {color:white;}
+*/
+
+
+/* 
+      bg_dark_lighter
+*/
+section.bg_dark_lighter {
+   color:var(--bg_dark_lighter_text);
+   background-color:var(--bg_dark_lighter);
+}
+section.bg_dark_lighter h1,section.bg_dark_lighter h2,section.bg_dark_lighter h3,
+section.bg_dark_lighter h4,section.bg_dark_lighter h5,section.bg_dark_lighter h6,
+section.bg_dark_lighter p {
+   color:var(--bg_dark_lighter_text);
+}
+section.bg_dark_lighter button         {color:hsl(0, 0%, 90%);border:solid 1px hsl(0, 0%, 90%);}
+section.bg_dark_lighter button a       {color:hsl(0, 0%, 90%);}
+section.bg_dark_lighter button:hover   {color:white;border:solid 1px white;}
+section.bg_dark_lighter button:hover a {color:white;}
+
+
+
+
+
+
+/* to do : review/remove below.. */
 
 /* bgs for blocks - so we can set other colors to complement - so these are not just single bg-color settings..*/
 .bg_primary {

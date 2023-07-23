@@ -62,6 +62,54 @@
    // 
    // text blocks
    //
+   wp.customize('te_big_title_lead_x_padding', function(setting) {
+      setting.bind( function(value) {
+         if(value < 0) value = 0;
+         if(value > 25) value = 25;
+         $('.te-big-title-lead').css({"padding-left":value + '%',"padding-right":value + '%'}); 
+      });
+   });
+   wp.customize('te_big_title_lead_btwn_padding', function(setting) {
+      setting.bind( function(value) {
+         if(value < 0) value = 0;
+         if(value > 25) value = 25;
+         $('.te-big-title-lead__title').css('padding-bottom', value + 'vh');
+      });
+   });
+   wp.customize('te_big_title_lead_top_padding', function(setting) {
+      setting.bind( function(value) {
+         if(value < 0) value = 0;
+         if(value > 25) value = 25;
+         $('.te-big-title-lead').css('padding-top', value + 'vh');
+      });
+   });
+   wp.customize('te_big_title_lead_bottom_padding', function(setting) {
+      setting.bind( function(value) {
+         if(value < 0) value = 0;
+         if(value > 25) value = 25;
+         $('.te-big-title-lead').css('padding-bottom', value + 'vh');
+      });
+   });
+   
+   wp.customize('te_big_title_lead_top_margin', function(setting) {
+      setting.bind( function(value) {
+         if(value < 0) value = 0;
+         if(value > 25) value = 25;
+         $('.te-big-title-lead').css('margin-top', value + 'vh');
+      });
+   });
+   wp.customize('te_big_title_lead_bottom_margin', function(setting) {
+      setting.bind( function(value) {
+         if(value < 0) value = 0;
+         if(value > 25) value = 25;
+         $('.te-big-title-lead').css('margin-bottom', value + 'vh');
+      });
+   });
+
+
+
+
+   // ----------------------------------------------------------------------------------------
    wp.customize('te_title_lead_x_padding', function(setting) {
       setting.bind( function(value) {
          if(value < 0) value = 0;

@@ -162,6 +162,7 @@ nav {
    width:100%;
    margin:0;
    height:var(--nav_bar_height);
+   background-color:var(--bg_primary);
    transition:transform .6s ease-in;         
 
 }
@@ -185,7 +186,7 @@ nav div.logo_block    {
    height:var(--nav_bar_height);
 
    color:white;
-   background-color:var(--primary_1_bg);
+   background-color:var(--bg_primary);
    font-size:1.2rem;
 }
 
@@ -218,7 +219,7 @@ nav ul.menu {
    gap:0;
    
    padding:0 0 1rem 0;
-   background-color:var(--primary_1_bg);
+   background-color:var(--bg_primary);
 
    border-bottom:none;
    
@@ -254,7 +255,7 @@ nav > div.nav_toggle_wrap {
    padding-right:1rem;
    padding-left:0;
    border:none;
-   background-color:var(--primary_1_bg); 
+   background-color:var(--bg_primary); 
 }
 nav div.nav_toggle {
    position:relative;
@@ -281,7 +282,7 @@ nav div.nav_toggle {
    width:100%;
    height:20px;
    background-color:white;
-   background-color:var(--primary_1_bg);
+   background-color:var(--bg_primary);
    cursor:pointer;
 }
 /* nav div.nav_toggle.selected_toggle {
@@ -355,7 +356,7 @@ nav ul.menu > li > a  {
    padding-top:.5rem;
    padding-bottom:.5rem;
    background-color:white;
-   background-color:var(--primary_1_bg);
+   background-color:var(--bg_primary);
 
 }
 
@@ -393,7 +394,7 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       -ms-flex-align:center;
       align-items:center;
 
-      background-color:var(--primary_1_bg);
+      background-color:var(--bg_primary);
 
       /* wordpress - we can't place height on non-existing menu_label */
       min-height:var(--nav_bar_height);
@@ -432,7 +433,7 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       padding:0;
       padding-right:1rem;
       background-color:white;
-      background-color:var(--primary_1_bg);
+      background-color:var(--bg_primary);
       border-bottom:none;
 
       transform:unset;
@@ -526,7 +527,7 @@ we support from 1045px determined by four cols of reasonable text in dropdown
 
       max-width:100%;
       padding:1rem;
-      background-color:var(--primary_1_bg);
+      background-color:var(--bg_primary);
 
       -webkit-transform:translateY(-100%);
       -ms-transform:translateY(-100%);
@@ -1193,6 +1194,19 @@ section.feature_tiles > ul > li > button {
    section.feature_tiles > ul > li > h4 {
       font-size:1.4rem;
    }
+
+   /* 
+   shortcode teasers 
+   */
+   section.feature_tiles.teasers > ul {
+      justify-content:space-around;
+   }
+   section.feature_tiles.teasers > ul > li {
+      width:200px;
+   }
+   section.feature_tiles.teasers > ul > li > img {
+      height:40px;
+   }
 }
 @media screen and (min-width: 982px) {
    section.feature_tiles > ul {
@@ -1213,6 +1227,18 @@ section.feature_tiles > ul > li > button {
    }
    section.feature_tiles > ul > li > h4 {
       font-size:2rem;
+   }
+   section.feature_tiles.teasers > ul > li > img {
+      min-height:160px;
+      max-height:160px;
+   }
+
+   /* 
+   shortcode teasers 
+   */
+   section.feature_tiles.teasers > ul > li {
+      min-width:250px;
+      max-width:250px;
    }
 }
 
@@ -1373,7 +1399,7 @@ footer {
    margin:0;
    margin-top:var(--footer_top_margin);
    color:white;
-   background-color:var(--primary_1_dark_bg);
+   background-color:var(--bg_dark_darker);
 }
 footer > ul {
    display:-webkit-box;
@@ -1579,17 +1605,53 @@ p.has-large-font-size {
 
 
 /* 
-   Title & Lead text
+   The Educator theme adaptations of wp styling for our own block patterns.
+   styling for the-educator.. to do : review & tidy locations.
 */
-/* 
-future : move te-title-lead to a <section> for consistency.. 
-*/
-div.te-title-lead h2 {
+
+div.te-big-title-lead h2{
    font-size:3.25rem;
 }
-div.te-title-lead p {
+div.te-big-title-lead p {
    font-size:2rem;
    line-height:3rem;
    font-weight:300;
+}
+div.te-title-lead h2{
+   font-size:2.5rem;
+   font-weight:500;
+   margin-bottom:0;
+}
+div.te-title-lead p {
+   font-size:1.35rem;
+   line-height:2.3rem;
+   font-weight:400;
+   margin-top:0;
+   padding-top:1rem;
+}
+div.te-single-feature-columns h2 {
+   font-size:2.5rem;
+   font-weight:300;
+   margin:0;padding:0;
+}
+div.te-single-feature-columns p {
+   font-size:1.6rem;
+   line-height:2.5rem;
+   font-weight:300;
+   margin:0;padding:0;
+}
+div.te-single-feature-columns div.wp-block-media-text__content {
+   display:flex;
+   flex-direction:column;/* to do : webkit etc. */
+   justify-content:flex-start;
+   gap:0;
 
+}
+
+div.te-cover h2 {
+   color:white;
+   font-weight:400;
+}
+div.te-cover p  {
+   color:white;
 }
