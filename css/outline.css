@@ -280,23 +280,26 @@ button > a {
 }
 
 /* te specific adaptations to integrate w/ WordPress */
-.te_buttons {
+div.te_buttons {
    margin-top:1rem;
+   margin-left:auto;
+   margin-right:auto;
+   justify-content:center;
 }
-.te_button {
-   width:100%;
+div.te_button {
+   width:fit-content;
    margin-left:auto;
    margin-right:auto;
    text-align:center;
 }
-.te_button a.wp-block-button__link {
+div.te_button a.wp-block-button__link {
    padding:.25rem 1rem .5rem 1rem;
-   color:hsl(0, 0%, 65%);
+   color:hsl(0, 0%, 60%);
    background:transparent;
-   border:solid 1px lightgrey;
-   border-radius:.5rem;
+   border:solid 1px hsl(0, 0%, 73%);
+   border-radius:5rem;
 }
-.te_button a.wp-block-button__link:hover {
+div.te_button a.wp-block-button__link:hover {
    color:black;
    border:solid 1px grey;
 }
@@ -305,6 +308,7 @@ button > a {
 /*
  - button styling variations come largely from utility classes - see xxx-outline-utilities.css 
 */
+
 
 
 
