@@ -62,6 +62,7 @@ header {
 h1, h2, h3, h4, h5, h6 {
    margin:0;
    color:var(--heading_color);
+   font-weight:400;
 }
 
 /* section headings */
@@ -473,7 +474,7 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       justify-content:space-between;
 
       width:100%;
-      max-height:50vh;
+      max-height:var(--nav_dropdown_height); 
    }
    nav ul.menu:hover li a  {
       display:block;
