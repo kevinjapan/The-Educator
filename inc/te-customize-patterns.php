@@ -315,7 +315,7 @@ class WebDevAgentPatternsCustomizer {
 
 
       // 
-      // lead-text box padding
+      // big title & lead-text box padding
       //
       $wp_customize->add_setting( 'te_big_title_lead_x_padding',
          array('default'    => '0', 
@@ -590,6 +590,9 @@ class WebDevAgentPatternsCustomizer {
       );
    }
 
+   
+   // to do : review output css in page src - some issues..
+
 
    public static function te_customizer_patterns_styles() {
 
@@ -681,9 +684,9 @@ class WebDevAgentPatternsCustomizer {
       //
       // big te-title-lead
       //
-      te_generate_css_rule('.wp-block-group.te-title-lead',
-         ['style' => 'margin-top','setting' => 'te_title_lead_bottom_margin','prefix'  => '','postfix' => 'vh'],
-         ['style' => 'margin-bottom','setting' => 'te_title_lead_bottom_margin','prefix'  => '','postfix' => 'vh']);
+      te_generate_css_rule('.wp-block-group.te-big-title-lead',
+         ['style' => 'margin-top','setting' => 'te_big_title_lead_top_margin','prefix'  => '','postfix' => 'vh'],
+         ['style' => 'margin-bottom','setting' => 'te_big_title_lead_bottom_margin','prefix'  => '','postfix' => 'vh']);
       ?>
       @media screen and (min-width: 768px) { 
          <?php 
@@ -704,7 +707,7 @@ class WebDevAgentPatternsCustomizer {
       // te-title-lead
       //
       te_generate_css_rule('.wp-block-group.te-title-lead',
-         ['style' => 'margin-top','setting' => 'te_title_lead_bottom_margin','prefix'  => '','postfix' => 'vh'],
+         ['style' => 'margin-top','setting' => 'te_title_lead_top_margin','prefix'  => '','postfix' => 'vh'],
          ['style' => 'margin-bottom','setting' => 'te_title_lead_bottom_margin','prefix'  => '','postfix' => 'vh']);
       ?>
       @media screen and (min-width: 768px) { 
