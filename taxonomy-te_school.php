@@ -47,11 +47,7 @@ $image = get_term_meta($term_id, 'category_image', true);
 
 <?php
 
-
-// to do : hard-coded styles below - move to css classes - rollout
-
-
-// if school has departments (child schools) - display them here
+// if school has departments (child schools) - display here
 //
 if(count($children) > 0) {
    ?>
@@ -80,53 +76,7 @@ if(count($children) > 0) {
 // if school has no departments - display courses here
 //
 else {
-?>
-   <section class="feature_tiles fade_in" style="display:flex;border:solid 1px navy;">
-      <ul>
-         <?php 
-            if(have_posts()) {
-               while(have_posts()) {
-                  the_post();?>
-                  <li style="border:none;margin-bottom:3rem;">
-                     <?php 
-                     if(has_post_thumbnail()) {
-                        ?>
-                        <img src="<?php the_post_thumbnail_url('large'); ?>"/>
-                        <?php
-                     }
-                     else {
-                        ?><p style="height:20px;"></p><?php
-                     }
-                     ?><?php // to do : move styling to class rule ?>
-                     <div style="background:white;padding:0 1.5rem 1.5rem 1.5rem;border:solid 1px lightgrey;border-radius:.25rem;">
-                     
-
-                     <h3><?php echo the_title();?></h3>
-                        <!-- <ul>
-                           <?php
-                              foreach ($features as $feature) {
-                                 ?><li><?php echo $feature;?></li><?php
-                              }
-                           ?>
-                        </ul> -->
-
-                        
-                        <?php
-                        $excerpt = get_the_excerpt(); 
-                        $excerpt = substr($excerpt, 0, 240);
-                        $result = substr($excerpt, 0, strrpos($excerpt, ' '));
-                        echo $result . ' . .';
-                        ?>
-                        <a style="float:right;" href="<?php the_permalink(); ?>">read more</a>
-                     </div>
-                  </li>
-                  <?php
-               } 
-            }
-         ?>
-      </ul>
-   </section>
-<?php
+   require_once 'template-parts/course-cards/course-cards.php';
 }
 
 ?>
