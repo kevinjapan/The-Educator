@@ -23,7 +23,12 @@
                <?php endif;?>
                <h4><?php the_title();?></h4>
                <?php the_excerpt();?>
-               <a style="float:right;" href="<?php the_permalink(); ?>">read more</a>
+               
+                  <div class="wp-block-button te_button">
+                     <a class="wp-block-button__link wp-element-button" href="<?php the_permalink(); ?>">read more</a>
+                  </div>
+
+
             </li>
             <?php
          } 

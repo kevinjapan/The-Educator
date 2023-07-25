@@ -73,6 +73,8 @@ h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
 h1 {
    font-size:var(--heading_1_size);
    line-height:var(--heading_1_line_height);
+   margin-top:3rem;
+   margin-bottom:2rem;
    padding-top:1rem;
    padding-bottom:1rem;
 }
@@ -1030,7 +1032,9 @@ section.feature_tiles > ul {
    display:flex;
    -ms-flex-wrap:wrap;
    flex-wrap:wrap;
+
    gap:3rem;
+
    margin:0;
    padding:0;
 }
@@ -1070,10 +1074,10 @@ section.feature_tiles h3,
 section.feature_tiles h4,
 section.feature_tiles h5,
 section.feature_tiles h6 {
-   /* margin-left:auto;
-   margin-right:auto; */
+   width:fit-content;
+   align-self:center;
    text-align:left;
-   margin:2rem 0 0 1rem;
+   margin:2rem auto 0 auto;
 }
 
 section.feature_tiles  > ul > li > img {
@@ -1104,24 +1108,28 @@ section.feature_tiles > ul > li > h5 {
 
 section.feature_tiles > ul > li > h4 {
    font-size:1.5rem;
+   margin-bottom:0;
    padding-top:1.5rem;
-   padding-bottom:.5rem;
+   padding-bottom:0;
+   font-size:1.8rem;
 }
-
+section.feature_tiles > ul > li > p {
+   padding-top:0;
+} 
 
 
 div.feature_tile_content {    /* to do : is this used atall? should be - probably useful */
    margin-bottom:2rem;
 }
 /* workaround since we don't have feature_tile_content */
-section.feature_tiles > ul > li > div {
+section.feature_tiles > ul > li > div:not(.te_button) {
    position:relative;
    z-index:300;
    width:94%;
    margin:auto;
    margin-top:-30px;
    background:white;
-   padding:0 1.5rem 3rem 1.5rem;
+   padding:0 1.5rem 1rem 1.5rem;
    border:solid 1px lightgrey;
    border-radius:.25rem;
 }
@@ -1135,6 +1143,7 @@ section.feature_tiles p {
 section.feature_tiles a {
    margin-top:1rem;
    margin-bottom:1rem;
+   text-decoration:none;
 }
 section.feature_tiles > ul > li > button {
    align-self:center;
@@ -1162,39 +1171,16 @@ section.feature_tiles > ul > li > button {
       min-width:49%; /* tweak */
    }
 
-   /* 
-      stagger_tiles      
-      rows:   1 2 3 3 / 4 4 5 6 / ..
-      we modify every 6th <li> starting at indexes 1 and 6.
-   */
-   /* section.feature_tiles.stagger_tiles > ul > li:nth-child(3n+2) {
-      background:hsl(0, 0%, 95%);
-   } */
    section.feature_tiles.stagger_tiles > ul > li {
-      min-width:25%;
+      width:50%;
       margin-top:1rem;
    }
-   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+1) {
-      min-width:50%;padding-bottom:0;
-   }
-   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+1) h4 {
-      font-size:2.5rem;
-   }
-   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+6) {
-      min-width:50%;padding-bottom:0;
-   }
-   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+6) h4 {
-      font-size:2.5rem;
-   }
-
+    
    section.feature_tiles.stagger_tiles > ul > li > img {
       max-width:100%;
       border-radius:.25rem;
    }
-   
-   section.feature_tiles > ul > li > h4 {
-      font-size:1.4rem;
-   }
+
 
    /* 
    shortcode teasers 
@@ -1216,11 +1202,16 @@ section.feature_tiles > ul > li > button {
    section.feature_tiles > ul > li {
       min-width:33.333333%;
    }
-   /* stagger_tiles */
+   
+   /* 
+      stagger_tiles      
+      rows:   1 2 3 3 / 4 4 5 6 / ..
+      we modify every 6th <li> starting at indexes 1 and 6.
+   */
    section.feature_tiles.stagger_tiles > ul > li {
       min-width:25%;
    }
-   section.feature_tiles.stagger_tiles > ul > li > ul > li:nth-child(6n+1) {
+   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+1) {
       min-width:50%;
    }
    section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+6) {
@@ -1642,9 +1633,20 @@ div.te-single-feature-columns p {
    margin:0;padding:0;
 }
 div.te-single-feature-columns div.wp-block-media-text__content {
+   
+   display:-webkit-box;
+   display:-ms-flexbox;
    display:flex;
-   flex-direction:column;/* to do : webkit etc. */
+
+   -webkit-box-orient:vertical;
+   -webkit-box-direction:normal;
+   -ms-flex-direction:column;
+   flex-direction:column;
+
+   -webkit-box-pack:start;
+   -ms-flex-pack:start;
    justify-content:flex-start;
+
    gap:0;
 
 }
@@ -1652,7 +1654,48 @@ div.te-single-feature-columns div.wp-block-media-text__content {
 div.te-cover h2 {
    color:white;
    font-weight:400;
+   font-size:4.5rem;
+   line-height:4.5rem;
+   padding-left:4rem;
 }
 div.te-cover p  {
+   width:75%;
+   font-weight:400;
+   font-size:1.35rem;
+   line-height:2rem;
    color:white;
+}
+
+div.te_form_fields {
+   display:-webkit-box;
+   display:-ms-flexbox;
+   display:flex;
+   -webkit-box-orient:vertical;
+   -webkit-box-direction:normal;
+   -ms-flex-direction:column;
+   flex-direction:column;
+   margin-left:auto;
+   margin-right:auto;width:fit-content;
+}
+
+div.te_form_field {
+   display:-webkit-box;
+   display:-ms-flexbox;
+   display:flex;
+   
+}
+div.te_form_field div:first-child {
+   border:solid 1px lightgrey;
+   border-radius:.25rem;
+}
+div.te_form_field div {
+   
+   margin:.25rem;
+   padding:.25rem;
+}
+section.te_course_content {
+   width:80%;
+   margin-left:auto;
+   margin-right:auto;
+   text-align:center;
 }

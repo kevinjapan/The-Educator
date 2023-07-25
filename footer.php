@@ -2,9 +2,12 @@
 
    <ul>
       <li>
-         <a href="<?php echo get_site_url(); ?>">
-            <h5><?php echo get_bloginfo('name');?></h5>
-         </a>
+         <?php 
+         if ( function_exists( 'the_custom_logo' ) ) {
+            the_custom_logo();
+         } 
+         ?>
+         <!-- <?php echo get_bloginfo('name');?> -->
       </li>
       <li>
          <?php wp_nav_menu(

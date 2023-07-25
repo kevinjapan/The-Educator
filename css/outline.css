@@ -303,12 +303,14 @@ div.te_button a.wp-block-button__link:hover {
    color:black;
    border:solid 1px grey;
 }
-/* .te_button_link {} */
 
-/*
- - button styling variations come largely from utility classes - see xxx-outline-utilities.css 
+/* 
+wee 'read more' buttons on indvdl cards 
 */
-
+div.wee_te_button a.wp-element-button {
+   padding:.15rem .75rem .25rem .75rem;
+   font-size:.9rem;
+}
 
 
 

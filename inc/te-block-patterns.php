@@ -39,9 +39,6 @@ function te_register_block_patterns() {
 
    $site_uri = get_template_directory_uri();
    
-   
-   // to do : need 'fade_in' on these blocks?
-
    // 
    // single feature cover block
    //
@@ -52,7 +49,7 @@ function te_register_block_patterns() {
 		'categories' => ['te-cover-blocks'],
 		'viewportWidth' => 1000,
 		'content' =>  
-         '<!-- wp:cover {"url":"' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg","id":248,"dimRatio":50,"isDark":false,"className":"te-cover"} -->
+         '<!-- wp:cover {"url":"' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg","id":248,"dimRatio":50,"className":"te-cover"} -->
          <div class="wp-block-cover has-text-color has-background-dim te-cover">
          <img class="wp-block-cover__image-background wp-image-248" alt="image of columns" 
          src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" data-object-fit="cover"/>

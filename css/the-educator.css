@@ -109,6 +109,9 @@ li.menu-item.current-menu-item > a {
    -------------------------------------------------------------
    we incrse gap btwn 'columns' when stacking in sm/mobile for readability
 */
+div.te-columns img {
+   border-radius:.25rem;
+}
 div.te-columns > div.wp-block-column {
    margin-bottom:3rem;
 }
@@ -152,11 +155,14 @@ nav ul.sub-menu li.menu-item:hover > a {
    border:solid 1px white;
 } */
 
+
+/* 
+dynamic underline on hover <a>
+*/
 nav ul.menu li > a::after {
    content:'';
    width:0%;
 }
-
 nav ul.sub-menu li.menu-item { 
    display:block;
 }
@@ -166,22 +172,21 @@ footer a {
    position:relative;   /* required to position ::after */
    max-width:fit-content;
 }
-/* nav ul.sub-menu li.menu-item > a::after { */
 nav .menu a::after,
 footer a::after {
    content:'';
    position:absolute;
    left:50%;
    width:0%;
-   height:110%;
+   height:105%;
    border-bottom:solid 1px white;
    -webkit-transition:all .4s ease-in-out;
    transition:all .4s ease-in-out;
 }
 nav .menu > li > a:after {height:70%;}
-/* nav ul.sub-menu li.menu-item > a:hover::after { */
+
 nav .menu a:hover::after,
-footer a:hover::after {
+footer a:not(.custom-logo-link):hover::after {
    content:'';
    position:absolute;
    left:0%;
@@ -200,10 +205,14 @@ section.feature_tiles > ul > li.news_tile > h4{
    padding-right:auto;
 }
 
-/* to do : remove these rules and in-page <div>s  - or display:none; here */
+
+/* 
+debug template hierarchy! 
+*/
 .show_page_name {
    position:absolute;
    z-index:499;
+   display:none;  /* to do : disable on live */
    top:var(--nav_bar_height);
    right:.25rem;
    opacity:.4;
@@ -214,4 +223,114 @@ section.feature_tiles > ul > li.news_tile > h4{
    color:white;
 }
 
+
+
+section.te_template_parent_page {
+
+   display:-webkit-box;
+   display:-ms-flexbox;
+   display:flex;
+
+   -webkit-box-orient:vertical;
+   -webkit-box-direction:normal;
+   -ms-flex-direction:column;
+   flex-direction:column !important;
+
+   width:100%;
+   margin:auto;
+}
+section.te_template_parent_page a {
+   white-space:wrap;
+   text-decoration:none;
+}
+section.te_template_parent_page ul {   
+   display:-webkit-box;
+   display:-ms-flexbox;
+   display:flex;
+
+   -webkit-box-orient:horizontal;
+   -webkit-box-direction:normal;
+   -ms-flex-direction:row;
+   flex-direction:row !important;
+
+   flex-wrap:wrap;
+
+   gap:.5rem;
+}
+section.te_template_parent_page ul li {
+   margin-top:.5rem;
+   text-align:center;
+   border:solid 1px lightgrey;
+   border-radius:.25rem;
+   padding:.25rem;
+   padding-left:.5rem;
+   padding-right:.5rem;
+}
+section.te_template_parent_page img {
+   width:100%;
+}
+
+/* layout */
+section.te_template_parent_page div:nth-child(1) {
+   width:100%;
+   order:1;
+   overflow-x:hidden;
+   margin-left:auto;
+   margin-right:auto;
+}
+section.te_template_parent_page div:nth-child(2) {
+   order:3;
+   width:100%;
+}
+section.te_template_parent_page div:nth-child(3) {
+   width:100%;
+   order:2;
+}
+
+@media screen and (min-width: 910px) {
+   section.te_template_parent_page {
+
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex;
+   
+      -webkit-box-orient:horizontal;
+      -webkit-box-direction:normal;
+      -ms-flex-direction:row;
+      flex-direction:row !important;
+   }
+   section.te_template_parent_page ul {
+      -webkit-box-orient:vertical;
+      -webkit-box-direction:normal;
+      -ms-flex-direction:column;
+      flex-direction:column !important;
+      padding:.25rem;
+
+   }
+   section.te_template_parent_page ul li {
+      margin-top:.5rem;
+
+   }
+   section.te_template_parent_page img {
+      width:unset;
+      margin-top:2rem;
+   }
+   section.te_template_parent_page a {
+      white-space:nowrap;
+   }
+
+   /* layout */
+   section.te_template_parent_page div:nth-child(1) {
+      width:20%;
+      order:1;
+   }
+   section.te_template_parent_page div:nth-child(2) {
+      width:60%;
+      order:2;
+   }
+   section.te_template_parent_page div:nth-child(3) {
+      width:20%;
+      order:3;
+   }
+}
 

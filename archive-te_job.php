@@ -5,7 +5,7 @@
 
 
 <section class="feed_list fade_in">
-   <h3>Current Vacancies</h3>
+   <h3 style="margin-top:2rem;">Current Vacancies</h3>
    <ul>
       <?php 
          if(have_posts()) :
@@ -13,7 +13,7 @@
                the_post();
                $features = (array) get_post_meta(get_the_ID(),'_features_meta_key',true);
                ?>
-               <li class="te_job_teaser">
+               <li class="te_job_teaser"  style="padding-bottom:2rem;">
                         <?php if(has_post_thumbnail()):?>
                            <img src="<?php the_post_thumbnail_url('large'); ?>"/>
                         <?php endif;?>
@@ -22,11 +22,15 @@
 
                         <h3><?php echo the_title();?></h3>
                         
+
+
                         <?php
                         the_excerpt();
                         ?>
 
-                        <a class="float_right" href="<?php the_permalink(); ?>">read more</a>
+                        <div class="wp-block-button te_button" style="margin-top:2rem;margin-bottom:0;">
+                           <a class="wp-block-button__link wp-element-button" href="<?php the_permalink(); ?>">read more</a>
+                        </div>
 
                      </div>
                   </li>

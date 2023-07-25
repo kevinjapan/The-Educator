@@ -11,7 +11,7 @@
 
 <h1 class="fade_in"><?php single_cat_title();?></h1>
 
-<section class="feature_tiles fade_in">
+<section class="feature_tiles stagger_tiles fade_in">
    <ul>
    <?php 
       if(have_posts()) {
@@ -23,7 +23,9 @@
                <?php endif;?>
                <h4><?php the_title();?></h4>
                <?php the_excerpt();?>
-               <a style="float:right;" href="<?php the_permalink(); ?>">read more</a>
+               <div class="wp-block-button te_button">
+                  <a class="wp-block-button__link wp-element-button" href="<?php the_permalink(); ?>">read more</a>
+               </div>
             </li>
             <?php
          } 
