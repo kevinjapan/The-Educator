@@ -3,45 +3,60 @@
 Template Name: Parent Page
 */
 
+// Top level page in the nav
+// To enable access to child pages in mobile (where there is no sub-menu dropdown),
+// these pages must have links to sub-pages inside the page itself.
+// Extract child pages from the 'top-menu' navigation and displays links to each.
 //
-// this represents a top level page in the nav - allowing access to child pages in mobile
-//
 
-?>
-
-
-<?php
-   // cf. with page.php - the default page template
 ?>
 
 <?php get_header(); ?>
 
-
 <div class="show_page_name">template-parent-page.php</div>
 
-<h5>this is template-test.php</h5>
 
-<h3><?php the_title(); ?></h3>
+<h1><?php the_title(); ?></h1>
 
-<section style="display:flex;">
 
-   <div style="background:lightblue;width:70%;">
+
+<section class="te_template_parent_page">
+
+   <?php
+   //
+   // left-side spacing
+   //
+   ?>
+   <div>
+      <?php if(has_post_thumbnail()):?>
+         <img src="<?php the_post_thumbnail_url('medium'); ?>"/>
+      <?php endif;?></div>
+
+
+   <?php
+   //
+   // the page itself
+   //
+   ?>
+   <div>
       <?php 
          if(have_posts()) :
             while(have_posts()) :
-
                the_post();
                the_content();
-
             endwhile; 
          endif;
       ?>
    </div>
 
 
-   <div style="background:lightgreen;width:20%;">
+   <?php
+   //
+   // links to page's menu children
+   //
+   ?>
+   <div>
 
-      <ul>
       <?php
 
       // we display all menu sub-pages for the current selected page
@@ -94,8 +109,8 @@ Template Name: Parent Page
          }
       }
       ?>
-      </ul>
    </div>
+
 
 </section>
 
