@@ -104,16 +104,6 @@ const init_nav_scroll_observer = () => {
 }
 
 
-// to do : bug - these are not getting called when user goes 'back' in browser - 
-//         so, blocks never fade_in...
-//   perhaps we need default as visible..  
-//   then on js load we hide them immediately, and then fade in
-//   so w/out js on going 'back' we still see them
-
-init_fade_ins()
-init_nav_scroll_observer()
-
-
 //
 // toggle sm/mobile menu
 //
@@ -163,12 +153,14 @@ menu_items.forEach((menu_item) => {
 //
 
 //  - we re-enable if user clicks 'back' button
+//    basically groups 'back' events w/ all onloads.
 window.onload=window.onpageshow= function() {
    init_fade_ins()
    init_nav_scroll_observer()
 }
 
 // - we re-enable if user clicks on href="#" link 
+//   check every anchor link clicked and enable on any no-page loaders!
 var anchorTags = document.querySelectorAll('a')
 
 for (var i = 0; i < anchorTags.length; i++) {
