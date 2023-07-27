@@ -288,9 +288,6 @@ nav div.nav_toggle {
    background-color:var(--bg_primary);
    cursor:pointer;
 }
-/* nav div.nav_toggle.selected_toggle {
-   background:lightgreen;
-} */
 nav div.nav_toggle .toggle_bar {
 
    position:absolute;
