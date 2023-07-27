@@ -1,6 +1,5 @@
 
 
-
 const init_fade_ins = () => {
 
    const faders = document.querySelectorAll('.fade_in')
@@ -8,17 +7,17 @@ const init_fade_ins = () => {
    // if 'back' button, we can't fade_in elements - so, we just go straight to 'opacity:1;'
    // why code below works is unclear (it always runs ..?) but it does the job. perhaps timing..  
    // to do : verify in all browsers and platforms. and throttle speeds..
-   jQuery(function($){
-      history.navigationMode = 'compatible';
-      $(document).ready( function(){
-         faders.forEach((fader) => {
+   // jQuery(function($){
+   //    history.navigationMode = 'compatible';
+   //    $(document).ready( function(){
+   //       faders.forEach((fader) => {
 
-            // to do : we want this to solve issue above, but this disables 'fade_in' for everything 
-            // below first element on all page loads. (likely a timing - we just get lucky w/ the first one..)
-            //fader.style.opacity = 1;   
-         });
-      });
-   });
+   //          // to do : we want this to solve issue above, but this disables 'fade_in' for everything 
+   //          // below first element on all page loads. (likely a timing - we just get lucky w/ the first one..?)
+   //          fader.style.opacity = 1;   
+   //       });
+   //    });
+   // });
 
 
    const appearOptions = {
@@ -154,4 +153,31 @@ menu_items.forEach((menu_item) => {
 })
 
 
+
+// initialise fade_in and scroll observers
+// 
+// we've wrapped in window event and eventListener since..
+// 'fade_in's are not activated if we access page by 'back' button
+// also, clicking on href="#" - fails to 'fade_in' first element on page..
+// so have to intercept and re-enable on these events:
+//
+
+//  - we re-enable if user clicks 'back' button
+window.onload=window.onpageshow= function() {
+   init_fade_ins()
+   init_nav_scroll_observer()
+}
+
+// - we re-enable if user clicks on href="#" link 
+var anchorTags = document.querySelectorAll('a')
+
+for (var i = 0; i < anchorTags.length; i++) {
+   anchorTags[i].addEventListener('click',  (e) => {
+      // # or empty links
+      if(e.target.href.search('#') !== -1 || !e.target.href )  {
+         init_fade_ins()
+         init_nav_scroll_observer()
+      }
+   })
+}
 
