@@ -162,6 +162,7 @@
    /* 
       md-lg screen navigation 
    */
+   --mobile_nav_font_size:3.5rem;
    --nav_font_size:1.3rem;
    --nav_bar_height:80px; /* used by header/header bg_img */
    

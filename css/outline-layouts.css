@@ -195,6 +195,7 @@ nav div.logo_block    {
 
 nav ul   {list-style:none;}
 nav li * {padding-top:0;padding-bottom:0;}
+
 nav a    {
    font-size:var(--nav_font_size);
    cursor:pointer;
@@ -221,7 +222,7 @@ nav ul.menu {
 
    gap:0;
    
-   padding:0 0 1rem 0;
+   padding:1rem 0 1rem 0;
    background-color:var(--bg_primary);
 
    border-bottom:none;
@@ -252,13 +253,13 @@ nav > div.nav_toggle_wrap {
    -ms-flex-align:center;
    align-items:center;
 
-   width:40px;
+   width:60px;
    height:100%;
    margin:0;
    padding-right:1rem;
    padding-left:0;
    border:none;
-   background-color:var(--bg_primary); 
+   background-color:var(--bg_primary);
 }
 nav div.nav_toggle {
    position:relative;
@@ -283,7 +284,7 @@ nav div.nav_toggle {
 
    padding:0;
    width:100%;
-   height:20px;
+   height:60px;
    background-color:white;
    background-color:var(--bg_primary);
    cursor:pointer;
@@ -295,7 +296,7 @@ nav div.nav_toggle .toggle_bar {
 
    display:block;
    width:100%;
-   height:2px;
+   height:5px;
    margin-bottom:5px;
    background:white;
 
@@ -308,14 +309,18 @@ nav div.nav_toggle .toggle_bar:nth-child(3) {
    margin:0;
 }
 
+/* 
+future : the toggle appears small (as does nav bar height) in mobile emulator
+         need to test in actual mobile and adjust as required.
+*/
 
-nav div.nav_toggle .toggle_bar:nth-child(1) {top:0px;}
-nav div.nav_toggle .toggle_bar:nth-child(2) {top:5px;opacity:1;transition:.5s ease-in-out;left:0;width:100%;}
-nav div.nav_toggle .toggle_bar:nth-child(3) {top:10px;}
+nav div.nav_toggle .toggle_bar:nth-child(1) {top:15px;}
+nav div.nav_toggle .toggle_bar:nth-child(2) {top:30px;opacity:1;transition:.5s ease-in-out;left:0;width:100%;}
+nav div.nav_toggle .toggle_bar:nth-child(3) {top:45px;}
 
 /* on open dropdown */
 nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(1) {
-   top:5px;
+   top:30px;
    -webkit-transform:rotate(135deg);
    -ms-transform:rotate(135deg);
    transform:rotate(135deg);
@@ -323,12 +328,12 @@ nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(1) {
 }
 nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(2) {
    opacity:0;
-   left:10px;
+   left:30px;
    width:0;
    transition:.5s ease-in-out;
 }
 nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(3) {
-   top:5px;
+   top:30px;
    -webkit-transform:rotate(-135deg);
    -ms-transform:rotate(-135deg);
    transform:rotate(-135deg);
@@ -373,9 +378,34 @@ nav ul.menu.extended_nav_dropdown {
 nav ul.menu li ul li a {margin:1rem; }
 
 /* 
+mobile emulator nav links are too small - future : test in actual mobiles! 
+*/
+@media screen and (hover: none) {
+   nav ul.menu {
+      gap:2rem;
+      padding-top:5rem;
+   }
+   nav a {
+      font-size:var(--mobile_nav_font_size);
+   }
+}
+
+/*  
+future : our nav currently does give access to all sub-menus - but 
+         there is some discrepancy in md/lg screens in touch/ipad - 
+         no hover means the dropdown only appears once you have clicked
+         on the menu label - hence leaving the current page while showing
+         a fast disappearing dropdown menu!
+         (subsequent pages do show all sub-menu links but confusing..)
+*/
+
+
+/* 
 lg top main nav and full dropdown 
 we support from 1045px determined by four cols of reasonable text in dropdown 
 */
+
+
 @media screen and (min-width: 1045px) {
 
    /* logo_block provides overlay in front of moving dropdown */
@@ -452,6 +482,9 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       margin-left:0;
    }  
 
+   nav a    {
+      font-size:var(--nav_font_size);
+   }
    /* 
       md/lg dropdowns 
       renamed 'menu_dropdown' -> 'sub-menu' for WordPress nav
