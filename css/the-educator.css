@@ -212,7 +212,7 @@ debug template hierarchy!
 .show_page_name {
    position:absolute;
    z-index:499;
-   display:none;  /* to do : disable on live */
+   display:none;  /* disable on live */
    top:var(--nav_bar_height);
    right:.25rem;
    opacity:.4;

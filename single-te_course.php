@@ -53,7 +53,7 @@
            
       </section>   
    <?php
-   // to do : limit this to the current school
+   // future : limit this to the current school
    ?>
    <!-- <div style="display:flex;gap:2rem;">
       <div><?php next_post_link('&laquo; %link', '%title' ); ?></div>

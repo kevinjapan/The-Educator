@@ -146,7 +146,7 @@ class WebDevAgentPatternsCustomizer {
       // column block patterns
       //
 
-      // to do : Add bg color setting to block patterns
+      // future : Add bg color setting to block patterns
       // considerations: 
       // - padding, esp y-padding. 
       // - buttons need eg :hover rules for particular combos. 
@@ -590,10 +590,6 @@ class WebDevAgentPatternsCustomizer {
       );
    }
 
-   
-   // to do : review output css in page src - some issues..
-
-
    public static function te_customizer_patterns_styles() {
 
       ?><!-- The Educator Patterns Customizer CSS --> 
@@ -729,7 +725,7 @@ class WebDevAgentPatternsCustomizer {
 
       //
       // te-simple-text
-      // to do : combine in single rule assignment - rollout
+      // 
       te_generate_css_rule('.wp-block-group.te-text.te-simple-text',
          ['style' => 'margin-top','setting' => 'te_text_y_margins','prefix'  => '','postfix' => 'vh'],
          ['style' => 'margin-bottom','setting' => 'te_text_y_margins','prefix'  => '','postfix' => 'vh']); 

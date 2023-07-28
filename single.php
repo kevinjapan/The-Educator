@@ -17,15 +17,7 @@
 
 <?php the_content();?>
 
-<!-- to do : this is showing 'news' posts - so 'te_course_teacher' etc below don't belong here..
-               move them to single-te_course.php -->
 
-<section>
-   teacher : 
-         <p><?php echo get_post_meta( get_the_ID(), 'te_course_teacher', true ); ?></p>
-   topics :
-         <p><?php echo get_post_meta( get_the_ID(), 'te_course_topics', true ); ?></p>
-</section>
 <?php endwhile; ?>
 
    <div style="display:flex;gap:2rem;">

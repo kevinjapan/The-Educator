@@ -1114,11 +1114,6 @@ section.feature_tiles > ul > li > p {
    padding-top:0;
 } 
 
-
-div.feature_tile_content {    /* to do : is this used atall? should be - probably useful */
-   margin-bottom:2rem;
-}
-/* workaround since we don't have feature_tile_content */
 section.feature_tiles > ul > li > div:not(.te_button) {
    position:relative;
    z-index:300;
@@ -1595,7 +1590,6 @@ p.has-large-font-size {
 
 /* 
    The Educator theme adaptations of wp styling for our own block patterns.
-   styling for the-educator.. to do : review & tidy locations.
 */
 
 div.te-big-title-lead h2{

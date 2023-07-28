@@ -1,8 +1,5 @@
 <?php
 
-// to do : replace screenshot.png
-
-
 if ( ! function_exists('te_theme_setup') ) {
 	// theme defaults and support for WordPress features.
    function te_theme_setup() {

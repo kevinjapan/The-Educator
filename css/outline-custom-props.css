@@ -295,7 +295,7 @@
    =============================================
 */
 
-   /* z-index register - application layers  - to do : review/improve - simple 100 - 500 ?*/
+   /* z-index register - application layers  - future : review/improve - simple 100 - 500 ?*/
 
    --grid_1_z_index:100;
    --nav_dimmer_z_index:-10;

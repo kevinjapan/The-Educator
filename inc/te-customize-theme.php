@@ -813,7 +813,8 @@ class TheEducatorThemeCustomizer {
    }
 
 
-   // to do : css rule names below eg evolution.. !
+   // future: 
+   // re-use some of these from edk theme
 
    //
    // frontend inline theme styles
@@ -821,14 +822,14 @@ class TheEducatorThemeCustomizer {
    public static function te_customizer_theme_styles() {
 
       ?><!-- Theme Customizer CSS --> 
-<style id="evolutiondesuka-custom-theme" type="text/css">
-<?php 
+      <style id="the-educator-custom-theme" type="text/css">
+      <?php 
 
-      /* site header */
-      if(get_theme_mod('te_is_header_img_fixed') === true) {?>.evolutiondesuka-site-header-bg {position:fixed;}
-<?php
-}?>
-<?php 
+            /* site header */
+            if(get_theme_mod('te_is_header_img_fixed') === true) {?>.evolutiondesuka-site-header-bg {position:fixed;}
+      <?php
+      }?>
+      <?php 
       // te_generate_css_rule('.te_frontpage .evolutiondesuka-site-header',
       //    ['style' => 'height','setting' => 'frontpage_header_height',  'prefix'  => '',  'postfix' => 'vh']);
       // te_generate_css_rule('.evolutiondesuka-site-header',
@@ -932,7 +933,7 @@ class TheEducatorThemeCustomizer {
       //    ['style' => 'background-color','setting' => 'nav_dropdown_bg_color',  'prefix'  => '',  'postfix' => '']);
       // 
       ?>
-      /* } */s
+      /* } */
 </style> 
 <!--/ Theme Customizer -->
 <?php

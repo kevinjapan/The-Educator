@@ -3,23 +3,6 @@
 const init_fade_ins = () => {
 
    const faders = document.querySelectorAll('.fade_in')
-
-   // if 'back' button, we can't fade_in elements - so, we just go straight to 'opacity:1;'
-   // why code below works is unclear (it always runs ..?) but it does the job. perhaps timing..  
-   // to do : verify in all browsers and platforms. and throttle speeds..
-   // jQuery(function($){
-   //    history.navigationMode = 'compatible';
-   //    $(document).ready( function(){
-   //       faders.forEach((fader) => {
-
-   //          // to do : we want this to solve issue above, but this disables 'fade_in' for everything 
-   //          // below first element on all page loads. (likely a timing - we just get lucky w/ the first one..?)
-   //          fader.style.opacity = 1;   
-   //       });
-   //    });
-   // });
-
-
    const appearOptions = {
       threshold: 0,
       rootMargin: "0px 0px -200px 0px"
