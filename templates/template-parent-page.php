@@ -15,10 +15,7 @@ Template Name: Parent Page
 
 <div class="show_page_name">template-parent-page.php</div>
 
-
 <h1><?php the_title(); ?></h1>
-
-
 
 <section class="te_template_parent_page">
 

@@ -237,7 +237,6 @@ section.te_template_parent_page {
    flex-direction:column !important;
 
    width:100%;
-   margin:auto;
 }
 section.te_template_parent_page a {
    white-space:wrap;
