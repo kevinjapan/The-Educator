@@ -625,21 +625,27 @@ class WebDevAgentPatternsCustomizer {
             ['style' => 'margin-top','setting' => 'te_column_y_margins','prefix'  => '','postfix' => 'vh !important'],
             ['style' => 'margin-bottom','setting' => 'te_column_y_margins','prefix'  => '','postfix' => 'vh !important']);
       ?>
-      @media screen and (min-width: 768px) { 
-         <?php
-            te_generate_css_rule(
-               '.wp-block-media-text.te-columns,
-               .wp-block-media-text.te-columns.has-background,
-               .wp-block-columns.te-columns,
-               .wp-block-columns.te-columns.has-background',
-               ['style' => 'padding-left','setting' => 'te_column_x_padding','prefix'  => '','postfix' => '%'],
-               ['style' => 'padding-right','setting' => 'te_column_x_padding','prefix'  => '','postfix' => '%']);
-            te_generate_css_rule('.te-cover-columns, .te-cover-columns.has-background',
-               ['style' => 'padding-left','setting' => 'te_cover_column_x_padding','prefix'  => '','postfix' => '%'],
-               ['style' => 'padding-right','setting' => 'te_cover_column_x_padding','prefix'  => '','postfix' => '%']);
-         ?>
-      }
+      
       <?php
+         // future : refactor : we want to prevent empty media queries but efficiently!
+         // $mod = get_theme_mod('te_column_x_padding');
+         // if ( ! empty($mod) || $mod === "0" ) {?>
+            @media screen and (min-width: 768px) { 
+               <?php
+                  te_generate_css_rule(
+                     '.wp-block-media-text.te-columns,
+                     .wp-block-media-text.te-columns.has-background,
+                     .wp-block-columns.te-columns,
+                     .wp-block-columns.te-columns.has-background',
+                     ['style' => 'padding-left','setting' => 'te_column_x_padding','prefix'  => '','postfix' => '%'],
+                     ['style' => 'padding-right','setting' => 'te_column_x_padding','prefix'  => '','postfix' => '%']);
+                  te_generate_css_rule('.te-cover-columns, .te-cover-columns.has-background',
+                     ['style' => 'padding-left','setting' => 'te_cover_column_x_padding','prefix'  => '','postfix' => '%'],
+                     ['style' => 'padding-right','setting' => 'te_cover_column_x_padding','prefix'  => '','postfix' => '%']);
+               ?>
+            }
+         <?php
+         //} 
       
 
       //

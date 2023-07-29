@@ -1,2 +1,4 @@
 # the-educator
- WordPress Theme
+
+
+WordPress Theme for education, colleges and online learning.

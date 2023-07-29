@@ -3,14 +3,11 @@
 
 <div class="show_page_name">page.php</div>
 
-
 <?php
    // this is the default page template.
-   // cf. with template-test.php
 ?>
 
 <h2><?php the_title(); ?></h2>
-
 
 <?php 
    if(have_posts()) :
@@ -22,6 +19,5 @@
       endwhile; 
    endif;
 ?>
-
 
 <?php get_footer(); ?>

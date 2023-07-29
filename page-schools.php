@@ -5,7 +5,9 @@
 
 
 <section class="feature_tiles fade_in">
+
    <h3>Schools</h3>
+   
    <ul>
       <?php 
 
@@ -17,7 +19,6 @@
          'parent'   => 0,              // top-level only
          'hide_empty' => false,         // show all regardless
       ));
-
 
       foreach($terms as $term) {
          $image = get_term_meta($term->term_id, 'category_image', true);

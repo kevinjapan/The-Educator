@@ -4,13 +4,6 @@
 <div class="show_page_name">taxonomy-te_school.php</div>
 
 
-
-<!-- taxonomy-te_school.php -->
-
-
-
-
-
 <?php
 
 //

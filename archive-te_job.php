@@ -5,7 +5,9 @@
 
 
 <section class="feed_list fade_in">
+
    <h3 style="margin-top:2rem;">Current Vacancies</h3>
+
    <ul>
       <?php 
          if(have_posts()) :
@@ -18,11 +20,8 @@
                            <img src="<?php the_post_thumbnail_url('large'); ?>"/>
                         <?php endif;?>
                      <div style="background:white;">
-                     
 
                         <h3><?php echo the_title();?></h3>
-                        
-
 
                         <?php
                         the_excerpt();

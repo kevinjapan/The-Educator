@@ -24,11 +24,9 @@
                <h4><?php the_title();?></h4>
                <?php the_excerpt();?>
                
-                  <div class="wp-block-button te_button">
-                     <a class="wp-block-button__link wp-element-button" href="<?php the_permalink(); ?>">read more</a>
-                  </div>
-
-
+               <div class="wp-block-button te_button">
+                  <a class="wp-block-button__link wp-element-button" href="<?php the_permalink(); ?>">read more</a>
+               </div>
             </li>
             <?php
          } 
