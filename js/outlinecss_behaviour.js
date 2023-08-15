@@ -71,7 +71,7 @@ const create_observers = (elements,active_class,options) => {
 //    hides when user is scrolling down
 //    to prevent nav disappearing in ios safari bounce, we don't hide < 80px from top
 //
-const init_nav_scroll_observer = () => {
+const init_nav_scroll_listener = () => {
 
    let last_scroll = 0
    const nav_bar = document.querySelector('nav')
@@ -142,7 +142,7 @@ menu_items.forEach((menu_item) => {
 //    basically groups 'back' events w/ all onloads.
 window.onload=window.onpageshow= function() {
    init_fade_ins()
-   init_nav_scroll_observer()
+   init_nav_scroll_listener()
 }
 
 // - we re-enable if user clicks on href="#" link 
@@ -154,7 +154,7 @@ for (var i = 0; i < anchorTags.length; i++) {
       // # or empty links
       if(e.target.href.search('#') !== -1 || !e.target.href )  {
          init_fade_ins()
-         init_nav_scroll_observer()
+         init_nav_scroll_listener()
       }
    })
 }
