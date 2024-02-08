@@ -1,4 +1,13 @@
 <?php
+/*
+
+The Educator's functions and definitions
+
+@package The Educator
+@since The Educator 1.0
+
+*/
+
 
 if ( ! function_exists('te_theme_setup') ) {
 	// theme defaults and support for WordPress features.
