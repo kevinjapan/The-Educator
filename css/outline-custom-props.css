@@ -318,6 +318,8 @@
 
    --feature_block_y_margin:0;
 
+   --feature_tiles_gap:1rem;
+   
    --footer_top_margin:2rem;
 
    /* cover_block */

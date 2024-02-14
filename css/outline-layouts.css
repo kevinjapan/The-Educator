@@ -1051,10 +1051,11 @@ section.feature_block > div > *:not(button) {
 /* 
    section.feature_tiles
 */
-
 section.feature_tiles {
    width:100%;
    height:fit-content;
+   margin-left:auto;
+   margin-right:auto;
 }
 section.feature_tiles > ul {
    display:-webkit-box;
@@ -1062,27 +1063,10 @@ section.feature_tiles > ul {
    display:flex;
    -ms-flex-wrap:wrap;
    flex-wrap:wrap;
-
-   gap:3rem;
-
    margin:0;
    padding:0;
 }
 section.feature_tiles > ul > li {
-   /* display:-webkit-box;
-   display:-ms-flexbox;
-   display:flex;
-
-   -webkit-box-orient:vertical;
-   -webkit-box-direction:normal;
-   -ms-flex-direction:column;
-   flex-direction:column;
-
-   -webkit-box-pack:start;
-   -ms-flex-pack:start;
-   justify-content:flex-start;          */
-
-   /* gap:1rem; */
    
    /* we don't want images to lose aspect ratio */
    width:100%;
@@ -1186,19 +1170,25 @@ section.feature_tiles > ul > li > button {
       -webkit-box-direction:normal;
       -ms-flex-direction:row;
       flex-direction:row;
-      gap:0;   /* for predictable spacing, we pad inside <li> */
+      gap:var(--feature_tiles_gap);
+      padding-left:var(--feature_tiles_gap);
+      padding-right:var(--feature_tiles_gap);
+
       width:100%;
       padding-left:auto;
       padding-right:auto;
    }
    section.feature_tiles > ul > li {
-      flex-grow:0; /* do not grow into free space */
-      min-width:49%; /* tweak */
+      min-width:calc(50% - var(--feature_tiles_gap));
    }
 
    section.feature_tiles.stagger_tiles > ul > li {
       width:50%;
       margin-top:1rem;
+   }
+   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+1),
+   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+6) {
+      min-width:calc(100% - var(--feature_tiles_gap));
    }
     
    section.feature_tiles.stagger_tiles > ul > li > img {
@@ -1221,11 +1211,16 @@ section.feature_tiles > ul > li > button {
    }
 }
 @media screen and (min-width: 982px) {
+
+   /* section.feature_tiles {} */
+
    section.feature_tiles > ul {
-      gap:0;padding:0;
+      gap:var(--feature_tiles_gap);
+      padding-left:var(--feature_tiles_gap);
+      padding-right:var(--feature_tiles_gap);
    }
    section.feature_tiles > ul > li {
-      min-width:33.333333%;
+      max-width:calc(33.3% - var(--feature_tiles_gap));
    }
    
    /* 
@@ -1234,13 +1229,11 @@ section.feature_tiles > ul > li > button {
       we modify every 6th <li> starting at indexes 1 and 6.
    */
    section.feature_tiles.stagger_tiles > ul > li {
-      min-width:25%;
+      min-width:calc(25% - var(--feature_tiles_gap));
    }
-   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+1) {
-      min-width:50%;
-   }
+   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+1),
    section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+6) {
-      min-width:50%;
+      min-width:calc(50% - var(--feature_tiles_gap));
    }
    section.feature_tiles > ul > li > h4 {
       font-size:2rem;
