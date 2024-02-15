@@ -207,7 +207,7 @@ nav a    {
 nav ul.menu {
    position:absolute;
    z-index:2;
-   top:calc(var(--nav_bar_height) - 18px);
+   top:-100vh;   /* default - dropdown is hidden */
    left:0;
    width:100%;
    height:100vh;
@@ -367,9 +367,9 @@ nav ul.menu > li > a  {
 
 /* toggle sm/mobile nav dropdown */
 nav ul.menu.extended_nav_dropdown {
-   -webkit-transform:translateY(0);
-   -ms-transform:translateY(0);
-   transform:translateY(0);
+   -webkit-transform:translateY(100vh);
+   -ms-transform:translateY(100vh);
+   transform:translateY(100vh);
    opacity:1;
    transition:transform .5s ease-in-out,opacity .5s ease-in-out;
 }
@@ -408,6 +408,15 @@ we support from 1045px determined by four cols of reasonable text in dropdown
 
 @media screen and (min-width: 1045px) {
 
+   /* reset from mobile */
+   nav div.nav_toggle_wrap, nav div.nav_toggle {display:none;}
+   nav ul.menu *, nav ul.menu li ul, nav ul.menu li a {display:block;}
+   nav ul.menu, nav ul.menu > li > a, nav ul.menu.extended_nav_dropdown {
+      transform:unset;
+      opacity:1;
+      transition:none;
+   }
+   
    /* logo_block provides overlay in front of moving dropdown */
    nav div.logo_block {
       position:relative;
