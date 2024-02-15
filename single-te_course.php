@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php
+/*
+Single Page for Course Custom Post Type
+*/ 
+
+get_header(); ?>
 
 <div class="show_page_name">single-te_course.php</div>
 
