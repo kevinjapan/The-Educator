@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php 
+/*
+Archive Page for Job Custom Post Type
+*/
+
+get_header(); ?>
 
 
 <div class="show_page_name">archive-te_job.php</div>
