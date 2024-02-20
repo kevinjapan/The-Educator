@@ -171,7 +171,7 @@
    --nav_bar_text_color:  hsl(0, 24%, 35%);
 
    --nav_dropdown_height:30vh;
-   --nav_dropdown_bg:      var(--bg_primary);
+   --nav_dropdown_bg:     blue !important;
    --nav_dropdown_color:  white;
 
    /* dim page under extended dropdown */

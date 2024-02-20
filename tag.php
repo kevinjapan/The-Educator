@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 <!-- tag template -->
 
-<!-- this is the default page template applied to all posts -->
 tag.php
 <h1><?php the_title();?></h1>
 
