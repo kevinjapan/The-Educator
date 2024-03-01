@@ -22,7 +22,7 @@ $children = get_term_children($term_id,$tax_name);
 
 // school header & feature image
 //
-$image = get_term_meta($term_id, 'category_image', true);
+$image = get_term_meta($term_id, 'school_image', true);
 ?>
 
 <section class="front_page cover_block bg_navy fade_in">
@@ -49,7 +49,7 @@ if(count($children) > 0) {
             <?php 
             foreach($children as $child) {
                $term = get_term_by('id',$child,$tax_name);
-               $image = get_term_meta($child, 'category_image', true);
+               $image = get_term_meta($child, 'school_image', true);
                ?>
                <li style="border:none;">
                   <img src="<?php echo $image;?>" style="border-radius:.25rem;" />

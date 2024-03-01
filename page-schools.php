@@ -21,7 +21,7 @@
       ));
 
       foreach($terms as $term) {
-         $image = get_term_meta($term->term_id, 'category_image', true);
+         $image = get_term_meta($term->term_id, 'school_image', true);
          ?>
          <li style="border:none;">
             <?php
