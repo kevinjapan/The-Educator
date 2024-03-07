@@ -63,14 +63,14 @@ class TheEducatorThemeCustomizer {
       //          'description' => esc_html('You can customize the display of your Site Identity here.', 'the-educator'),
       //          'panel' => 'te_layout_panel') 
       // );
-      // $wp_customize->add_section( 'te_header_img', 
-      //    array('title'       => esc_html( 'FrontPage Header Image', 'the-educator' ),
-      //          'priority'    => 40,
-      //          'capability'  => 'edit_theme_options',
-      //          'description' => esc_html('You can modify some aspects of the frontpage Header Image here. To change the image itself, go to \'Header Image\' at the top level of this menu.', 'the-educator'),
-      //          'panel' => 'te_layout_panel',
-      //          'active_callback' => 'is_front_page',) 
-      // );
+      $wp_customize->add_section( 'te_header_img', 
+         array('title'       => esc_html( 'FrontPage Header Image', 'the-educator' ),
+               'priority'    => 40,
+               'capability'  => 'edit_theme_options',
+               'description' => esc_html('You can modify some aspects of the frontpage Header Image here. To change the image itself, go to \'Header Image\' at the top level of this menu.', 'the-educator'),
+               'panel' => 'te_layout_panel',
+               'active_callback' => 'is_front_page',) 
+      );
       // $wp_customize->add_section( 'te_page_header_img', 
       //    array('title'       => esc_html( 'Pages Header Image', 'the-educator' ),
       //          'priority'    => 40,
@@ -630,79 +630,25 @@ class TheEducatorThemeCustomizer {
       // );
 
       /* Site Header BG Color - used in sm viewports / rqrd for hero text contrast */
-      // $wp_customize->add_setting( 'frontpage_header_bg_color',
-      //    array('default'    => '#000080',
-      //          'type'       => 'theme_mod',
-      //          'capability' => 'edit_theme_options',
-      //          'transport'  => 'postMessage',
-      //          'sanitize_callback' => 'sanitize_hex_color') 
-      // );
-      // $wp_customize->add_control( new WP_Customize_Color_Control(
-      //    $wp_customize, 
-      //    'frontpage_header_bg_color',
-      //    array('label'      => esc_html__( 'Background color', 'the-educator' ),
-      //          'description' => esc_html__( 'Your image may not cover the full height in mobile screens - use a background color to display your hero text.','the-educator'), 
-      //          'settings'   => 'frontpage_header_bg_color', 
-      //          'priority'   => 10,
-      //          'section'    => 'te_header_img') 
-      // ));
+      $wp_customize->add_setting( 'frontpage_header_bg_color',
+         array('default'    => '#000080',
+               'type'       => 'theme_mod',
+               'capability' => 'edit_theme_options',
+               'transport'  => 'postMessage',
+               'sanitize_callback' => 'sanitize_hex_color') 
+      );
+      $wp_customize->add_control( new WP_Customize_Color_Control(
+         $wp_customize, 
+         'frontpage_header_bg_color',
+         array('label'      => esc_html__( 'Background color', 'the-educator' ),
+               'description' => esc_html__( 'Your image may not cover the full height in mobile screens - use a background color to display your hero text.','the-educator'), 
+               'settings'   => 'frontpage_header_bg_color', 
+               'priority'   => 10,
+               'section'    => 'te_header_img') 
+      ));
 
-      /* Blog Archive (Category) Header Img */
-      // $wp_customize->add_setting( 'blog_header_img', 
-      //    array('default'    => '', 
-      //          'type'       => 'theme_mod', 
-      //          'capability' => 'edit_theme_options', 
-      //          'transport'  => 'postMessage',
-      //          'sanitize_callback' => 'esc_url_raw') 
-      // );
-      // $wp_customize->add_control(
-      //    new WP_Customize_Image_Control(
-      //       $wp_customize,
-      //       'blog_header_img',
-      //       array('label' => esc_html__( 'Blog Archive Header Image','the-educator' ),
-      //             'description' => esc_html__( 'Select the Header Image for the Blog Archive page. If no image is selected here, the page will default to the site \'Header Image\' as used by the frontpage.' ,'the-educator'),
-      //             'section' => 'te_blog_header_img',
-      //             'settings' => 'blog_header_img',
-      //             'active_callback' => 'te_is_blog_archive_page'))
-      // );
+   
 
-      /* Header Alignment */
-      // $wp_customize->add_setting( 'te_header_align', 
-      //    array('default' 	        => 'Center',
-      //          'transport'         => 'postMessage',
-      //          'sanitize_callback' => 'sanitize_text_field') 
-      // );
-      // $wp_customize->add_control( 'te_header_align', 
-      //    array('label'        => esc_html( 'Alignment', 'the-educator' ),
-      //          'description'  => esc_html__( 'title & tagline block','the-educator'),
-      //          'section'      => 'te_header',
-      //          'type'         => 'select',
-      //          'settings'     => 'te_header_align', 
-      //          'choices' 	   => array(		
-      //             'flex-start'=> 'Start',
-      //             'center'   	=> 'Center',
-      //             'flex-end'  => 'End'),	
-      //          'input_attrs' => array( 'style' => 'width: 80px;' )) 
-      // );
-
-      /* Header Text Alignment */
-      // $wp_customize->add_setting( 'te_header_text_align', 
-      //    array('default' 	        => 'Center',
-      //          'transport'         => 'postMessage',
-      //          'sanitize_callback' => 'sanitize_text_field'
-      // ) );
-      // $wp_customize->add_control( 'te_header_text_align', 
-      //    array('label'        => esc_html( '', 'the-educator' ),
-      //          'description' => esc_html( 'text inside block (applicable when text wraps)','the-educator'),
-      //          'section'      => 'te_header',
-      //          'type'         => 'select',
-      //          'settings'     => 'te_header_text_align', 
-      //          'choices' 	  	=> array(		
-      //             'start'=> 'Start',
-      //             'center'   	=> 'Center',
-      //             'end'  => 'End'),	
-      //          'input_attrs' => array( 'style' => 'width: 80px;' )) 
-      // );
       
 
       /*
