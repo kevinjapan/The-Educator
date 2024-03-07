@@ -1,5 +1,6 @@
 <?php
 require_once get_template_directory() . '/inc/te-sanitize.php';
+require_once get_template_directory() . '/inc/te-utility.php';
 
 // Block Patterns
 require_once get_template_directory() . '/inc/block-patterns/te-customize-cover-block.php';
