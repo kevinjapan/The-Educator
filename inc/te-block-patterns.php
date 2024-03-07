@@ -9,15 +9,9 @@
 //
 // The Educator Block Patterns
 // Registers Patterns in 'block inserter' in editor.
-// 
-
-//
-// Adapting previous block patterns from edk theme (early learning theme development) for use in Wed Dev Agent theme.
-// I generated these block patterns by building the pattern in editor then copying the html (use code editor mode - 'serialized block')
+// Each pattern is an HTML template for the UI block.
+// We generate these block patterns by building the pattern in editor then copying the html (use code editor mode - 'serialized block')
 // and inserting that into my calls to register_block_pattern().content below.
-// For now, will stick with these to get this up and running - so currently minimal use of outlinecss
-// 
-// future : research correct way to generate these blocks and implement..  theme.json? or somesuch..
 //
 
 
@@ -35,6 +29,54 @@ function te_register_block_pattern_categories() {
 add_action( 'init', 'te_register_block_pattern_categories' );
 
 
+
+//
+// Template for single col 
+// contained w/in multi-col block patterns
+//
+function te_single_col_template($img_only = false) {
+   
+   $site_uri = get_template_directory_uri();
+
+   $template = '<!-- wp:column {"className":"te_center_content"} -->
+                  <div class="wp-block-column te_center_content">
+
+               <!-- wp:image {"sizeSlug":"medium","linkDestination":"none","className":"fill_width"} -->
+               <figure class="wp-block-image size-medium fill_width">
+                  <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/>
+               </figure>
+               <!-- /wp:image -->';
+
+   if(!$img_only) {
+   
+      $template .=  '<!-- wp:heading -->
+                     <h2 class="has-text-align-center">column</h2>
+                     <!-- /wp:heading -->
+
+                     <!-- wp:paragraph {"align":"center"} -->
+                     <p class="has-text-align-center">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate autem voluptatem deserunt ea odio quae 
+                        odit molestiae provident similique id totam neque et dolorum explicabo, architecto itaque? Quas, eos quam?
+                     </p>
+                     <!-- /wp:paragraph -->
+
+                     <!-- wp:buttons -->
+                     <div class="wp-block-buttons te_buttons">            
+                        <!-- wp:button -->
+                        <div class="wp-block-button te_button"><a class="wp-block-button__link">read more</a></div>
+                        <!-- /wp:button -->
+                     </div>
+                     <!-- /wp:buttons -->';
+   }
+               
+   $template .= '</div><!-- /wp:column -->';
+   return $template;
+}
+
+
+//
+// Register block pattern templates
+//
 function te_register_block_patterns() {
 
    $site_uri = get_template_directory_uri();
@@ -51,191 +93,94 @@ function te_register_block_patterns() {
 		'content' =>  
          '<!-- wp:cover {"url":"' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg","id":248,"dimRatio":50,"className":"te-cover"} -->
          <div class="wp-block-cover has-text-color has-background-dim te-cover">
-         <img class="wp-block-cover__image-background wp-image-248" alt="image of columns" 
-         src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" data-object-fit="cover"/>
-         <div class="wp-block-cover__inner-container">
-         <!-- wp:columns -->
-         <div class="wp-block-columns"><!-- wp:column -->
-         <div class="wp-block-column"><!-- wp:heading -->
-         <h2>Introducing the The Educator Cover Block.</h2>
-         <!-- /wp:heading --></div>
-         <!-- /wp:column -->         
-         <!-- wp:column -->
-         <div class="wp-block-column">
-            <!-- wp:paragraph -->
-            <p>Cover Blocks with Latitude!<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis metus sed enim ullamcorper tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac nibh ut elit condimentum tempor sit amet sed risus.<br>
-            <br>You can customize the layout of this block pattern in the Dashboard menu:
-            <br>- Appearance 
-            <br>- - Customize
-            <br>- - - The Educator Block Patterns 
-            <br>- - - - The Educator Covers.</p>
-            <!-- /wp:paragraph -->
+
+            <img class="wp-block-cover__image-background wp-image-248" 
+               alt="image of columns" 
+               src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" data-object-fit="cover"/>
+            
+            <div class="wp-block-cover__inner-container">
+
+               <!-- wp:columns -->
+               <div class="wp-block-columns">
+            
+                  <!-- wp:column -->
+                  <div class="wp-block-column">
+                     <!-- wp:heading -->
+                     <h2>Introducing the The Educator Cover Block.</h2>
+                     <!-- /wp:heading -->
+                  </div>
+                  <!-- /wp:column --> 
+
+                  <!-- wp:column -->
+                  <div class="wp-block-column">
+                     <!-- wp:paragraph -->
+                     <p>
+                        Cover Blocks with Latitude!<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis metus sed enim ullamcorper tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac nibh ut elit condimentum tempor sit amet sed risus.<br>
+                        <br>You can customize the layout of this block pattern in the Dashboard menu:
+                        <br>- Appearance 
+                        <br>- - Customize
+                        <br>- - - The Educator Block Patterns 
+                        <br>- - - - The Educator Covers.
+                     </p>
+                     <!-- /wp:paragraph -->
+                  </div>
+                  <!-- /wp:column -->
+               </div>
+               <!-- /wp:columns -->
+            </div>
          </div>
-         <!-- /wp:column --></div>
-         <!-- /wp:columns -->
-         
-         </div></div>
          <!-- /wp:cover -->'
 	]);
 
 
    //
-   // two feature cover block
-   //
-   // register_block_pattern('te-two-feature-cover', [
-	// 	'title' => __('Two Feature Cover', 'the-educator'),
-   //    'description' => _x( 'Two Feature Cover.', 'A Cover block with two features columns.', 'the-educator' ),            
-	// 	'keywords' => ['two,cover'],
-	// 	'categories' => ['te-cover-blocks'],
-	// 	'viewportWidth' => 1000,
-	// 	'content' =>   
-   //       '<!-- wp:cover {"className":"te-cover te-two-feature-cover"} -->
-   //       <div class="wp-block-cover has-background-dim te-cover te-two-feature-cover">
-   //       <div class="wp-block-cover__inner-container"><!-- wp:heading {"textAlign":"center","level":2} -->
-   //       <h2 class="has-text-align-center">Some interesting projects may require a longer title to project the gist of the thing</h2>
-   //       <!-- /wp:heading -->
-   //       <!-- wp:columns -->
-   //       <div class="wp-block-columns"><!-- wp:column -->
-   //       <div class="wp-block-column"><!-- wp:heading {"textAlign":"center","level":3} -->
-   //       <h3 class="has-text-align-center">discover projects</h3>
-   //       <!-- /wp:heading -->
-   //       <!-- wp:paragraph {"align":"center"} -->
-   //       <p class="has-text-align-center"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate autem 
-   //       voluptatem deserunt ea odio quae odit molestiae provident similique id totam neque et dolorum explicabo, architecto itaque? 
-   //       Quas, eos quam? </p>
-   //       <!-- /wp:paragraph -->
-   //       <!-- wp:paragraph {"align":"center"} -->
-   //       <p class="has-text-align-center">discover projects</p>
-   //       <!-- /wp:paragraph --></div>
-   //       <!-- /wp:column --> 
-   //       <!-- wp:column -->
-   //       <div class="wp-block-column"><!-- wp:heading {"textAlign":"center","level":3} -->
-   //       <h3 class="has-text-align-center">align your layouts</h3>
-   //       <!-- /wp:heading -->
-   //       <!-- wp:paragraph {"align":"center"} -->
-   //       <p class="has-text-align-center"> You can customize the layout of this block pattern 
-   //       in Appearance \ Customize \ The Educator Block Patterns \ The Educator Covers.. </p>
-   //       <!-- /wp:paragraph -->
-   //       <!-- wp:button -->
-   //      <button>read more link</button>
-   //       <!-- /wp:button --></div>
-   //       <!-- /wp:column --></div>
-   //       <!-- /wp:columns -->
-   //      </div></div>
-   //       <!-- /wp:cover -->',
-	// ]);
-
-   //
-   // three feature cover block  
-   // 
-	// register_block_pattern('te-three-feature-cover', [
-	// 	'title' => __('Three Feature Cover', 'the-educator'),
-   //    'description' => _x( 'Three Feature Cover.', 'A Cover block with three features columns.', 'the-educator' ),            
-	// 	'keywords' => ['three,cover'],
-	// 	'categories' => ['te-cover-blocks'],
-	// 	'viewportWidth' => 1000,
-	// 	'content' =>  
-   //         '<!-- wp:cover {"className":"te-cover te-three-feature-cover"} -->
-   //         <div class="wp-block-cover has-background-dim te-cover te-three-feature-cover">
-   //         <div class="wp-block-cover__inner-container"><!-- wp:heading {"textAlign":"center"} -->
-   //         <h2 class="has-text-align-center">three feature cover block pattern</h2>
-   //         <!-- /wp:heading -->
-   //         <!-- wp:heading {"textAlign":"center","level":3} -->
-   //         <h3 class="has-text-align-center">this is a useful block pattern for services</h3>
-   //         <!-- /wp:heading -->
-   //         <!-- wp:columns -->
-   //         <div class="wp-block-columns"><!-- wp:column {"className":"te_opaque_bg"} -->
-   //         <div class="wp-block-column te_opaque_bg"><!-- wp:heading {"textAlign":"center","level":3} -->
-   //         <h3 class="has-text-align-center">service #1</h3>
-   //         <!-- /wp:heading -->
-   //         <!-- wp:paragraph {"align":"center"} -->
-   //         <p class="has-text-align-center"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate autem voluptatem 
-   //         deserunt ea odio quae odit molestiae provident similique id totam neque et dolorum explicabo, architecto itaque? Quas, eos quam? </p>
-   //         <!-- /wp:paragraph -->
-            // <!-- wp:buttons -->
-            // <div class="wp-block-buttons te_buttons">            
-            // <!-- wp:button -->
-            // <div class="wp-block-button te_button"><a class="wp-block-button__link">read more</a></div>
-            // <!-- /wp:button -->
-            // </div>
-            // <!-- /wp:buttons -->
-   //         </div>
-   //         <!-- /wp:column -->
-   //         <!-- wp:column {"className":"te_opaque_bg"} -->
-   //         <div class="wp-block-column te_opaque_bg"><!-- wp:heading {"textAlign":"center","level":3} -->
-   //         <h3 class="has-text-align-center">service #2</h3>
-   //         <!-- /wp:heading -->
-   //         <!-- wp:paragraph {"align":"center"} -->
-   //         <p class="has-text-align-center"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate autem voluptatem 
-   //         deserunt ea odio quae odit molestiae provident similique id totam neque et dolorum explicabo, architecto itaque? Quas, eos quam? </p>
-   //         <!-- /wp:paragraph -->
-   //         <!-- wp:paragraph {"align":"center"} -->
-   //         <p class="has-text-align-center">explore projects</p>
-   //         <!-- /wp:paragraph --></div>
-   //         <!-- /wp:column -->
-   //         <!-- wp:column {"className":"te_opaque_bg"} -->
-   //         <div class="wp-block-column te_opaque_bg"><!-- wp:heading {"textAlign":"center","level":3} -->
-   //         <h3 class="has-text-align-center">service #3</h3>
-   //         <!-- /wp:heading -->
-   //         <!-- wp:paragraph {"align":"center"} -->
-   //         <p class="has-text-align-center"> You can customize the layout of this block pattern 
-   //         in Appearance \ Customize \ The Educator Block Patterns \ The Educator Covers... </p>
-   //         <!-- /wp:paragraph --> 
-   //         <!-- wp:paragraph {"align":"center"} -->
-   //         <p class="has-text-align-center">continue</p>
-   //         <!-- /wp:paragraph --></div>
-   //         <!-- /wp:column --></div>
-   //         <!-- /wp:columns --></div></div>
-   //         <!-- /wp:cover -->',
-	// ]);
-
-
-
-   // future : should we rename this 'single feature block' - since it is 
-   //         neither technically nor visually a column.
-
-   //
-   // single feature columns block
+   // register single feature columns block / single feature block template
    // we use wp-block-media-text instead of wp-columms since it already has desired styling in two column pattern w/out additionals
    //
    register_block_pattern('te-single-feature-column', [
-   'title' => __('Single Feature Column', 'the-educator'),
-   'description' => _x( 'Single Feature Column.', 'A Column block with a single feature.', 'the-educator' ),            
-   'keywords' => ['single,column'],
-   'categories' => ['te-column-blocks'],
-   'viewportWidth' => 1000,
-   'content' => 
+      'title' => __('Single Feature Column', 'the-educator'),
+      'description' => _x( 'Single Feature Column.', 'A Column block with a single feature.', 'the-educator' ),            
+      'keywords' => ['single,column'],
+      'categories' => ['te-column-blocks'],
+      'viewportWidth' => 1000,
+      'content' => 
          '<!-- wp:media-text {"mediaLink":"' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg","mediaType":"image"} -->
          <div class="wp-block-media-text alignwide is-stacked-on-mobile te-columns te-single-feature-columns">
-         <figure class="wp-block-media-text__media">
-         <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns" />
-         </figure>
-         <div class="wp-block-media-text__content">
-         <!-- wp:heading  {"level":2} -->
-         <h2>Introducing the single feature column.</h2>
-         <!-- /wp:heading -->
-         <!-- wp:paragraph -->
-         <p>You can customize the layout of this block pattern in the Dashboard menu:
-         <br>- Appearance 
-         <br>- - Customize
-         <br>- - - The Educator Block Patterns 
-         <br>- - - - The Educator Columns</p>
-         <!-- /wp:paragraph -->
-         <!-- wp:buttons -->
-         <div class="wp-block-buttons te_buttons">            
-         <!-- wp:button -->
-         <div class="wp-block-button te_button"><a class="wp-block-button__link">read more</a></div>
-         <!-- /wp:button -->
-         </div>
-         <!-- /wp:buttons -->
-         </div>
+         
+            <figure class="wp-block-media-text__media">
+               <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns" />
+            </figure>
+            <div class="wp-block-media-text__content">
+
+               <!-- wp:heading  {"level":2} -->
+               <h2>Introducing the single feature column.</h2>
+               <!-- /wp:heading -->
+
+               <!-- wp:paragraph -->
+               <p>You can customize the layout of this block pattern in the Dashboard menu:
+                  <br>- Appearance 
+                  <br>- - Customize
+                  <br>- - - The Educator Block Patterns 
+                  <br>- - - - The Educator Columns
+               </p>
+               <!-- /wp:paragraph -->
+
+               <!-- wp:buttons -->
+               <div class="wp-block-buttons te_buttons">            
+                  <!-- wp:button -->
+                  <div class="wp-block-button te_button"><a class="wp-block-button__link">read more</a></div>
+                  <!-- /wp:button -->
+               </div>
+               <!-- /wp:buttons -->
+
+            </div>
          </div>
          <!-- /wp:media-text -->'
 	]);
    
 
    //
-   // two feature columns block
+   // two feature columns block template
    //
 	register_block_pattern('te-two-feature-columns', [
 		'title' => __('Two Feature Columns', 'the-educator'),
@@ -245,57 +190,16 @@ function te_register_block_patterns() {
 		'viewportWidth' => 1000,
 		'content' => 
          '<!-- wp:columns {"className":"te-columns te-two-feature-columns"} -->
-         <div class="wp-block-columns te-columns te-two-feature-columns"> 
-         <!-- wp:column -->
-         <div class="wp-block-column">
-         <!-- wp:image {"sizeSlug":"medium","linkDestination":"none"} -->
-         <figure class="wp-block-image size-medium">
-         <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns" /></figure>
-         <!-- /wp:image -->
-         <!-- wp:heading  {"align":"center"} -->
-         <h2 class="has-text-align-center">two feature column</h2>
-         <!-- /wp:heading -->
-         <!-- wp:paragraph  {"align":"center"} -->
-         <p class="has-text-align-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate autem voluptatem 
-         deserunt ea odio quae odit molestiae provident similique id totam neque et dolorum explicabo, architecto itaque? Quas, eos quam?</p>
-         <!-- /wp:paragraph -->
-         <!-- wp:buttons -->
-         <div class="wp-block-buttons te_buttons">
-         <!-- wp:button -->
-         <div class="wp-block-button te_button"><a class="wp-block-button__link">read more</a></div>
-         <!-- /wp:button -->
-         </div>
-         <!-- /wp:buttons -->
-         </div>
-         <!-- /wp:column -->
-         <!-- wp:column -->
-         <div class="wp-block-column"> 
-         <!-- wp:image {"sizeSlug":"medium","linkDestination":"none"} -->
-         <figure class="wp-block-image size-medium">
-         <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns" /></figure>
-         <!-- /wp:image -->
-         <!-- wp:heading  {"align":"center"} -->
-         <h2 class="has-text-align-center">title here</h2>
-         <!-- /wp:heading -->
-         <!-- wp:paragraph  {"align":"center"} -->
-         <p class="has-text-align-center">You can customize the layout of this block pattern in the Dashboard menu: Appearance \ Customize \ The Educator Block Patterns \ The Educator Columns</p>
-         <!-- /wp:paragraph -->
-         <!-- wp:buttons -->
-         <div class="wp-block-buttons te_buttons">
-         <!-- wp:button -->
-         <div class="wp-block-button te_button"><a class="wp-block-button__link">read more</a></div>
-         <!-- /wp:button -->
-         </div>
-         <!-- /wp:buttons -->
-         </div>
-         <!-- /wp:column -->
-         </div>
+         <div class="wp-block-columns te-columns te-two-feature-columns">' . 
+            te_single_col_template() . 
+            te_single_col_template() .
+         '</div>
          <!-- /wp:columns -->',
 	]);
 
 
    //
-   // three feature columns block   
+   // three feature columns block template
    //
 	register_block_pattern('te-three-feature-columns', [
 		'title' => __('Three Feature Columns', 'the-educator'),
@@ -304,73 +208,13 @@ function te_register_block_patterns() {
 		'categories' => ['te-column-blocks'],
 		'viewportWidth' => 1000,
 		'content' =>  
-            '<!-- wp:columns {"className":"te-columns te-three-feature-columns"} -->
-            <div class="wp-block-columns te-columns te-three-feature-columns">
-            <!-- wp:column {"className":"te_center_content"} -->
-            <div class="wp-block-column te_center_content">
-            <!-- wp:image {"sizeSlug":"medium","linkDestination":"none","className":"fill_width"} -->
-            <figure class="wp-block-image size-medium fill_width">
-            <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/></figure>
-            <!-- /wp:image -->
-            <!-- wp:heading -->
-            <h2 class="has-text-align-center">three</h2>
-            <!-- /wp:heading -->
-            <!-- wp:paragraph {"align":"center"} -->
-            <p class="has-text-align-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate autem voluptatem deserunt ea odio quae 
-            odit molestiae provident similique id totam neque et dolorum explicabo, architecto itaque? Quas, eos quam?</p>
-            <!-- /wp:paragraph -->
-            <!-- wp:buttons -->
-            <div class="wp-block-buttons te_buttons">            
-            <!-- wp:button -->
-            <div class="wp-block-button te_button"><a class="wp-block-button__link">read more</a></div>
-            <!-- /wp:button -->
-            </div>
-            <!-- /wp:buttons --></div>
-            <!-- /wp:column -->        
-            <!-- wp:column {"className":"te_center_content"} -->
-            <div class="wp-block-column te_center_content">
-            <!-- wp:image {"sizeSlug":"medium","linkDestination":"none","className":"fill_width"} -->
-            <figure class="wp-block-image size-medium fill_width">
-            <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/></figure>
-            <!-- /wp:image -->
-            <!-- wp:heading {"textAlign":"center"} -->
-            <h2 class="has-text-align-center">feature</h2>
-            <!-- /wp:heading -->
-            <!-- wp:paragraph {"align":"center"} -->
-            <p class="has-text-align-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate autem voluptatem 
-            deserunt ea odio quae odit molestiae provident similique id totam neque et dolorum explicabo, architecto itaque? Quas, eos quam?</p>
-            <!-- /wp:paragraph -->
-            <!-- wp:buttons -->
-            <div class="wp-block-buttons te_buttons">            
-            <!-- wp:button -->
-            <div class="wp-block-button te_button"><a class="wp-block-button__link">read more</a></div>
-            <!-- /wp:button -->
-            </div>
-            <!-- /wp:buttons -->
-            </div>
-            <!-- /wp:column -->
-            <!-- wp:column {"className":"te_center_content"} -->
-            <div class="wp-block-column te_center_content">
-            <!-- wp:image {"sizeSlug":"medium","linkDestination":"none","className":"fill_width"} -->
-            <figure class="wp-block-image size-medium fill_width">
-            <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/></figure>
-            <!-- /wp:image -->
-            <!-- wp:heading -->
-            <h2 class="has-text-align-center">columns</h2>
-            <!-- /wp:heading -->  
-            <!-- wp:paragraph  {"align":"center"} -->
-            <p class="has-text-align-center">You can customize the layout of this block pattern in the Dashboard menu: Appearance \ Customize \ The Educator Block Patterns \ The Educator Columns</p>
-            <!-- /wp:paragraph -->
-            <!-- wp:buttons -->
-            <div class="wp-block-buttons te_buttons">            
-            <!-- wp:button -->
-            <div class="wp-block-button te_button"><a class="wp-block-button__link">read more</a></div>
-            <!-- /wp:button -->
-            </div>
-            <!-- /wp:buttons -->
-            </div>
-            <!-- /wp:column --></div>
-            <!-- /wp:columns -->',
+         '<!-- wp:columns {"className":"te-columns te-three-feature-columns"} -->
+         <div class="wp-block-columns te-columns te-three-feature-columns">' . 
+            te_single_col_template() . 
+            te_single_col_template() .  
+            te_single_col_template() .
+         '</div>
+         <!-- /wp:columns -->',
 	]);
 
 
@@ -383,123 +227,18 @@ function te_register_block_patterns() {
       'keywords' => ['six,columns'],
       'categories' => ['te-column-blocks'],
       'viewportWidth' => 1000,
-      'content' =>  
+      'content' =>   
          '<!-- wp:columns {"className":"te-columns te-six-feature-columns"} -->
-         <div class="wp-block-columns te-columns te-six-feature-columns">
-         <!-- wp:column {"className":"te_center_content"} -->
-         <div class="wp-block-column te_center_content">
-         <!-- wp:image {"linkDestination":"none"} -->
-         <figure class="wp-block-image">
-         <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns" /></figure>
-         <!-- /wp:image --></div>
-         <!-- /wp:column -->
-         <!-- wp:column {"className":"te_center_content"} -->
-         <div class="wp-block-column te_center_content">
-         <!-- wp:image {"linkDestination":"none"} -->
-         <figure class="wp-block-image">
-         <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/></figure>
-         <!-- /wp:image --></div>
-         <!-- /wp:column -->
-         <!-- wp:column {"className":"te_center_content"} -->
-         <div class="wp-block-column te_center_content">
-         <!-- wp:image {"linkDestination":"none"} -->
-         <figure class="wp-block-image">
-         <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/></figure>
-         <!-- /wp:image --></div>
-         <!-- /wp:column -->
-         <!-- wp:column {"className":"te_center_content"} -->
-         <div class="wp-block-column te_center_content">
-         <!-- wp:image {"linkDestination":"none"} -->
-         <figure class="wp-block-image">
-         <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/></figure>
-         <!-- /wp:image --></div>
-         <!-- /wp:column -->
-         <!-- wp:column {"className":"te_center_content"} -->
-         <div class="wp-block-column te_center_content">
-         <!-- wp:image {"linkDestination":"none"} -->
-         <figure class="wp-block-image">
-         <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/></figure>
-         <!-- /wp:image --></div>
-         <!-- /wp:column -->
-         <!-- wp:column {"className":"te_center_content"} -->
-         <div class="wp-block-column te_center_content">
-         <!-- wp:image {"linkDestination":"none"} -->
-         <figure class="wp-block-image">
-         <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/></figure>
-         <!-- /wp:image --></div>
-         <!-- /wp:column -->
-         </div><!-- /wp:columns -->',
+         <div class="wp-block-columns te-columns te-six-feature-columns">' . 
+            te_single_col_template(true) .
+            te_single_col_template(true) .
+            te_single_col_template(true) .
+            te_single_col_template(true) .
+            te_single_col_template(true) .
+            te_single_col_template(true) .
+         '</div>
+         <!-- /wp:columns -->',      
    ]);
-
-
-   // 
-   // three feature cover-columns block
-   //
-   //  register_block_pattern('te-three-feature-cover-columns', [
-	// 	'title' => __('Three Feature Cover-Columns', 'the-educator'),
-   //    'description' => _x( 'Three Feature Cover Columns.', 'Combining three feature columns over a cover block.', 'the-educator' ),            
-	// 	'keywords' => ['three,cover-column'],
-	// 	'categories' => ['te-cover-column-blocks'],
-	// 	'viewportWidth' => 1000,
-	// 	'content' =>  
-   //          '<!-- wp:columns {"className":"te-cover-columns te-three-feature-cover-columns"} -->
-   //          <div class="wp-block-columns te-cover-columns te-three-feature-cover-columns"><!-- wp:column -->
-   //          <div class="wp-block-column">
-   //          <!-- wp:cover  -->
-   //          <div class="wp-block-cover has-background-dim">
-   //          <div class="wp-block-cover__inner-container">
-   //          <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"large"} -->
-   //          <h2 class="has-text-align-center">Dynamic</h2>
-   //          <!-- /wp:heading -->
-   //          <!-- wp:paragraph  {"textAlign":"center"} -->
-   //          <p class="has-text-align-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate autem voluptatem 
-   //          deserunt ea odio quae odit molestiae provident similique id totam neque et dolorum explicabo, architecto itaque? Quas, eos quam?</p>
-   //          <!-- /wp:paragraph -->
-            // <!-- wp:buttons -->
-            // <div class="wp-block-buttons te_buttons">            
-            // <!-- wp:button -->
-            // <div class="wp-block-button te_button"><a class="wp-block-button__link">read more</a></div>
-            // <!-- /wp:button -->
-            // </div>
-            // <!-- /wp:buttons -->
-   // </div></div>
-   //          <!-- /wp:cover --></div>
-   //          <!-- /wp:column -->
-   //          <!-- wp:column -->
-   //          <div class="wp-block-column">
-   //          <!-- wp:cover {} -->
-   //          <div class="wp-block-cover has-background-dim">
-   //          <div class="wp-block-cover__inner-container">                     
-   //          <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"large"} -->
-   //          <h2 class="has-text-align-center">Cover</h2>
-   //          <!-- /wp:heading -->
-   //          <!-- wp:paragraph  {"textAlign":"center"} -->
-   //          <p class="has-text-align-center">mouse over to highlight this feature</p>
-   //          <!-- /wp:paragraph -->
-   //          <!-- wp:paragraph  {"textAlign":"center"} -->
-   //          <p class="has-text-align-center">explore</p>
-   //          <!-- /wp:paragraph --></div></div>
-   //          <!-- /wp:cover --></div>
-   //          <!-- /wp:column -->
-   //          <!-- wp:column -->
-   //          <div class="wp-block-column">
-   //          <!-- wp:cover {} -->
-   //          <div class="wp-block-cover has-background-dim">
-   //          <div class="wp-block-cover__inner-container">                     
-   //          <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"large"} -->
-   //          <h2 class="has-text-align-center">Columns</h2>
-   //          <!-- /wp:heading -->
-   //          <!-- wp:paragraph  {"textAlign":"center"} -->
-   //          <p class="has-text-align-center">You can customize the layout of this block pattern 
-   //          in Appearance \ Customize \ The Educator Block Patterns \ The Educator Cover-Columns...</p>
-   //          <!-- /wp:paragraph -->
-   //          <!-- wp:paragraph {"textAlign":"center"} -->
-   //          <p class="has-text-align-center">learn more</p>
-   //          <!-- /wp:paragraph --></div></div>
-   //          <!-- /wp:cover --></div>
-   //          <!-- /wp:column --></div>
-   //          <!-- /wp:columns -->'
-   // ]);
 
 
    // future :
@@ -509,6 +248,7 @@ function te_register_block_patterns() {
    //            get_theme_mod('te_title_lead_fade_in')       // contains string 'fade_in' or '' 
    //
    // to insert 'fade_in' in 'div.te-title-lead' below
+
 
    //
    // the big title & lead text
@@ -522,14 +262,19 @@ function te_register_block_patterns() {
 		'content' =>  
          '<!-- wp:group {"className":"te-big-title-lead"} -->
          <div class="wp-block-group te-big-title-lead">
-         <!-- wp:heading {"textAlign":"center","level":2} -->
-         <h2 class="te-big-title-lead__title has-text-align-center">Big Title & Lead Text</h2>
-         <!-- /wp:heading -->
-         <!-- wp:paragraph {"align":"center"} -->
-         <p class="has-text-align-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.         
-         <br>You can customize the layout of this block pattern in the Dashboard menu:
-         <br> Appearance \ Customize \ The Educator Block Patterns \ The Educator Texts </p>
-         <!-- /wp:paragraph -->
+
+            <!-- wp:heading {"textAlign":"center","level":2} -->
+               <h2 class="te-big-title-lead__title has-text-align-center">Big Title & Lead Text</h2>
+            <!-- /wp:heading -->
+
+            <!-- wp:paragraph {"align":"center"} -->
+            <p class="has-text-align-center">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit.         
+               <br>You can customize the layout of this block pattern in the Dashboard menu:
+               <br> Appearance \ Customize \ The Educator Block Patterns \ The Educator Texts 
+            </p>
+            <!-- /wp:paragraph -->
+         
          </div>
          <!-- /wp:group -->'
    ]);
@@ -546,14 +291,19 @@ function te_register_block_patterns() {
 		'content' =>  
          '<!-- wp:group {"className":"te-title-lead"} -->
          <div class="wp-block-group te-title-lead">
-         <!-- wp:heading {"textAlign":"center","level":2} -->
-         <h2 class="te-title-lead__title has-text-align-center">Title & Lead Text</h2>
-         <!-- /wp:heading -->
-         <!-- wp:paragraph {"align":"center"} -->
-         <p class="has-text-align-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.         
-         <br>You can customize the layout of this block pattern in the Dashboard menu:
-         <br> Appearance \ Customize \ The Educator Block Patterns \ The Educator Texts </p>
-         <!-- /wp:paragraph -->
+
+            <!-- wp:heading {"textAlign":"center","level":2} -->
+               <h2 class="te-title-lead__title has-text-align-center">Title & Lead Text</h2>
+            <!-- /wp:heading -->
+
+            <!-- wp:paragraph {"align":"center"} -->
+            <p class="has-text-align-center">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit.         
+               <br>You can customize the layout of this block pattern in the Dashboard menu:
+               <br> Appearance \ Customize \ The Educator Block Patterns \ The Educator Texts
+            </p>
+            <!-- /wp:paragraph -->
+
          </div>
          <!-- /wp:group -->'
    ]);
@@ -570,13 +320,20 @@ function te_register_block_patterns() {
 		'content' =>  
          '<!-- wp:group {"className":"te-text te-simple-text"} -->
          <div class="wp-block-group te-text te-simple-text">
-         <!-- wp:paragraph -->
-         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate autem voluptatem deserunt ea odio quae odit molestiae provident similique id totam neque et dolorum explicabo, architecto itaque? Quas, eos quam?</p>
-         <!-- /wp:paragraph -->
-         <!-- wp:paragraph -->
-         <p>You can customize the layout of this block pattern in the Dashboard menu:
-         <br> Appearance \ Customize \ The Educator Block Patterns \ The Educator Texts </p>
-         <!-- /wp:paragraph --></div>
+
+            <!-- wp:paragraph -->
+            <p>
+               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate autem voluptatem deserunt ea odio quae odit molestiae provident similique id totam neque et dolorum explicabo, architecto itaque? Quas, eos quam?
+            </p>
+            <!-- /wp:paragraph -->
+
+            <!-- wp:paragraph -->
+            <p>
+               You can customize the layout of this block pattern in the Dashboard menu:
+               <br> Appearance \ Customize \ The Educator Block Patterns \ The Educator Texts
+            </p>
+            <!-- /wp:paragraph -->
+         </div>
          <!-- /wp:group -->'
 	]);
 
@@ -618,7 +375,7 @@ function te_register_block_patterns() {
 		'content' =>  
          '<!-- wp:image {"sizeSlug":"large","linkDestination":"none","className":"te-image"} -->
          <figure class="wp-block-image size-large te-image">
-         <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/>
+            <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/>
          </figure>
          <!-- /wp:image -->'
    ]);
@@ -627,7 +384,7 @@ function te_register_block_patterns() {
 
    //
    // te-gallery
-   //
+   // to do : review - we are nesting figures?
     register_block_pattern('te-gallery', [
 		'title' => __('The Educator Gallery', 'the-educator'),
       'description' => _x( 'The Educator Gallery.', 'An image gallery block with The Educator customization.', 'the-educator' ),            
@@ -637,20 +394,23 @@ function te_register_block_patterns() {
 		'content' =>  
          '<!-- wp:gallery {"linkTo":"none"} -->
          <figure class="wp-block-gallery te-gallery columns-3 is-cropped">
-         <ul class="blocks-gallery-grid">
-         <li class="blocks-gallery-item">
-         <figure>
-         <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/>
-         </figure></li>
-         <li class="blocks-gallery-item">
-         <figure>
-         <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/>
-         </figure></li>
-         <li class="blocks-gallery-item">
-         <figure>
-         <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/>
-         </figure></li>
-         </ul>
+            <ul class="blocks-gallery-grid">
+               <li class="blocks-gallery-item">
+                  <figure>
+                     <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/>
+                  </figure>
+               </li>
+               <li class="blocks-gallery-item">
+                  <figure>
+                     <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/>
+                  </figure>
+               </li>
+               <li class="blocks-gallery-item">
+                  <figure>
+                     <img src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" alt="image of columns"/>
+                  </figure>
+               </li>
+            </ul>
          </figure>
          <!-- /wp:gallery -->'
    ]);
@@ -667,9 +427,11 @@ function te_register_block_patterns() {
 		'categories' => ['te-buttons'],
 		'viewportWidth' => 1000,
 		'content' =>  '<!-- wp:buttons  {"className":"te-buttons"} -->
-                     <div class="wp-block-buttons te-buttons"><!-- wp:button -->
-                     <div class="wp-block-button"><a class="wp-block-button__link">explore our projects</a></div>
-                     <!-- /wp:button --></div>
+                     <div class="wp-block-buttons te-buttons">
+                        <!-- wp:button -->
+                        <div class="wp-block-button"><a class="wp-block-button__link">explore our projects</a></div>
+                        <!-- /wp:button -->
+                     </div>
                      <!-- /wp:buttons -->'
    ]);
 
