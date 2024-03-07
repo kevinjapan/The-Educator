@@ -1,12 +1,12 @@
 <?php
 
    
+// Register Theme Customizer Block Pattern Settings and Controls
+//
 function te_customize_gallery_block($wp_customize) {
 
-   //
    // te-gallery block pattern : 
    // wrap wp-block-image to enable our margin and padding applied across all gallery blocks 
-   //
    $wp_customize->add_setting( 'te_gallery_x_padding',
       array('default'    => '0', 
             'type'       => 'theme_mod',
@@ -23,7 +23,6 @@ function te_customize_gallery_block($wp_customize) {
             'description' => __( '% horizontal padding for Galleries.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
    );
-
    $wp_customize->add_setting( 'te_gallery_y_margins',
       array('default'    => '0', 
             'type'       => 'theme_mod',
@@ -40,17 +39,14 @@ function te_customize_gallery_block($wp_customize) {
             'description' => __( '% vertical spacing for Galleries.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
    );
-
-
 }
 
 
 
+// Output Custom Block Pattern CSS to frontend (utilising Block Customizer Settings and Controls above)
+//
 function te_customize_gallery_block_styles() {
 
-
-   
-   //
    // te-gallery
    //
    ?>
@@ -65,6 +61,6 @@ function te_customize_gallery_block_styles() {
       ?>
    }
    <?php
-
 }
+
 

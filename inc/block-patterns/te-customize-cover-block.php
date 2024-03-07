@@ -2,9 +2,10 @@
 
 
 
+// Register Theme Customizer Block Pattern Settings and Controls
+//
 function te_customize_cover_block($wp_customize) {
 
-   // 
    // cover block patterns
    //
    $wp_customize->add_setting( 'te_cover_x_width',
@@ -23,7 +24,6 @@ function te_customize_cover_block($wp_customize) {
             'description' => __( '% width for Covers.','the-educator'),
             'input_attrs' => array( 'min' => 60, 'max' => 100, 'style' => 'width: 80px;', 'step'	=> 5 )) 
    );
-
    $wp_customize->add_setting( 'te_cover_y_margins',
       array('default'    => '0', 
             'type'       => 'theme_mod',
@@ -42,9 +42,11 @@ function te_customize_cover_block($wp_customize) {
    );
 }
 
-function te_customize_cover_block_styles() {
 
-   //
+// Output Custom Block Pattern CSS to frontend (utilising Block Customizer Settings and Controls above)
+//
+function te_customize_cover_block_styles() {
+   
    // te-cover
    //
    ?>

@@ -1,6 +1,8 @@
 <?php
 
-   
+  
+// Register Theme Customizer Block Pattern Settings and Controls
+// 
 function te_customize_text_block($wp_customize) {
 
    //
@@ -68,20 +70,19 @@ function te_customize_text_block($wp_customize) {
 
 
 
+// Output Custom Block Pattern CSS to frontend (utilising Block Customizer Settings and Controls above)
+//
 function te_customize_text_block_styles() {
 
-   
-   //
+
    // te-simple-text
    // 
-
    te_generate_css_rule('.wp-block-group.te-text.te-simple-text',
       ['style' => 'margin-top','setting' => 'te_text_y_margins','prefix'  => '','postfix' => 'vh'],
       ['style' => 'margin-bottom','setting' => 'te_text_y_margins','prefix'  => '','postfix' => 'vh']); 
    te_generate_css_rule('.wp-block-group.te-text.te-simple-text',
       ['style' => 'text-align','setting' => 'te_text_text_align','prefix'  => '','postfix' => '']); 
    ?>
-
    @media screen and (min-width: 768px) { 
       <?php 
       te_generate_css_rule('.te-text, .te-text.has-background ',
@@ -90,6 +91,5 @@ function te_customize_text_block_styles() {
       ?>
    }
    <?php
-
 }
 

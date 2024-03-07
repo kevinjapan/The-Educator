@@ -1,10 +1,10 @@
 <?php
 
    
+// Register Theme Customizer Block Pattern Settings and Controls
+//
 function te_customize_title_lead_block($wp_customize) {
 
-
-   //
    // big title & lead block pattern
    //
    $wp_customize->add_setting( 'te_big_title_lead_btwn_padding',
@@ -23,10 +23,6 @@ function te_customize_title_lead_block($wp_customize) {
             'description' => __( '% padding between Big Title & Lead.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 5, 'style' => 'width: 80px;', 'step'	=> 1 ))
    );
-
-
-
-   // 
    // big title & lead-text box padding
    //
    $wp_customize->add_setting( 'te_big_title_lead_x_padding',
@@ -45,7 +41,6 @@ function te_customize_title_lead_block($wp_customize) {
             'description' => __( '% horizontal padding for Big Title & Lead.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
    );
-
    $wp_customize->add_setting( 'te_big_title_lead_top_padding',
       array('default'    => '0', 
             'type'       => 'theme_mod',
@@ -62,7 +57,6 @@ function te_customize_title_lead_block($wp_customize) {
             'description' => __( '% padding above Big Title & Lead.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
    );
-
    $wp_customize->add_setting( 'te_big_title_lead_bottom_padding',
       array('default'    => '0', 
             'type'       => 'theme_mod',
@@ -79,10 +73,6 @@ function te_customize_title_lead_block($wp_customize) {
             'description' => __( '% padding below for Big Title & Lead.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
    );
-
-   
-
-   //
    // lead-text margins
    //
    $wp_customize->add_setting( 'te_big_title_lead_top_margin',
@@ -101,7 +91,6 @@ function te_customize_title_lead_block($wp_customize) {
             'description' => __( '% margin above Big Title & Lead.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
    );
-
    $wp_customize->add_setting( 'te_big_title_lead_bottom_margin',
       array('default'    => '0', 
             'type'       => 'theme_mod',
@@ -118,12 +107,6 @@ function te_customize_title_lead_block($wp_customize) {
             'description' => __( '% margin below for Big Title & Lead.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
    );
-
-
-
-   // ------------------------------------------------------------------------------------------------
-
-   //
    // title & lead block pattern
    //
    $wp_customize->add_setting( 'te_title_lead_btwn_padding',
@@ -142,10 +125,6 @@ function te_customize_title_lead_block($wp_customize) {
             'description' => __( '% padding between Title & Lead.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 5, 'style' => 'width: 80px;', 'step'	=> 1 ))
    );
-
-
-
-   // 
    // lead-text box padding
    //
    $wp_customize->add_setting( 'te_title_lead_x_padding',
@@ -164,7 +143,6 @@ function te_customize_title_lead_block($wp_customize) {
             'description' => __( '% horizontal padding for Title & Lead.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
    );
-
    $wp_customize->add_setting( 'te_title_lead_top_padding',
       array('default'    => '0', 
             'type'       => 'theme_mod',
@@ -181,7 +159,6 @@ function te_customize_title_lead_block($wp_customize) {
             'description' => __( '% padding above Title & Lead.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
    );
-
    $wp_customize->add_setting( 'te_title_lead_bottom_padding',
       array('default'    => '0', 
             'type'       => 'theme_mod',
@@ -198,10 +175,6 @@ function te_customize_title_lead_block($wp_customize) {
             'description' => __( '% padding below for Title & Lead.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
    );
-
-   
-
-   //
    // lead-text margins
    //
    $wp_customize->add_setting( 'te_title_lead_top_margin',
@@ -220,7 +193,6 @@ function te_customize_title_lead_block($wp_customize) {
             'description' => __( '% margin above Title & Lead.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
    );
-
    $wp_customize->add_setting( 'te_title_lead_bottom_margin',
       array('default'    => '0', 
             'type'       => 'theme_mod',
@@ -237,18 +209,14 @@ function te_customize_title_lead_block($wp_customize) {
             'description' => __( '% margin below for Title & Lead.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 ))
    );
-
-
-
-
 }
 
 
 
+// Output Custom Block Pattern CSS to frontend (utilising Block Customizer Settings and Controls above)
+//
 function te_customize_title_lead_block_styles() {
 
-   
-   //
    // big te-title-lead
    //
    te_generate_css_rule('.wp-block-group.te-big-title-lead',
@@ -270,7 +238,6 @@ function te_customize_title_lead_block_styles() {
       ?>
    }
    <?php
-   //
    // te-title-lead
    //
    te_generate_css_rule('.wp-block-group.te-title-lead',
@@ -292,6 +259,4 @@ function te_customize_title_lead_block_styles() {
       ?>
    }
    <?php
-
-
 }

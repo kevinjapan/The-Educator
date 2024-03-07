@@ -1,5 +1,7 @@
 <?php
 
+// Register Theme Customizer Block Pattern Settings and Controls
+//
 function te_customize_column_blocks($wp_customize) {
 
    // future : Add bg color setting to block patterns
@@ -29,7 +31,6 @@ function te_customize_column_blocks($wp_customize) {
             'description' => __( '% horizontal padding for Columns.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
    );
-
    $wp_customize->add_setting( 'te_column_top_padding',
       array('default'    => '0', 
             'type'       => 'theme_mod',
@@ -46,7 +47,6 @@ function te_customize_column_blocks($wp_customize) {
             'description' => __( '% top padding for Columns.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
    );
-
    $wp_customize->add_setting( 'te_column_bottom_padding',
       array('default'    => '0', 
             'type'       => 'theme_mod',
@@ -66,21 +66,19 @@ function te_customize_column_blocks($wp_customize) {
 }
 
 
+// Output Custom Block Pattern CSS to frontend (utilising Block Customizer Settings and Controls above)
+//
 function te_customize_column_blocks_styles() {
 
-   
-      //
-      // te-columns
-      //
-      te_generate_css_rule('.wp-block-media-text.te-columns,.wp-block-media-text.te-columns.has-background,.wp-block-columns.te-columns,.wp-block-columns.te-columns.has-background',
+   // te-columns
+   //
+   te_generate_css_rule('.wp-block-media-text.te-columns,.wp-block-media-text.te-columns.has-background,.wp-block-columns.te-columns,.wp-block-columns.te-columns.has-background',
       ['style' => 'padding-top','setting' => 'te_column_top_padding','prefix'  => '','postfix' => 'vh'],
       ['style' => 'padding-bottom','setting' => 'te_column_bottom_padding','prefix'  => '','postfix' => 'vh']);
    te_generate_css_rule('.wp-block-media-text.te-columns.te-single-feature-columns,.wp-block-media-text.te-columns.has-background,.wp-block-columns.te-columns,.wp-block-columns.te-columns.has-background',
       ['style' => 'margin-top','setting' => 'te_column_y_margins','prefix'  => '','postfix' => 'vh !important'],
       ['style' => 'margin-bottom','setting' => 'te_column_y_margins','prefix'  => '','postfix' => 'vh !important']);
-?>
-
-<?php
+ 
    // future : refactor : we want to prevent empty media queries but efficiently!
    // $mod = get_theme_mod('te_column_x_padding');
    // if ( ! empty($mod) || $mod === "0" ) {?>
@@ -100,7 +98,6 @@ function te_customize_column_blocks_styles() {
       }
    <?php
    //}
-   
 }
 
 
