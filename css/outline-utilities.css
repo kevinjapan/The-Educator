@@ -347,3 +347,13 @@ section.cover_block.fixed + section {
    margin-top:calc(var(--cover_block_height) - var(--nav_bar_height)); 
 }
 */
+
+.flex {
+   display:-webkit-box;
+   display:-ms-flexbox;
+   display:flex;
+}
+
+.fit_content {
+   max-width:fit-content;
+}
