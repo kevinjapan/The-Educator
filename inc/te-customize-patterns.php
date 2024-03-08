@@ -3,12 +3,13 @@ require_once get_template_directory() . '/inc/te-sanitize.php';
 require_once get_template_directory() . '/inc/te-utility.php';
 
 // Block Patterns
-require_once get_template_directory() . '/inc/block-patterns/te-customize-cover-block.php';
-require_once get_template_directory() . '/inc/block-patterns/te-customize-column-blocks.php';
-require_once get_template_directory() . '/inc/block-patterns/te-customize-gallery-block.php';
-require_once get_template_directory() . '/inc/block-patterns/te-customize-image-block.php';
-require_once get_template_directory() . '/inc/block-patterns/te-customize-title-lead-block.php';
-require_once get_template_directory() . '/inc/block-patterns/te-customize-text-block.php';
+require_once get_template_directory() . '/inc/customizer-pattern-combos/te-customize-cover-block.php';
+require_once get_template_directory() . '/inc/customizer-pattern-combos/te-customize-column-blocks.php';
+require_once get_template_directory() . '/inc/customizer-pattern-combos/te-customize-gallery-block.php';
+require_once get_template_directory() . '/inc/customizer-pattern-combos/te-customize-image-block.php';
+require_once get_template_directory() . '/inc/customizer-pattern-combos/te-customize-title-lead-block.php';
+require_once get_template_directory() . '/inc/customizer-pattern-combos/te-customize-text-block.php';
+
 
 //
 // TheEducatorPatternsCustomizer - Populate the Customizer.
@@ -27,7 +28,7 @@ class TheEducatorPatternsCustomizer {
       $theme_title = '';               // 'The Educator ';
 
       //
-      // Wed Dev Agent Block Patterns panel
+      // Block Patterns panel
       //
       if ( class_exists( 'WP_Customize_Panel' ) ) {
          if ( ! $wp_customize->get_panel( 'te_patterns_panel' ) ) {
