@@ -222,6 +222,16 @@
          $('.footer_copyright').text(value);
       });
    });
+   wp.customize('te_copyright_auto_complete',function(setting) {
+      setting.bind( function(value) {
+         if(value) {
+            $('.footer_copyright_auto_complete').text(' - ' + new Date().getFullYear());
+         }
+         else {
+            $('.footer_copyright_auto_complete').text('');
+         }
+      });
+   });
 
    
 }) (jQuery);
