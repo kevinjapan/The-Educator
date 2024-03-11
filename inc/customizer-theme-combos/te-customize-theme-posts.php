@@ -4,12 +4,6 @@
 //
 function te_customize_theme_posts($wp_customize) {
 
-
-   /*
-   * Posts
-   */
-
-   /* te_posts */
    $wp_customize->add_setting( 'te_is_posts_sidebar',
    array('default'    => true, 
          'type'       => 'theme_mod',

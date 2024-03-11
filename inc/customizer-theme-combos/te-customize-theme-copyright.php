@@ -4,7 +4,6 @@
 //
 function te_customize_theme_copyright($wp_customize) {
 
-   /* Copyright Notice */
    $wp_customize->add_setting( 'te_copyright',
    array('default'    => 'Copyright © ' . date("Y"), 
          'type'       => 'theme_mod',
