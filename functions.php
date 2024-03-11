@@ -12,21 +12,26 @@ The Educator's functions and definitions
 if ( ! function_exists('te_theme_setup') ) {
 	// theme defaults and support for WordPress features.
    function te_theme_setup() {
+      
       add_theme_support('menus');
+
+      // support Featured Images (Post Thumbnails)
       add_theme_support('post-thumbnails');
+
+      // add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );  to do : review.
+      
       add_theme_support('custom-logo');
+
       add_theme_support('widgets');
    }
 }
 add_action( 'after_setup_theme', 'te_theme_setup' );
 
 
-
 function te_custom_excerpt_length( $length ) {
     return 20;
 }
 add_filter( 'excerpt_length', 'te_custom_excerpt_length', 999 );
-
 
 
 // Set the main WordPress query to include our custom post types
@@ -77,6 +82,22 @@ function te_load_stylesheets() {
 add_action('wp_enqueue_scripts','te_load_stylesheets');
 
 
+function te_load_admin_stylesheets() {
+   wp_register_style('outline',get_template_directory_uri() . '/css/outline.css',array(),1,'all');
+   wp_enqueue_style('outline');
+   wp_register_style('outline_custom_props',get_template_directory_uri() . '/css/outline-custom-props.css',array(),1,'all');
+   wp_enqueue_style('outline_custom_props');
+   wp_register_style('outline_layouts',get_template_directory_uri() . '/css/outline-layouts.css',array(),1,'all');
+   wp_enqueue_style('outline_layouts');
+   wp_register_style('outline_utilities',get_template_directory_uri() . '/css/outline-utilities.css',array(),1,'all');
+   wp_enqueue_style('outline_utilities');
+   wp_register_style('te_stylesheet',get_template_directory_uri() . '/css/the-educator.css',array(),1,'all');
+   wp_enqueue_style('te_stylesheet');
+}
+add_action('admin_enqueue_scripts', 'te_load_admin_stylesheets');
+   
+
+
 function te_load_jquery() {
    wp_enqueue_script('jquery');
 }
@@ -104,10 +125,8 @@ add_image_size('medium',600,305,true);
 add_image_size('small',200,200,true);
 
 
-
-/* 
- * widget sidebars
- */
+// widget sidebars
+//
 function te_sidebars_init() {
    register_sidebar(
       array(
@@ -145,16 +164,17 @@ add_action( 'widgets_init', 'te_sidebars_init' );
 
 
 
-
+// register Custom Block Patterns
+//
 require_once get_template_directory() . '/inc/te-block-patterns.php';
 
-// add theme patterns to customizer - must be included last
+// Register Theme and Theme Patterns Settings/Controls in Customizer - must be included last
+//
 require_once get_template_directory() . '/inc/te-customize-theme.php';
 require_once get_template_directory() . '/inc/te-customize-patterns.php';
 
 
-//
-// enable live preview on customizer screen
+// Enable live preview on Customizer screen
 //
 function te_customizer_live_preview() {
 	wp_enqueue_script( 
