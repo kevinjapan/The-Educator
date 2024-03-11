@@ -15,6 +15,18 @@
 
 
    // 
+   // hero cover block
+   //
+   wp.customize('te_hero_x_height', function(setting) {
+      setting.bind( function(value) {
+         if(value < 0) value = 0;
+         if(value > 100) value =  100;
+         $('.te-hero').css('height', value + 'vh');
+      });
+   });
+
+
+   // 
    // cover block
    //
    wp.customize('te_cover_x_width', function(setting) {

@@ -3,7 +3,7 @@ require_once get_template_directory() . '/inc/te-sanitize.php';
 require_once get_template_directory() . '/inc/te-utility.php';
 
 // Block Patterns
-require_once get_template_directory() . '/inc/customizer-pattern-combos/te-customize-cover-block.php';
+require_once get_template_directory() . '/inc/customizer-pattern-combos/te-customize-cover-blocks.php';
 require_once get_template_directory() . '/inc/customizer-pattern-combos/te-customize-column-blocks.php';
 require_once get_template_directory() . '/inc/customizer-pattern-combos/te-customize-gallery-block.php';
 require_once get_template_directory() . '/inc/customizer-pattern-combos/te-customize-image-block.php';
@@ -35,7 +35,7 @@ class TheEducatorPatternsCustomizer {
             $wp_customize->add_panel(
                'te_patterns_panel',
                array(
-                  'priority' => 25,
+                  'priority' => 62,
                   'title' => __( 'The Educator Block Patterns', 'the-educator' ),
                   'description' => 
                      __('Apply customizations to The Educator Block Pattern types across the site.
@@ -51,10 +51,10 @@ class TheEducatorPatternsCustomizer {
       // Block Pattern Sections
       //
       $wp_customize->add_section( 'te_cover_patterns', 
-      array('title'       => __( $theme_title . 'Covers', 'the-educator' ),
+      array('title'       => __( $theme_title . 'Hero & Cover Blocks', 'the-educator' ),
             'priority'    => 10,
             'capability'  => 'edit_theme_options',
-            'description' => __('You can customize all ' . $theme_title . 'Covers across the site here.', 'the-educator'),
+            'description' => __('Customize all Covers site-wide.', 'the-educator'),
             'panel' => 'te_patterns_panel',
             'active_callback' => '') 
       );   

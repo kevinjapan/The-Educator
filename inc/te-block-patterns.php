@@ -81,10 +81,41 @@ function te_register_block_patterns() {
 
    $site_uri = get_template_directory_uri();
    
-   // 
-   // single feature cover block
+
+   // Cover Block Templates
    //
-	register_block_pattern('te-single-feature-cover', [
+
+   // Hero Cover Block Template
+	register_block_pattern('te-hero-cover', [
+		'title' => __('Hero Cover Block', 'the-educator'),
+      'description' => _x( 'Hero Cover Block.', 'Hero Cover Block.', 'the-educator' ),            
+		'keywords' => ['single,cover'],
+		'categories' => ['te-cover-blocks'],
+		'viewportWidth' => 1000,
+		'content' =>  
+         '<!-- wp:cover {"url":"' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg","id":287,"dimRatio":50,"layout":{"type":"constrained"}} -->
+         <div class="wp-block-cover te-hero fade_in">
+            <span aria-hidden="true" class="wp-block-cover__background has-background-dim"></span>
+            <img class="wp-block-cover__image-background wp-image-287" alt="" 
+               src="' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg" data-object-fit="cover"/>
+
+            <div class="wp-block-cover__inner-container">
+            
+               <!-- wp:heading {"textAlign":"left","level":1} -->
+               <h1 class="wp-block-heading has-text-align-left">This is main heading</h1>
+               <!-- /wp:heading -->
+               
+               <!-- wp:heading {"level":3} -->
+               <h3 class="wp-block-heading">adfa sd fdsafa adfd</h3>
+               <!-- /wp:heading -->
+
+            </div>         
+         </div>
+         <!-- /wp:cover -->'
+	]);
+
+   // Cover Block Template
+	register_block_pattern('te-cover', [
 		'title' => __('Single Feature Cover', 'the-educator'),
       'description' => _x( 'Single Feature Cover.', 'A Cover block with a single feature.', 'the-educator' ),            
 		'keywords' => ['single,cover'],
@@ -133,10 +164,12 @@ function te_register_block_patterns() {
 	]);
 
 
-   //
+   // Column Block Templates
    // register single feature columns block / single feature block template
    // we use wp-block-media-text instead of wp-columms since it already has desired styling in two column pattern w/out additionals
    //
+
+   // Single Feature Column Block Template
    register_block_pattern('te-single-feature-column', [
       'title' => __('Single Feature Column', 'the-educator'),
       'description' => _x( 'Single Feature Column.', 'A Column block with a single feature.', 'the-educator' ),            
@@ -178,9 +211,7 @@ function te_register_block_patterns() {
          <!-- /wp:media-text -->'
 	]);
    
-
-   //
-   // two feature columns block template
+   // Two Feature Columns Block Template
    //
 	register_block_pattern('te-two-feature-columns', [
 		'title' => __('Two Feature Columns', 'the-educator'),
@@ -197,9 +228,7 @@ function te_register_block_patterns() {
          <!-- /wp:columns -->',
 	]);
 
-
-   //
-   // three feature columns block template
+   // Three Feature Columns Block Template
    //
 	register_block_pattern('te-three-feature-columns', [
 		'title' => __('Three Feature Columns', 'the-educator'),
@@ -217,9 +246,7 @@ function te_register_block_patterns() {
          <!-- /wp:columns -->',
 	]);
 
-
-   //
-   // six feature columns block
+   // Six Feature Columns Block Template
    //
    register_block_pattern('te-six-feature-column', [
       'title' => __('Six Feature Columns', 'the-educator'),
@@ -240,7 +267,6 @@ function te_register_block_patterns() {
          <!-- /wp:columns -->',      
    ]);
 
-
    // future :
    // want 'fade_in' on all Block Patterns - ideally configurable.
    // but we can't load in <style> at top of page since it is a class - we really need to apply here.
@@ -250,9 +276,9 @@ function te_register_block_patterns() {
    // to insert 'fade_in' in 'div.te-title-lead' below
 
 
-   //
-   // the big title & lead text
-   //
+   // Title & Lead Block Templates
+
+   // Big Title & Lead Text Block Template
 	register_block_pattern('te-big-title-lead', [
 		'title' => __('Big Title And Lead Text', 'the-educator'),
       'description' => _x( 'You can style all block patterns of this type in the customizer.', 'The big title and lead text block.', 'the-educator' ),            
@@ -279,9 +305,7 @@ function te_register_block_patterns() {
          <!-- /wp:group -->'
    ]);
  
-   //
-   // title & lead text
-   //
+   // Title & Lead Text Block Template
 	register_block_pattern('te-title-lead', [
 		'title' => __('Title And Lead Text', 'the-educator'),
       'description' => _x( 'You can style all block patterns of this type in the customizer.', 'A title and lead text block.', 'the-educator' ),            
@@ -308,9 +332,9 @@ function te_register_block_patterns() {
          <!-- /wp:group -->'
    ]);
 
-   //
-   // simple text
-   //
+   // Text Block Templates
+
+   // Simple Text Block Template
 	register_block_pattern('te-simple-text', [
 		'title' => __('Simple Text', 'the-educator'),
       'description' => _x( 'Simple Text.', 'A simple text block.', 'the-educator' ),            
@@ -363,10 +387,9 @@ function te_register_block_patterns() {
 	// ]);
 
 
+   // Image Block Template
    //
-   // te-image
-   //
-    register_block_pattern('te-image', [
+   register_block_pattern('te-image', [
 		'title' => __('The Educator Image', 'the-educator'),
       'description' => _x( 'The Educator Image.', 'An image block with The Educator customization.', 'the-educator' ),            
 		'keywords' => ['image'],
@@ -381,11 +404,10 @@ function te_register_block_patterns() {
    ]);
 
 
-
+   // Gallery Block Template
    //
-   // te-gallery
    // to do : review - we are nesting figures?
-    register_block_pattern('te-gallery', [
+   register_block_pattern('te-gallery', [
 		'title' => __('The Educator Gallery', 'the-educator'),
       'description' => _x( 'The Educator Gallery.', 'An image gallery block with The Educator customization.', 'the-educator' ),            
 		'keywords' => ['gallery'],
@@ -418,7 +440,7 @@ function te_register_block_patterns() {
 
 
    // 
-   // te-buttons
+   // Button Block Template
    //
    register_block_pattern('te-buttons', [
 		'title' => __('The Educator Buttons', 'the-educator'),
