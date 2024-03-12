@@ -2,7 +2,7 @@ html {
    margin:0;
    padding:0;   
 }
-body {
+body:not(.wp-admin) {
    background:white;
    margin:0;
    padding:0;
@@ -296,3 +296,12 @@ section.te_template_domain_frontpage div:nth-child(3) {order:2;}
    section.te_template_domain_frontpage div:nth-child(3) {order:3;}
 }
 
+
+
+.test_dim_featured_img {
+   opacity:.2;
+}
+
+.bg_yellow {
+   background:yellow !important;
+}

@@ -4,7 +4,7 @@
 
 
 /* block layout margins */
-body, address, article, aside, footer, 
+body:not(.wp-admin), address, article, aside, footer, 
 header, main, nav, section {
    margin:0;
    margin-left:auto;
@@ -14,11 +14,11 @@ header, main, nav, section {
 /* ---------------------------------------------- 
     SECTIONING ROOT
  ---------------------------------------------- */
-
-body {
+/* we add :not(.wp-admin) to distinguish WP admin and front-end */
+body:not(.wp-admin) {
    display:-webkit-box;
    display:-ms-flexbox;
-   display:flex;
+   display:flex;        /* to do : this is clashing w/ WP  - admin footer is absolute positioning */
    
    -webkit-box-orient:vertical;
    -webkit-box-direction:normal;
@@ -163,7 +163,7 @@ nav {
    width:100%;
    margin:0;
    height:var(--nav_bar_height);
-   background-color:var(--bg_primary);
+   /* background-color:var(--bg_primary);  to do : clashing w/ use of nav in WordPress customizer */
    transition:transform .6s ease-in;         
 
 }
@@ -223,6 +223,7 @@ nav ul.menu {
    gap:0;
    
    padding:1rem 0 1rem 0;
+   padding-top:6rem;
    background-color:var(--bg_primary);
 
    border-bottom:none;
@@ -516,6 +517,9 @@ we support from 1045px determined by four cols of reasonable text in dropdown
 
       width:100%;
       max-height:var(--nav_dropdown_height); 
+
+      /* prevent li overflow */
+      overflow-x:hidden;
    }
    nav ul.menu:hover li a  {
       display:block;
@@ -1265,13 +1269,14 @@ section.feature_tiles > ul > li > button {
 
 /* 
    section.grid_tiles
-   maintain width 
+   maintain width
 */
 
 
-/* 
-   section.cover_block
-*/
+/* --------------------------------------------------------- 
+//   SECTION.COVER_BLOCK
+//   large heading over background img - plus optional text & button
+------------------------------------------------------------*/
 section.cover_block {
    position:relative;
    width:100%;
@@ -1353,6 +1358,7 @@ section.cover_block div {
    margin-right:.5rem;
    padding:.5rem;
 }
+
 
 @media screen and (min-width: 768px) {
     
@@ -1605,6 +1611,12 @@ div.ol_specimen_type::before {
 }
 
 /* paragraph block of text */
+/* to do : clashing w/ WP - 
+   our styling all works fine in front-end - but
+   clashes with styling (minor) in admin pages
+   we need more specificity in our classes -
+   particularly rules for major elements eg 'nav'
+*/
 p {
    width:min(100%,var(--paragraph_width));
    margin-top:1rem;
@@ -1676,6 +1688,19 @@ div.te-single-feature-columns div.wp-block-media-text__content {
    gap:0;
 
 }
+
+
+/*  to do : review these block pattern styles for WP shouldn't be here.. */
+div.te-hero {
+   
+   width:100%;
+
+   /* setting height here messes w/ the pattern view in WP Customizer - defer to setting/ctrl */
+   /* height:100vh; */
+}
+div.te-hero h1 {font-size:5rem;margin:0;padding:0;padding-bottom:1rem;}
+div.te-hero h2 {font-size:3rem;margin:0;padding:0;padding-bottom:.5rem;}
+div.te-hero h3 {font-size:2rem;margin:0;padding:0;padding-bottom:.25rem;}
 
 div.te-cover h2 {
    color:white;
