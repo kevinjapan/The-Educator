@@ -1,10 +1,19 @@
-<?php get_header(); ?>
-<!-- category template -->
-
 <?php
+
+// Archive Page for Posts (default)
+// Currently includes [News,Uncategorized] Posts.
+// Our Posts are categorised into [News,Research News], so we are using categories to filter them, 
+// thus allowing all similar blog-type items to be added as Posts but with separation on front-end.
+// (eg we can separate as with category-research-news.php)
+
+get_header();
+
 // we handle 'News' Posts here - our default.
 // we handle generic Posts here (any custom category falling through template hierarchy)
 ?>
+
+<!-- The Educator Theme : Posts Archive -->
+
 
 <div class="show_page_name">category.php</div>
 

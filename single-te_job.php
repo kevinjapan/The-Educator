@@ -1,11 +1,13 @@
 <?php
-/*
-Single Page for Job Custom Post Type
-*/
 
-get_header(); ?>
+// Single Page for Job Custom Post Type
+//
 
-<div class="show_page_name">single-te_job.php</div>
+get_header();
+?>
+
+<!-- The Educator Theme : Job Page -->
+
 
    <?php 
    

@@ -1,7 +1,14 @@
-<?php get_header(); ?>
+<?php 
+
+// Default Single Page for Taxonomy (Term)
+//
+
+get_header();
+?>
+
+<!-- The Educator Theme : Default Single Taxonomy Term -->
 
 
-<div style="color:grey;">taxonomy.php the default taxonomy page</div>
 <?php 
    $taxonomies = get_taxonomies(); 
    foreach ( $taxonomies as $taxonomy ) {

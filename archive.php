@@ -1,6 +1,12 @@
-<?php get_header(); ?>
+<?php
 
-<div style="border:solid 1px lightgrey;color:lightgrey;">archive.php 222</div>
+// Default Archive Page (currently un-used)
+// 
+
+get_header(); 
+?>
+
+<!-- The Educator Theme : Archive -->
 
 <section class="feature_tiles fade_in">
    <ul>

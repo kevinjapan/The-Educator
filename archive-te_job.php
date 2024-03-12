@@ -1,13 +1,13 @@
-<?php 
-/*
-Archive Page for Job Custom Post Type
-*/
+<?php
 
-get_header(); ?>
+// Archive Page for Jobs Custom Post Types 
+// 
 
+get_header();
 
-<div class="show_page_name">archive-te_job.php</div>
+<!-- The Educator Theme : Jobs Archive -->
 
+?>
 
 <section class="feed_list fade_in">
 

@@ -1,11 +1,14 @@
-<?php get_header(); ?>
-
-
-<div class="show_page_name">page.php</div>
-
 <?php
-   // this is the default page template.
+
+// Default Page template
+// All pages fallback on this if specific page is absent
+
+get_header();
 ?>
+
+<!-- The Educator Theme : Default Page -->
+
+
 
 <h2><?php the_title(); ?></h2>
 

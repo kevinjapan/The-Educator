@@ -1,11 +1,13 @@
 <?php
-/*
-Single Page for Course Custom Post Type
-*/ 
 
-get_header(); ?>
+// Single Page for Course Custom Post Type
+//
 
-<div class="show_page_name">single-te_course.php</div>
+get_header();
+?>
+
+<!-- The Educator Theme : Course Page -->
+
 
 <section class="te_course_content">
    <?php while ( have_posts() ) : 

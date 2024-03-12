@@ -1,7 +1,13 @@
-<?php get_header(); ?>
-<!-- category template -->
+<?php
 
-<div class="show_page_name">category-research-news.php</div>
+// Archive Page for Research News Posts
+// Our Posts are categorised into [News,Research News], so we are using categories to filter them, 
+// thus allowing all similar blog-type items to be added as Posts but with separation on front-end.
+
+get_header(); 
+?>
+
+<!-- The Educator Theme : Research News Archive -->
 
 <h1 class="fade_in"><?php single_cat_title();?></h1>
 

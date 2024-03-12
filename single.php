@@ -1,6 +1,14 @@
-<?php get_header(); ?>
+<?php
 
-<div class="show_page_name">single.php</div>
+// Single Page for Posts 
+// currently for [News,Research News] custom posts
+// Our Posts are categorised into [News,Research News], so we are using categories to filter them, 
+// thus allowing all similar blog-type items to be added as Posts but with separation on front-end.
+
+get_header(); 
+?>
+
+<!-- The Educator Theme : Single Posts Page -->
 
 <?php while ( have_posts() ) : the_post(); ?>
 
@@ -9,11 +17,13 @@
       <?php if(has_post_thumbnail()):?>
          <img class="bg_img" src="<?php the_post_thumbnail_url('cover'); ?>"/>
       <?php endif;?>
+      <!-- <?php the_post_thumbnail( 'thumbnail' ); ?> to do : review -->
       <div class="overlay">
          <h2><?php the_title(); ?></h2>
          <p><?php echo get_post_meta( get_the_ID(), 'te_course_teacher', true ); ?></p>
       </div>
 </section>
+
 
 <?php the_content();?>
 

@@ -1,5 +1,13 @@
-<?php get_header(); ?>
+<?php
 
+// Schools Page
+// Lists all School taxonomies
+//
+
+get_header();
+?>
+
+<!-- The Educator Theme : Schools Page -->
 
 <div class="show_page_name">page-schools.php</div>
 
@@ -25,8 +33,6 @@
          ?>
          <li style="border:none;">
             <?php
-               //echo get_term_meta( $term->term_id, 'te_text', true )
-
                if($image) {
                   ?>
                   <img style="border-radius:.25rem;" src="<?php echo $image; ?>"/>
@@ -36,7 +42,6 @@
                   ?><p style="height:20px;"></p><?php
                }
                ?>
-
             <h3 style="text-align:center;">
                <a href="<?php echo get_term_link($term->name,'te_school'); ?>"><?php echo $term->name;?></a>
             </h3>

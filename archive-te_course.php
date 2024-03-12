@@ -1,13 +1,15 @@
 <?php
-/*
-Archive Page for Course Custom Post Type
-*/
 
-get_header(); ?>
+// Archive Page for Courses Custom Post Types 
+// 
 
-<div class="show_page_name">archive-te_course.php</div>
+get_header();
+?>
+
+<!-- The Educator Theme : Courses Arhive -->
 
 <?php
+// display Course Cards
 require_once 'template-parts/course-cards/course-cards.php';
 ?>
 

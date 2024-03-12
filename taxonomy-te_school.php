@@ -1,38 +1,46 @@
-<?php get_header(); ?>
+<?php 
 
+// Single Page for School Taxonomy (Term)
+//
 
-<div class="show_page_name">taxonomy-te_school.php</div>
+get_header(); 
+?>
 
+<!-- The Educator Theme : Single Taxonomy Term -->
 
 <?php
-
-//
 // Information Architecture
-//
-// There are some differences in organisation eg:
+// Generally, we assume a 2-level deep hierarchy of School\Department
+// There are some differences in our organisation hierarchy eg:
 // - Agriculture has no departments (sub-schools) - only courses (direct children of the school).
-// - Engineering has departments - Mechanical & Structural - each of which contain courses.
-//   Engineering school itself has no child courses.
-//
+// - Arts & Humanities has departments - each of which contain courses.
+// - Engineering school itself has no child courses.
 
+$term = get_queried_object();
+$display_term_type = $term->parent > 0 ? 'Department' : 'School';
 $term_id = get_queried_object()->term_id;
 $tax_name = 'te_school';
 $children = get_term_children($term_id,$tax_name);
 
-
-// school header & feature image
-//
+// Featured Image
 $image = get_term_meta($term_id, 'school_image', true);
+
 ?>
 
-<section class="front_page cover_block bg_navy fade_in">
+<!-- The Educator Theme : Single Taxonomy Term -->
 
-      <?php if($image):?>
-         <img class="bg_img" src="<?php echo $image; ?>"/>
+<section 
+   id="te_cover_<?php echo get_the_id();?>" 
+   class="wp-block-media-text alignwide is-stacked-on-mobile te-columns te-single-feature-columns bg_navy fade_in">
+
+      <?php if($image):
+         ?>
+         <figure class="wp-block-media-text__media">
+            <img src="<?php echo $image;?>"/>
+         </figure>
       <?php endif;?>
-
-      <div class="overlay">
-         <h4 style="margin:0;padding:0;">School of</h4>
+      <div class="wp-block-media-text__content">
+         <h3 style="margin:0;padding:0;"><?php echo $display_term_type;?> of</h3>
          <h1><?php __( single_cat_title(),'the-educator'); ?></h1>
       </div>
 
@@ -41,7 +49,6 @@ $image = get_term_meta($term_id, 'school_image', true);
 <?php
 
 // if school has departments (child schools) - display here
-//
 if(count($children) > 0) {
    ?>
       <section class="feature_tiles fade_in">
@@ -71,11 +78,7 @@ if(count($children) > 0) {
 else {
    require_once 'template-parts/course-cards/course-cards.php';
 }
-
 ?>
-
-
-
 
 
 <?php get_footer(); ?>
