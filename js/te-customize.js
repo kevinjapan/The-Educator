@@ -11,10 +11,7 @@
 		});
 	});
 
-
-
-
-   // 
+ 
    // hero cover block
    //
    wp.customize('te_hero_x_height', function(setting) {
@@ -24,9 +21,15 @@
          $('.te-hero').css('height', value + 'vh');
       });
    });
+   wp.customize('te_hero_bottom_margin', function(setting) {
+      setting.bind( function(value) {
+         if(value < 0) value = 0;
+         if(value > 100) value =  100;
+         $('.te-hero').css('margin-bottom', value + '%');
+      });
+   });
 
 
-   // 
    // cover block
    //
    wp.customize('te_cover_x_width', function(setting) {
@@ -45,7 +48,6 @@
    });
 
 
-   // 
    // columns blocks
    //
    wp.customize('te_column_x_padding', function(setting) {
@@ -70,8 +72,7 @@
       });
    });
 
-
-   // 
+ 
    // text blocks
    //
    wp.customize('te_big_title_lead_x_padding', function(setting) {
@@ -118,10 +119,6 @@
       });
    });
 
-
-
-
-   // ----------------------------------------------------------------------------------------
    wp.customize('te_title_lead_x_padding', function(setting) {
       setting.bind( function(value) {
          if(value < 0) value = 0;
@@ -188,7 +185,6 @@
    });
 
 
-   // 
    // image block
    //
    wp.customize('te_image_x_padding', function(setting) {
@@ -207,7 +203,6 @@
    });
 
 
-   // 
    // gallery block
    //
      wp.customize('te_gallery_x_padding', function(setting) {
@@ -226,7 +221,6 @@
    });
 
 
-   //
    // copyright notice
    //
    wp.customize('te_copyright',function(setting) {
