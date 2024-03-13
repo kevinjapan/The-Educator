@@ -8,9 +8,9 @@
    </head>
 
 
-<body <?php body_class();?>>
+<body <?php body_class('outline_body');?>>
 
-   <nav class="nav">
+   <nav class="outline_nav">
       
       <div class="logo_block">
          <a href="<?php echo get_site_url(); ?>" style="text-decoration:none;">
@@ -31,10 +31,9 @@
          </div>
       </div>
 
-      <?php wp_nav_menu(
-         array(
-            'theme_location' => 'top-menu'
-         )
-      ); ?>
+      <?php
+      // display the WordPress nav
+      wp_nav_menu(array('theme_location' => 'top-menu')); 
+      ?>
 
    </nav>
