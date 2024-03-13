@@ -1,5 +1,13 @@
 <?php
 
+// Adding Settings & Controls
+// The WP add_control API is vague - eg $id can be simple id string or a WP_Customize_Control object,
+// If an id string is give, a new WP_Customize_Control is created inside add_control()
+// WP_Customize_Control( $this, $id, $args )
+// '$args' is a config array inc. a 'Settings' item to list Settings' ids for this control.
+// If 'Settings' is undefined, `$id` will be used, thus we *can* use the same id for Setting & Control
+// or we can use 'Settings' for same or to expand to a list of ctrls (not sure of the scenario yet)
+// Both are valid.
 
 
 // Register Theme Customizer Block Pattern Settings and Controls
@@ -18,7 +26,7 @@ function te_customize_cover_block($wp_customize) {
    //        
 
    
-   // hero cover block patterns
+   // Hero Cover Block Patterns
    //
    $wp_customize->add_setting( 'te_hero_x_height',
       array('default'    => '100', 
@@ -31,14 +39,28 @@ function te_customize_cover_block($wp_customize) {
       array('type' => 'number',
             'priority' => 10,
             'section' => 'te_cover_patterns',
-            'label' => __( 'Hero Cover Blocks','the-educator'),
-            'settings'   => 'te_hero_x_height', 
+            'label' => __( 'Hero Cover Blocks','the-educator'), 
             'description' => __( '% height for Hero Covers.','the-educator'),
             'input_attrs' => array( 'min' => 50, 'max' => 100, 'style' => 'width: 80px;', 'step'	=> 5 )) 
    );
+   $wp_customize->add_setting( 'te_hero_bottom_margin',
+      array('default'    => '0', 
+            'type'       => 'theme_mod',
+            'capability' => 'edit_theme_options',
+            'transport'  => 'postMessage',
+            'sanitize_callback' => 'te_sanitize_number_range') 
+   );
+   $wp_customize->add_control( 'te_hero_bottom_margin', 
+      array('type' => 'number',
+            'priority' => 10,
+            'section' => 'te_cover_patterns',
+            'label' => __( '','the-educator'),
+            'description' => __( '% margin below Hero Covers YEAH.','the-educator'),
+            'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
+   );
 
 
-   // cover block patterns
+   // Cover Block Patterns
    //
    $wp_customize->add_setting( 'te_cover_x_width',
       array('default'    => '100', 
@@ -52,7 +74,6 @@ function te_customize_cover_block($wp_customize) {
             'priority' => 10,
             'section' => 'te_cover_patterns',
             'label' => __( 'Cover Blocks','the-educator'),
-            'settings'   => 'te_cover_x_width', 
             'description' => __( '% width for Covers.','the-educator'),
             'input_attrs' => array( 'min' => 60, 'max' => 100, 'style' => 'width: 80px;', 'step'	=> 5 )) 
    );
@@ -68,7 +89,6 @@ function te_customize_cover_block($wp_customize) {
             'priority' => 10,
             'section' => 'te_cover_patterns',
             'label' => __( '','the-educator'),
-            'settings'   => 'te_cover_y_margins', 
             'description' => __( '% above and below Covers.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 1 )) 
    );
@@ -87,6 +107,8 @@ function te_customize_cover_block_styles() {
          // te-cover - md/lg 
          te_generate_css_rule('.te-hero',            
             ['style' => 'height','setting' => 'te_hero_x_height','prefix'  => '','postfix' => 'vh'],);
+         te_generate_css_rule('.te-hero',            
+            ['style' => 'margin-bottom','setting' => 'te_hero_bottom_margin','prefix'  => '','postfix' => '%'],);            
          te_generate_css_rule('.te-cover',
             ['style' => 'width','setting' => 'te_cover_x_width','prefix'  => '','postfix' => '%'],);
          te_generate_css_rule('.te-cover',
