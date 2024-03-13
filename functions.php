@@ -17,8 +17,7 @@ if ( ! function_exists('te_theme_setup') ) {
 
       // support Featured Images (Post Thumbnails)
       add_theme_support('post-thumbnails');
-
-      // add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );  to do : review.
+      // add_theme_support( 'post-thumbnails', array( 'post', 'page' ) ); 
       
       add_theme_support('custom-logo');
 
@@ -36,8 +35,10 @@ add_filter( 'excerpt_length', 'te_custom_excerpt_length', 999 );
 
 // Set the main WordPress query to include our custom post types
 //
+
 // The type of posts you include will influence the template hierarchy selection.
 // There are three conflicting requirements in our case:
+//
 // 1. agricultural school - taxonomy-te_school.php - has no sub-schools
 //    we want courses on the top level school - but only works if we enable pre_get_posts with 'te_course'
 // 2. all courses
@@ -46,7 +47,7 @@ add_filter( 'excerpt_length', 'te_custom_excerpt_length', 999 );
 // 3. news category
 //    requires 'post' in the $query->set() call or shows nothing.
 //
-// we have a working solution (see below) but this needs further reading!
+// we have a working solution below
 // note - we need 'page' to make homepage work.
 //
 function te_enable_query_post_types( $query ) {
@@ -67,6 +68,8 @@ function te_enable_query_post_types( $query ) {
 add_action( 'pre_get_posts', 'te_enable_query_post_types' );
 
 
+// StyleSheets
+//
 function te_load_stylesheets() {
    wp_register_style('outline',get_template_directory_uri() . '/css/outline.css',array(),1,'all');
    wp_enqueue_style('outline');
@@ -76,33 +79,39 @@ function te_load_stylesheets() {
    wp_enqueue_style('outline_layouts');
    wp_register_style('outline_utilities',get_template_directory_uri() . '/css/outline-utilities.css',array(),1,'all');
    wp_enqueue_style('outline_utilities');
-   wp_register_style('te_stylesheet',get_template_directory_uri() . '/css/the-educator.css',array(),1,'all');
-   wp_enqueue_style('te_stylesheet');
+   // wp_register_style('te_stylesheet',get_template_directory_uri() . '/css/the-educator.css',array(),1,'all');
+   // wp_enqueue_style('te_stylesheet');
 }
-add_action('wp_enqueue_scripts','te_load_stylesheets');
+// add_action('wp_enqueue_scripts','te_load_stylesheets');
 
 
-function te_load_admin_stylesheets() {
-   wp_register_style('outline',get_template_directory_uri() . '/css/outline.css',array(),1,'all');
-   wp_enqueue_style('outline');
-   wp_register_style('outline_custom_props',get_template_directory_uri() . '/css/outline-custom-props.css',array(),1,'all');
-   wp_enqueue_style('outline_custom_props');
-   wp_register_style('outline_layouts',get_template_directory_uri() . '/css/outline-layouts.css',array(),1,'all');
-   wp_enqueue_style('outline_layouts');
-   wp_register_style('outline_utilities',get_template_directory_uri() . '/css/outline-utilities.css',array(),1,'all');
-   wp_enqueue_style('outline_utilities');
-   wp_register_style('te_stylesheet',get_template_directory_uri() . '/css/the-educator.css',array(),1,'all');
-   wp_enqueue_style('te_stylesheet');
+// Admin StyleSheets
+//
+function te_load_admin_stylesheets($hook) {
+   if ('post.php' === $hook ||  'post-new.php' === $hook || 'site-editor.php' === $hook) {
+      wp_register_style('outline',get_template_directory_uri() . '/css/outline.css',array(),1,'all');
+      wp_enqueue_style('outline');
+      wp_register_style('outline_custom_props',get_template_directory_uri() . '/css/outline-custom-props.css',array(),1,'all');
+      wp_enqueue_style('outline_custom_props');
+      wp_register_style('outline_layouts',get_template_directory_uri() . '/css/outline-layouts.css',array(),1,'all');
+      wp_enqueue_style('outline_layouts');
+      wp_register_style('outline_utilities',get_template_directory_uri() . '/css/outline-utilities.css',array(),1,'all');
+      wp_enqueue_style('outline_utilities');
+   }
 }
-add_action('admin_enqueue_scripts', 'te_load_admin_stylesheets');
-   
+// add_action('admin_enqueue_scripts', 'te_load_admin_stylesheets');
+
+// Customizer StyleSheets
+// function customizer_enqueue() {}
+// add_action('customize_controls_enqueue_scripts','customizer_enqueue');
 
 
+// Scripts
+//
 function te_load_jquery() {
    wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts','te_load_jquery');
-
 
 function te_load_scripts() {
    wp_register_script('outlinecss_behaviour',get_template_directory_uri() . '/js/outlinecss_behaviour.js','',1,true);
@@ -110,7 +119,9 @@ function te_load_scripts() {
 }
 add_action('wp_enqueue_scripts','te_load_scripts');
 
-// menu location
+
+// Menu locations
+//
 register_nav_menus(
    array(
       'top-menu' => __('Top Menu','theme'),
@@ -118,14 +129,16 @@ register_nav_menus(
    )
 );
 
-// configure all uploaded images
+
+// Uploaded images
+//
 add_image_size('cover',1920,600,true);
 add_image_size('large',1200,630,true);
 add_image_size('medium',600,305,true);
 add_image_size('small',200,200,true);
 
 
-// widget sidebars
+// Widget sidebars
 //
 function te_sidebars_init() {
    register_sidebar(
@@ -164,9 +177,10 @@ add_action( 'widgets_init', 'te_sidebars_init' );
 
 
 
-// register Custom Block Patterns
+// Register Custom Block Patterns
 //
 require_once get_template_directory() . '/inc/te-block-patterns.php';
+
 
 // Register Theme and Theme Patterns Settings/Controls in Customizer - must be included last
 //
