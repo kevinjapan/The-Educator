@@ -4,7 +4,7 @@
 
 
 /* block layout margins */
-body:not(.wp-admin), address, article, aside, footer, 
+body.outline_body, address, article, aside, footer, 
 header, main, nav, section {
    margin:0;
    margin-left:auto;
@@ -14,11 +14,30 @@ header, main, nav, section {
 /* ---------------------------------------------- 
     SECTIONING ROOT
  ---------------------------------------------- */
-/* we add :not(.wp-admin) to distinguish WP admin and front-end */
-body:not(.wp-admin) {
+/* 
+We had some clashing w/ styles in WP admin - we need to get our styles into
+both the page editor and the customizer, but these were leaking into the admin
+page elements
+
+options tried:
+- :not(.wp-admin) - this allows us to exclude styles from admin elements but makes our css WP-specific
+  Note: WP appears to inject the edit source page (iframe?) into a container within the admin page - 
+  thus does seem to enforce some separation of rules but not complete.
+- using 'customize_controls_enqueue_scripts' in functions.php - fine, but doesn't address the real issue 
+  - which is in post.php (edit page)
+
+current solution:
+- increase the specificity of our own css classes - eg body.outline_body
+  a little extra work, but allows us to clearly distinguish our own classes from third-party (eg WP)
+
+- keep these notes here until we are happy solution is good.
+- rollout to other css rules as we need them.
+*/
+
+body.outline_body {
    display:-webkit-box;
    display:-ms-flexbox;
-   display:flex;        /* to do : this is clashing w/ WP  - admin footer is absolute positioning */
+   display:flex;
    
    -webkit-box-orient:vertical;
    -webkit-box-direction:normal;
@@ -163,7 +182,7 @@ nav {
    width:100%;
    margin:0;
    height:var(--nav_bar_height);
-   /* background-color:var(--bg_primary);  to do : clashing w/ use of nav in WordPress customizer */
+   background-color:var(--bg_primary);
    transition:transform .6s ease-in;         
 
 }
@@ -392,7 +411,7 @@ mobile emulator nav links are too small - future : test in actual mobiles!
 }
 
 /*  
-future : our nav currently does give access to all sub-menus - but 
+future : our zcurrently does give access to all sub-menus - but 
          there is some discrepancy in md/lg screens in touch/ipad - 
          no hover means the dropdown only appears once you have clicked
          on the menu label - hence leaving the current page while showing
@@ -1611,12 +1630,6 @@ div.ol_specimen_type::before {
 }
 
 /* paragraph block of text */
-/* to do : clashing w/ WP - 
-   our styling all works fine in front-end - but
-   clashes with styling (minor) in admin pages
-   we need more specificity in our classes -
-   particularly rules for major elements eg 'nav'
-*/
 p {
    width:min(100%,var(--paragraph_width));
    margin-top:1rem;
@@ -1690,7 +1703,7 @@ div.te-single-feature-columns div.wp-block-media-text__content {
 }
 
 
-/*  to do : review these block pattern styles for WP shouldn't be here.. */
+/*  to do : review these block pattern styles for WP shouldn't be here..? */
 div.te-hero {
    
    width:100%;
