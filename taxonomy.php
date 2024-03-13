@@ -8,17 +8,16 @@ get_header();
 
 <!-- The Educator Theme : Default Single Taxonomy Term -->
 
-
 <?php 
    $taxonomies = get_taxonomies(); 
    foreach ( $taxonomies as $taxonomy ) {
       if($taxonomy = 'portfolio_category'){
-            $terms['trm'] = get_terms($taxonomy, array('hide_empty'=> false, 
-                                                      'taxonomy'=> 'portfolio_category',
-                                                      'title_li'=> __( 'Categories' )));
+         $terms['taxonomy_terms'] = get_terms($taxonomy, array('hide_empty'=> false, 
+                                                   'taxonomy'=> 'portfolio_category',
+                                                   'title_li'=> __( 'Categories' )));
       }
    }
-   foreach ($terms['trm'] as $term){
+   foreach ($terms['taxonomy_terms'] as $term){
       $query = new WP_Query(
          array(
             'post_type' => 'course',
@@ -29,19 +28,17 @@ get_header();
                         'terms'    => 'engineering',
                      ),
                   ),
-      )
-   );
-      if($query->have_posts()):while($query->have_posts()):$query->the_post(); ?>
-            <h1><?php the_title(); ?></h1> <!-- place html code here -->
-   <?php
-
+         )
+      );
+      if($query->have_posts()):
+         while($query->have_posts()):$query->the_post(); ?>
+         <h1><?php the_title(); ?></h1>
+         <?php
         endwhile;
-        endif;
-        wp_reset_postdata(); 
+      endif;
+      wp_reset_postdata(); 
    }
-
    ?>
-
 
 
 <?php get_footer(); ?>
