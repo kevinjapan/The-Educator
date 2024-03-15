@@ -112,7 +112,7 @@ function te_register_block_patterns() {
                <!-- wp:buttons -->
                <div class="wp-block-buttons te_buttons">            
                   <!-- wp:button -->
-                  <div class="wp-block-button te_button"><a>read more</a></div>
+                  <div class="wp-block-button te_button over_img"><a class="wp-block-button__link">read more</a></div>
                   <!-- /wp:button -->
                </div>
                <!-- /wp:buttons -->
@@ -162,6 +162,15 @@ function te_register_block_patterns() {
                         <br>- - - - The Educator Covers.
                      </p>
                      <!-- /wp:paragraph -->
+
+                     <!-- wp:buttons -->
+                     <div class="wp-block-buttons te_buttons">            
+                        <!-- wp:button -->
+                        <div class="wp-block-button te_button over_img"><a class="wp-block-button__link">read more</a></div>
+                        <!-- /wp:button -->
+                     </div>
+                     <!-- /wp:buttons -->
+               
                   </div>
                   <!-- /wp:column -->
                </div>

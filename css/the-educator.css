@@ -1,9 +1,13 @@
+/* to do : this file is no longer called - but may be required - keep a while!
+   - remove once no issues arise  (removed 13 Mar 2024) 
+
+   likely we need te_template_domain_frontpage class below -  see About page
+*/
 html {
    margin:0;
    padding:0;   
 }
-body:not(.wp-admin) {
-   background:white;
+body {
    margin:0;
    padding:0;
 }
