@@ -74,7 +74,7 @@ const create_observers = (elements,active_class,options) => {
 const init_nav_scroll_listener = () => {
 
    let last_scroll = 0
-   const nav_bar = document.querySelector('nav')
+   const nav_bar = document.querySelector('nav.outline_nav')
 
    if(nav_bar) {
       window.addEventListener('scroll', () => {
@@ -94,7 +94,7 @@ const init_nav_scroll_listener = () => {
 // toggle sm/mobile menu
 //
 const nav_toggle = document.querySelector('.nav_toggle')
-const dropdown = document.querySelector('nav ul.menu')
+const dropdown = document.querySelector('nav.outline_nav ul.menu')
 
 nav_toggle.addEventListener('click',() => {
    if(dropdown) {

@@ -164,7 +164,7 @@ main {
    - renamed 'nav_list' -> 'menu' for WordPress menu structure
    - supported <div> wrapper around menu <ul>
 */
-nav {
+nav.outline_nav {
    position:relative;
    position:-webkit-sticky;
    position:sticky;
@@ -187,7 +187,7 @@ nav {
 
 }
 
-nav div.logo_block    {
+nav.outline_nav div.logo_block    {
    position:relative;
    z-index:50;
    
@@ -208,14 +208,14 @@ nav div.logo_block    {
    font-size:1.2rem;
 }
 
-nav ul   {
+nav.outline_nav ul   {
    list-style:none;
 }
-nav li * {
+nav.outline_nav li * {
    padding-top:0;padding-bottom:0;
 }
 
-nav a    {
+nav.outline_nav a    {
    font-size:var(--nav_font_size);
    cursor:pointer;
    color:white;
@@ -223,7 +223,7 @@ nav a    {
    margin-left:1rem;
 }
 
-nav ul.menu {
+nav.outline_nav ul.menu {
    position:absolute;
    z-index:2;
    top:-100vh;   /* default - dropdown is hidden */
@@ -255,7 +255,7 @@ nav ul.menu {
 }
 
 /* mobile menu toggle */
-nav > div.nav_toggle_wrap {
+nav.outline_nav > div.nav_toggle_wrap {
    display:-webkit-box;
    display:-ms-flexbox;
    display:flex;
@@ -281,7 +281,7 @@ nav > div.nav_toggle_wrap {
    border:none;
    background-color:var(--bg_primary);
 }
-nav div.nav_toggle {
+nav.outline_nav div.nav_toggle {
    position:relative;
    z-index:3;
 
@@ -309,7 +309,7 @@ nav div.nav_toggle {
    background-color:var(--bg_primary);
    cursor:pointer;
 }
-nav div.nav_toggle .toggle_bar {
+nav.outline_nav div.nav_toggle .toggle_bar {
 
    position:absolute;
    top:0;
@@ -325,7 +325,7 @@ nav div.nav_toggle .toggle_bar {
    transform:rotate(0deg);
    transition:.5s ease-in-out;
 }
-nav div.nav_toggle .toggle_bar:nth-child(3) {
+nav.outline_nav div.nav_toggle .toggle_bar:nth-child(3) {
    margin:0;
 }
 
@@ -334,25 +334,25 @@ future : the toggle appears small (as does nav bar height) in mobile emulator
          need to test in actual mobile and adjust as required.
 */
 
-nav div.nav_toggle .toggle_bar:nth-child(1) {top:15px;}
-nav div.nav_toggle .toggle_bar:nth-child(2) {top:30px;opacity:1;transition:.5s ease-in-out;left:0;width:100%;}
-nav div.nav_toggle .toggle_bar:nth-child(3) {top:45px;}
+nav.outline_nav div.nav_toggle .toggle_bar:nth-child(1) {top:15px;}
+nav.outline_nav div.nav_toggle .toggle_bar:nth-child(2) {top:30px;opacity:1;transition:.5s ease-in-out;left:0;width:100%;}
+nav.outline_nav div.nav_toggle .toggle_bar:nth-child(3) {top:45px;}
 
 /* on open dropdown */
-nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(1) {
+nav.outline_nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(1) {
    top:30px;
    -webkit-transform:rotate(135deg);
    -ms-transform:rotate(135deg);
    transform:rotate(135deg);
    transition:.25s ease-in-out;
 }
-nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(2) {
+nav.outline_nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(2) {
    opacity:0;
    left:30px;
    width:0;
    transition:.5s ease-in-out;
 }
-nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(3) {
+nav.outline_nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(3) {
    top:30px;
    -webkit-transform:rotate(-135deg);
    -ms-transform:rotate(-135deg);
@@ -360,19 +360,19 @@ nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(3) {
    transition:.25s ease-in-out;
 }
 /* we hide all submenu dropdowns on mobile */
-nav ul.menu li ul,
-nav ul.menu li a  {
+nav.outline_nav ul.menu li ul,
+nav.outline_nav ul.menu li a  {
    display:none;
    text-decoration:none;
    padding-left:2rem;
    padding-right:2rem;
 }
 
-nav ul.nav_list > li {
+nav.outline_nav ul.nav_list > li {
    text-align:center;
 }
 /* then restore the top level label links */
-nav ul.menu > li > a  {
+nav.outline_nav ul.menu > li > a  {
    position:relative;
    display:block;
    margin:0 auto 0 auto;
@@ -386,7 +386,7 @@ nav ul.menu > li > a  {
 }
 
 /* toggle sm/mobile nav dropdown */
-nav ul.menu.extended_nav_dropdown {
+nav.outline_nav ul.menu.extended_nav_dropdown {
    -webkit-transform:translateY(100vh);
    -ms-transform:translateY(100vh);
    transform:translateY(100vh);
@@ -395,17 +395,17 @@ nav ul.menu.extended_nav_dropdown {
 }
 
 /* maintain <a> spacing on transitions */
-nav ul.menu li ul li a {margin:1rem; }
+nav.outline_nav ul.menu li ul li a {margin:1rem; }
 
 /* 
 mobile emulator nav links are too small - future : test in actual mobiles! 
 */
 @media screen and (hover: none) {
-   nav ul.menu {
+   nav.outline_nav ul.menu {
       gap:2rem;
       padding-top:5rem;
    }
-   nav a {
+   nav.outline_nav a {
       font-size:var(--mobile_nav_font_size);
    }
 }
@@ -429,22 +429,22 @@ we support from 1045px determined by four cols of reasonable text in dropdown
 @media screen and (min-width: 1045px) {
 
    /* reset from mobile */
-   nav div.nav_toggle_wrap, nav div.nav_toggle {display:none;}
-   nav ul.menu *, nav ul.menu li ul, nav ul.menu li a {display:block;}
-   nav ul.menu, nav ul.menu > li > a, nav ul.menu.extended_nav_dropdown {
+   nav.outline_nav div.nav_toggle_wrap, nav.outline_nav div.nav_toggle {display:none;}
+   nav.outline_nav ul.menu *, nav.outline_nav ul.menu li ul, nav.outline_nav ul.menu li a {display:block;}
+   nav.outline_nav ul.menu, nav.outline_nav ul.menu > li > a, nav.outline_nav ul.menu.extended_nav_dropdown {
       transform:unset;
       opacity:1;
       transition:none;
    }
    
    /* logo_block provides overlay in front of moving dropdown */
-   nav div.logo_block {
+   nav.outline_nav div.logo_block {
       position:relative;
       -webkit-box-flex:2;
       -ms-flex-positive:2;
       flex-grow:2;
    }
-   nav ul.menu > li {
+   nav.outline_nav ul.menu > li {
       display:-webkit-box;
       display:-ms-flexbox;
       display:flex;
@@ -458,12 +458,12 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       /* wordpress - we can't place height on non-existing menu_label */
       min-height:var(--nav_bar_height);
    }
-   nav ul.menu li a.menu_label {
+   nav.outline_nav ul.menu li a.menu_label {
       padding-left:2rem;
       padding-right:2rem;
       margin:0;
    }
-   nav ul.menu {
+   nav.outline_nav ul.menu {
 
       position:static;
 
@@ -500,25 +500,25 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       transition:none;
    }
    /* reset from mobile */
-   nav div.nav_toggle_wrap, nav div.nav_toggle {display:none;}
-   nav ul.menu *, nav ul.menu li ul,nav ul.menu li a  {display:block;}
-   nav ul.menu > li > a,  
-   nav ul.menu:hover,  
-   nav ul.menu:hover > li > a {
+   nav.outline_nav div.nav_toggle_wrap, nav div.nav_toggle {display:none;}
+   nav.outline_nav ul.menu *, nav ul.menu li ul,nav ul.menu li a  {display:block;}
+   nav.outline_nav ul.menu > li > a,  
+   nav.outline_nav ul.menu:hover,  
+   nav.outline_nav ul.menu:hover > li > a {
       transform:unset;
       opacity:1;
       transition:none;
       margin-left:0;
    }  
 
-   nav a    {
+   nav.outline_nav a    {
       font-size:var(--nav_font_size);
    }
    /* 
       md/lg dropdowns 
       renamed 'menu_dropdown' -> 'sub-menu' for WordPress nav
    */
-   nav ul.menu .sub-menu {
+   nav.outline_nav ul.menu .sub-menu {
       /* -webkit-box-orient:horizontal;
       -webkit-box-direction:normal;
       -ms-flex-direction:row;
@@ -540,10 +540,10 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       /* prevent li overflow */
       overflow-x:hidden;
    }
-   nav ul.menu:hover li a  {
+   nav.outline_nav ul.menu:hover li a  {
       display:block;
    }
-   nav ul.menu .sub-menu li {
+   nav.outline_nav ul.menu .sub-menu li {
       display:-webkit-box;
       display:-ms-flexbox;
       display:flex;
@@ -563,7 +563,7 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       margin-right:2rem;
       padding:0;
    }
-   nav ul.menu .sub-menu li a {
+   nav.outline_nav ul.menu .sub-menu li a {
       margin:.5rem;
       padding:0;
       color:var(--nav_dropdown_color);
@@ -572,7 +572,7 @@ we support from 1045px determined by four cols of reasonable text in dropdown
    /* 
       md/lg dropdown 
    */
-   nav ul.menu ul.sub-menu {
+   nav.outline_nav ul.menu ul.sub-menu {
       position:absolute;
       top:0;
       left:0;
@@ -608,8 +608,8 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       open it and keep it open 
       removed .menu_label from <a> for WordPress nav 
    */
-   nav ul.menu > li a:hover + ul.sub-menu,
-   nav ul.menu > li a + ul.sub-menu:hover {
+   nav.outline_nav ul.menu > li a:hover + ul.sub-menu,
+   nav.outline_nav ul.menu > li a + ul.sub-menu:hover {
       -webkit-transform:translateY(var(--nav_bar_height));
       -ms-transform:translateY(var(--nav_bar_height));
       transform:translateY(var(--nav_bar_height));
