@@ -28,6 +28,25 @@ function te_customize_cover_block($wp_customize) {
    
    // Hero Cover Block Patterns
    //
+   $wp_customize->add_setting( 'te_hero_v_align',
+      array('default'    => 'center', 
+            'type'       => 'theme_mod',
+            'capability' => 'edit_theme_options',
+            'transport'  => 'postMessage',
+            'sanitize_callback' => 'te_sanitize_number_range') 
+   );
+   $wp_customize->add_control( 'te_hero_v_align', 
+      array('type' => 'select',
+            'priority' => 10,
+            'section' => 'te_hero_patterns',
+            'label' => __( 'Hero Cover Blocks','the-educator'), 
+            'description' => __( 'Align text vertically.','the-educator'),
+            'choices' => array(
+               'flex-start' => 'Top',
+               'center' => 'Center',
+               'flex-end' => 'Bottom',
+            ))
+   );
    $wp_customize->add_setting( 'te_hero_x_height',
       array('default'    => '100', 
             'type'       => 'theme_mod',
@@ -38,7 +57,7 @@ function te_customize_cover_block($wp_customize) {
    $wp_customize->add_control( 'te_hero_x_height', 
       array('type' => 'number',
             'priority' => 10,
-            'section' => 'te_cover_patterns',
+            'section' => 'te_hero_patterns',
             'label' => __( 'Hero Cover Blocks','the-educator'), 
             'description' => __( '% height for Hero Covers.','the-educator'),
             'input_attrs' => array( 'min' => 50, 'max' => 100, 'style' => 'width: 80px;', 'step'	=> 5 )) 
@@ -53,9 +72,9 @@ function te_customize_cover_block($wp_customize) {
    $wp_customize->add_control( 'te_hero_bottom_margin', 
       array('type' => 'number',
             'priority' => 10,
-            'section' => 'te_cover_patterns',
+            'section' => 'te_hero_patterns',
             'label' => __( '','the-educator'),
-            'description' => __( '% margin below Hero Covers YEAH.','the-educator'),
+            'description' => __( '% margin below Hero Covers.','the-educator'),
             'input_attrs' => array( 'min' => 0, 'max' => 25, 'style' => 'width: 80px;', 'step'	=> 5 )) 
    );
 
@@ -104,11 +123,17 @@ function te_customize_cover_block_styles() {
    ?>
    @media screen and (min-width: 768px) { 
       <?php 
-         // te-cover - md/lg 
+         // Hero Cover Block 
          te_generate_css_rule('.te-hero',            
             ['style' => 'height','setting' => 'te_hero_x_height','prefix'  => '','postfix' => 'vh'],);
          te_generate_css_rule('.te-hero',            
-            ['style' => 'margin-bottom','setting' => 'te_hero_bottom_margin','prefix'  => '','postfix' => '%'],);            
+            ['style' => 'margin-bottom','setting' => 'te_hero_bottom_margin','prefix'  => '','postfix' => '%'],);
+            
+            
+         te_generate_css_rule('.te-hero',            
+            ['style' => 'align-items','setting' => 'te_hero_v_align','prefix'  => '','postfix' => ''],);
+
+         // Cover Block
          te_generate_css_rule('.te-cover',
             ['style' => 'width','setting' => 'te_cover_x_width','prefix'  => '','postfix' => '%'],);
          te_generate_css_rule('.te-cover',

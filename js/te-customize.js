@@ -28,6 +28,12 @@
          $('.te-hero').css('margin-bottom', value + '%');
       });
    });
+   wp.customize('te_hero_v_align', function(setting) {
+      setting.bind( function(value) {
+         $('.te-hero').css('align-items', value);
+      });
+   });
+   
 
 
    // cover block

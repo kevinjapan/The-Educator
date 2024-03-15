@@ -50,9 +50,17 @@ class TheEducatorPatternsCustomizer {
       //
       // Block Pattern Sections
       //
-      $wp_customize->add_section( 'te_cover_patterns', 
-      array('title'       => __( $theme_title . 'Hero & Cover Blocks', 'the-educator' ),
+      $wp_customize->add_section( 'te_hero_patterns', 
+      array('title'       => __( $theme_title . 'Hero Cover Blocks', 'the-educator' ),
             'priority'    => 10,
+            'capability'  => 'edit_theme_options',
+            'description' => __('Customize all Hero Covers site-wide.', 'the-educator'),
+            'panel' => 'te_patterns_panel',
+            'active_callback' => '') 
+      );   
+      $wp_customize->add_section( 'te_cover_patterns', 
+      array('title'       => __( $theme_title . 'Cover Blocks', 'the-educator' ),
+            'priority'    => 20,
             'capability'  => 'edit_theme_options',
             'description' => __('Customize all Covers site-wide.', 'the-educator'),
             'panel' => 'te_patterns_panel',
@@ -60,7 +68,7 @@ class TheEducatorPatternsCustomizer {
       );   
       $wp_customize->add_section( 'te_column_patterns', 
          array('title'       => __( $theme_title . 'Columns', 'the-educator' ),
-               'priority'    => 20,
+               'priority'    => 30,
                'capability'  => 'edit_theme_options',
                'description' => __('You can customize all ' . $theme_title . 'Columns across the site here.', 'the-educator'),
                'panel' => 'te_patterns_panel',

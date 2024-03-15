@@ -239,30 +239,33 @@ button.outline_btn > a {
 
 /* to do : rationalize btns - ..outline_btn or te_.. */
 
-/* te specific adaptations to integrate w/ WordPress */
+
+/* 
+   The Educator adaptations to integrate w/ WordPress 
+*/
 div.te_buttons {
    margin-top:1rem;
    margin-left:auto;
    margin-right:auto;
-   justify-content:center;
 }
-div.te_button {
-   width:fit-content;
-   margin-left:auto;
-   margin-right:auto;
-   text-align:center;
-}
-div.te_button a.wp-block-button__link {
+
+
+/* wp-block-button__link differs elem type in editor and front-end! */
+div.wp-block-button.te_button > a.wp-block-button__link,
+div.wp-block-button.te_button > div.wp-block-button__link{
    padding:.25rem 1rem .5rem 1rem;
-   color:hsl(0, 0%, 60%);
-   background:transparent;
+   color:hsl(0, 0%, 85%);
+   background:transparent !important;
    border:solid 1px hsl(0, 0%, 73%);
-   border-radius:5rem;
+   border-radius:.5rem;
 }
-div.te_button a.wp-block-button__link:hover {
-   color:black;
-   border:solid 1px grey;
+div.te_button a.wp-block-button__link:hover,
+div.te_button div.wp-block-button__link:hover {
+   color:white;
+   border:solid 1px white;
 }
+
+
 
 /* 
 wee 'read more' buttons on indvdl cards 

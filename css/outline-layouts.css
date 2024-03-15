@@ -1707,13 +1707,21 @@ div.te-single-feature-columns div.wp-block-media-text__content {
 div.te-hero {
    
    width:100%;
+   /* setting height here messes w/ the pattern view in WP Customizer - we defer to WP setting/ctrl*/
 
-   /* setting height here messes w/ the pattern view in WP Customizer - defer to setting/ctrl */
-   /* height:100vh; */
+   padding-top:4rem;
+   padding-bottom:4rem;
 }
+
 div.te-hero h1 {font-size:5rem;margin:0;padding:0;padding-bottom:1rem;}
 div.te-hero h2 {font-size:3rem;margin:0;padding:0;padding-bottom:.5rem;}
 div.te-hero h3 {font-size:2rem;margin:0;padding:0;padding-bottom:.25rem;}
+
+@media screen and (min-width: 768px) {
+   div.te-hero {
+      padding-left:4rem;
+   }
+}
 
 div.te-cover h2 {
    color:white;

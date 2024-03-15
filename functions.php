@@ -99,7 +99,7 @@ function te_load_admin_stylesheets($hook) {
       wp_enqueue_style('outline_utilities');
    }
 }
-// add_action('admin_enqueue_scripts', 'te_load_admin_stylesheets');
+add_action('admin_enqueue_scripts', 'te_load_admin_stylesheets');
 
 // Customizer StyleSheets
 // function customizer_enqueue() {}

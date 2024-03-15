@@ -109,6 +109,14 @@ function te_register_block_patterns() {
                <h3 class="wp-block-heading">adfa sd fdsafa adfd</h3>
                <!-- /wp:heading -->
 
+               <!-- wp:buttons -->
+               <div class="wp-block-buttons te_buttons">            
+                  <!-- wp:button -->
+                  <div class="wp-block-button te_button"><a>read more</a></div>
+                  <!-- /wp:button -->
+               </div>
+               <!-- /wp:buttons -->
+
             </div>         
          </div>
          <!-- /wp:cover -->'
@@ -116,9 +124,9 @@ function te_register_block_patterns() {
 
    // Cover Block Template
 	register_block_pattern('te-cover', [
-		'title' => __('Single Feature Cover', 'the-educator'),
-      'description' => _x( 'Single Feature Cover.', 'A Cover block with a single feature.', 'the-educator' ),            
-		'keywords' => ['single,cover'],
+		'title' => __('Cover Block', 'the-educator'),
+      'description' => _x( 'Cover Block.', 'A Cover block with a single feature.', 'the-educator' ),            
+		'keywords' => ['cover'],
 		'categories' => ['te-cover-blocks'],
 		'viewportWidth' => 1000,
 		'content' =>  
@@ -212,7 +220,6 @@ function te_register_block_patterns() {
 	]);
    
    // Two Feature Columns Block Template
-   //
 	register_block_pattern('te-two-feature-columns', [
 		'title' => __('Two Feature Columns', 'the-educator'),
       'description' => _x( 'Two Feature Clolumns.', 'A Columns block with two features.', 'the-educator' ),            
@@ -229,7 +236,6 @@ function te_register_block_patterns() {
 	]);
 
    // Three Feature Columns Block Template
-   //
 	register_block_pattern('te-three-feature-columns', [
 		'title' => __('Three Feature Columns', 'the-educator'),
       'description' => _x( 'Three Feature Columns.', 'A Columns block with three features.', 'the-educator' ),            
@@ -247,7 +253,6 @@ function te_register_block_patterns() {
 	]);
 
    // Six Feature Columns Block Template
-   //
    register_block_pattern('te-six-feature-column', [
       'title' => __('Six Feature Columns', 'the-educator'),
       'description' => _x( 'Six Feature Columns.', 'A Columns block with six features.', 'the-educator' ),            
@@ -405,8 +410,7 @@ function te_register_block_patterns() {
 
 
    // Gallery Block Template
-   //
-   // to do : review - we are nesting figures?
+   // nesting of <figure> is-as in WP
    register_block_pattern('te-gallery', [
 		'title' => __('The Educator Gallery', 'the-educator'),
       'description' => _x( 'The Educator Gallery.', 'An image gallery block with The Educator customization.', 'the-educator' ),            
@@ -438,8 +442,6 @@ function te_register_block_patterns() {
    ]);
 
 
-
-   // 
    // Button Block Template
    //
    register_block_pattern('te-buttons', [
