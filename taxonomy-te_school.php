@@ -27,11 +27,9 @@ $image = get_term_meta($term_id, 'school_image', true);
 
 ?>
 
-<!-- The Educator Theme : Single Taxonomy Term -->
+<!-- The Educator Theme : Single School Taxonomy Term -->
 
-<section 
-   id="te_cover_<?php echo get_the_id();?>" 
-   class="wp-block-media-text alignwide is-stacked-on-mobile te-columns te-single-feature-columns bg_navy fade_in">
+<section class="wp-block-media-text alignwide is-stacked-on-mobile te-columns te-single-feature-columns bg_navy fade_in">
 
       <?php if($image):
          ?>
@@ -41,7 +39,7 @@ $image = get_term_meta($term_id, 'school_image', true);
       <?php endif;?>
       <div class="wp-block-media-text__content">
          <h3 style="margin:0;padding:0;"><?php echo $display_term_type;?> of</h3>
-         <h1><?php __( single_cat_title(),'the-educator'); ?></h1>
+         <h1 style="margin:0;"><?php __( single_cat_title(),'the-educator'); ?></h1>
       </div>
 
 </section>
