@@ -106,7 +106,13 @@ li.menu-item.current-menu-item > a {
       display:grid;
    }
 }
-
+/* Remove WP's default padding on Feature/Columns Blocks */
+.wp-block-media-text.te-columns, 
+.wp-block-media-text.te-columns.has-background, 
+.wp-block-columns.te-columns, 
+.wp-block-columns.te-columns.has-background {
+   padding:0 !important;
+}
 
 /* 
    Stacking Column Block Patterns
