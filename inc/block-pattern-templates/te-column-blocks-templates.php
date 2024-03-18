@@ -126,10 +126,7 @@ function te_single_col_template($img_only = false) {
                      <!-- /wp:heading -->
 
                      <!-- wp:paragraph {"align":"center"} -->
-                     <p class="has-text-align-center">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate autem voluptatem deserunt ea odio quae 
-                        odit molestiae provident similique id totam neque et dolorum explicabo, architecto itaque? Quas, eos quam?
-                     </p>
+                     <p class="has-text-align-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate autem voluptatem deserunt ea odio quae odit molestiae provident similique id totam neque et dolorum explicabo, architecto itaque? Quas, eos quam?</p>
                      <!-- /wp:paragraph -->
 
                      <!-- wp:buttons -->
