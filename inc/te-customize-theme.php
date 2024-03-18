@@ -88,6 +88,9 @@ class TheEducatorThemeCustomizer {
       te_customize_theme_posts($wp_customize);
 
 
+
+      // to do : migrate the following to te_customize_theme_<block> files or remove
+      
       // Nav BG Opacity 
       //
       $wp_customize->add_setting( 'nav_bg_opacity',
@@ -266,7 +269,7 @@ class TheEducatorThemeCustomizer {
 }
 
 
-// setup theme customizer settings and controls
+// Setup theme customizer settings and controls
 //
 add_action( 'customize_register', array( 'TheEducatorThemeCustomizer' , 'register' ) );
 

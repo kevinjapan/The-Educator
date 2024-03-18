@@ -129,7 +129,6 @@ function te_customize_cover_block_styles() {
          te_generate_css_rule('.te-hero',            
             ['style' => 'margin-bottom','setting' => 'te_hero_bottom_margin','prefix'  => '','postfix' => '%'],);
             
-            
          te_generate_css_rule('.te-hero',            
             ['style' => 'align-items','setting' => 'te_hero_v_align','prefix'  => '','postfix' => ''],);
 
