@@ -168,8 +168,9 @@ nav ul.sub-menu li.menu-item:hover > a {
 
 /* 
 dynamic underline on hover <a>
+to do : disabled since it breaks new outline nav implementation
 */
-nav ul.menu li > a::after {
+/* nav ul.menu li > a::after {
    content:'';
    width:0%;
 }
@@ -179,7 +180,7 @@ nav ul.sub-menu li.menu-item {
 nav ul.sub-menu li.menu-item > a,
 footer a {
    display:block;
-   position:relative;   /* required to position ::after */
+   position:relative;
    max-width:fit-content;
 }
 nav .menu a::after,
@@ -193,7 +194,7 @@ footer a::after {
    -webkit-transition:all .4s ease-in-out;
    transition:all .4s ease-in-out;
 }
-nav .menu > li > a:after {height:70%;}
+nav .menu > li > a:after {height:70%;} 
 
 nav .menu a:hover::after,
 footer a:not(.custom-logo-link):hover::after {
@@ -202,9 +203,8 @@ footer a:not(.custom-logo-link):hover::after {
    left:0%;
    width:100%;
    border-bottom:solid 1px white;
-   /* -webkit-transition:all .4s ease-in-out;
-   transition:all .4s ease-in-out; */
 }
+*/
 
 
 section.feature_tiles > ul > li.news_tile > h4{
