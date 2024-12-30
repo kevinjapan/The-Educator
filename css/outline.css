@@ -26,8 +26,8 @@
    --dark_text:black;
 
    /* Navigation */
-   --nav_mobile_dropdown_bg:black;  
-   --nav_mobile_dropdown_color:yellow;    /* to do : reflect changes in Outline CSS / Web Dev Agent */
+   --nav_mobile_dropdown_bg:blue;  
+   --nav_mobile_dropdown_color:white;
 
 /* top level nav items - dropdown in sm/mobile */
    /* md-lg screen navigation */
@@ -38,7 +38,6 @@
    --nav_dropdown_color:  black;
    /* item link highlight on hover */
    --nav_item_bottom_border:solid 1px transparent;
-   --nav_item_on_hover_bottom_border:solid 1px hsl(50, 99%, 48%);
    --align_items_lg_dropdown:flex-end;
 
    /* Paragraphs  */
@@ -158,7 +157,6 @@ h6 {font-size:1.25rem;line-height:1.5rem;}
 /* main {visibility: visible;} */
 
 /* nav : main nav component : sm/mobile nav */
-/* to do : nav dropdowns in multiple dropdown scenarios are not swapping out as expected */
 nav {
    position:-webkit-sticky;
    position:sticky;
@@ -184,17 +182,16 @@ nav div.logo_block {
    display:-webkit-box;
    display:-ms-flexbox;
    display:flex;
-   -webkit-box-flex:2;
-   -ms-flex-positive:2;
-   /* to do : reflect changes below in Outline CSS / Web Dev Agent */
    -webkit-box-align:center;
    -ms-flex-align:center;
    align-items:center;
-   flex-grow:2; /* to do : webkit ? */
+   -webkit-box-flex:2;
+   -ms-flex-positive:2;
+   flex-grow:2;
    height:var(--nav_bar_height);
-   background:var(--nav_bar_bg); /* to do : reflect changes in Outline CSS / Web Dev Agent */
+   background:var(--nav_bar_bg);
 }
-nav div.logo_block img {max-height:50% !important;width:auto;} /* to do : reflect changes in Outline CSS / Web Dev Agent */
+nav div.logo_block img {max-height:50%;width:auto;}
 a.custom_logo_link {    
    display:-webkit-box;
    display:-ms-flexbox;
@@ -208,13 +205,13 @@ nav a {
    font-size:var(--nav_font_size);
    margin-left:1rem;
    color:var(--nav_bar_text_color);
-   color:var(--nav_dropdown_color); /* to do : reflect changes in Outline CSS / Web Dev Agent */
+   color:var(--nav_dropdown_color);
 }
 /* top level nav items - dropdown in sm/mobile */
 nav ul.menu {
    position:absolute;
    z-index:2;
-   top:-100vh;   /* default - dropdown is hidden - only hamburger visible*/
+   top:-100vh; /* default - dropdown is hidden - only hamburger visible */
    left:0;
    display:-webkit-box;
    display:-ms-flexbox;
@@ -226,7 +223,7 @@ nav ul.menu {
    gap:1rem;
    height:100vh;
    padding:calc(var(--nav_bar_height) + 2rem) 0 1rem 0;
-   background:var(--nav_mobile_dropdown_bg);/* to do : reflect changes in Outline CSS / Web Dev Agent */
+   background:var(--nav_mobile_dropdown_bg);
    color:var(--nav_mobile_dropdown_color);
    user-select:none;
    -webkit-transform:translateY(-100vh);
@@ -241,7 +238,6 @@ nav ul.menu {
 }
 /* mobile menu toggle - rotating toggle_bars */
 nav > div.nav_toggle_wrap {
-   /* to do : reflect changes in Outline CSS / Web Dev Agent */
    z-index:50;
    padding:0 1rem 0 0;
    display:-webkit-box;
@@ -251,9 +247,9 @@ nav > div.nav_toggle_wrap {
    -ms-flex-align:center;
    align-items:center;
    width:60px;
-   height:var(--nav_bar_height); /* to do : reflect changes in Outline CSS / Web Dev Agent */
+   height:var(--nav_bar_height);
    padding:0 1rem 0 0;
-   background:var(--nav_bar_bg); /* to do : reflect changes in Outline CSS / Web Dev Agent */
+   background:var(--nav_bar_bg);
 }
 nav div.nav_toggle {
    position:relative;
@@ -268,7 +264,7 @@ nav div.nav_toggle .toggle_bar {
    width:100%;
    height:5px;
    margin-bottom:5px;
-   background:var(--nav_bar_text_color);/* to do : reflect changes in Outline CSS / Web Dev Agent */
+   background:var(--nav_bar_text_color);
    -webkit-transform:rotate(0);
    -ms-transform:rotate(0);
    transform:rotate(0deg);
@@ -312,7 +308,7 @@ nav ul.menu > li > a {
    /* margin:.5rem .5rem .5rem 5rem; */
    max-width:fit-content;
    font-size:1.5rem;
-   color:var(--nav_bar_text_color); /* to do : reflect changes in Outline CSS / Web Dev Agent */
+   color:var(--nav_bar_text_color);
 }
 nav ul.menu.extended_sm_nav_dropdown {
    -webkit-transform:translateY(100vh);
@@ -337,7 +333,7 @@ nav ul.menu li ul li a {margin:1rem;} /* important : maintains <a> spacing on tr
 @media screen and (min-width: 1045px) {
    nav div.logo_block {
       min-width:fit-content;
-      background:var(--nav_bar_bg);/* to do : reflect changes in Outline CSS / Web Dev Agent */
+      background:var(--nav_bar_bg);
    
    }
    /* top level nav items - always-visible navbar in lg/md (excludes logo_block (which grows)) */
@@ -357,7 +353,7 @@ nav ul.menu li ul li a {margin:1rem;} /* important : maintains <a> spacing on tr
       align-items:center;
       max-height:var(--nav_bar_height);
       padding:1rem 2rem 1rem 1rem;
-      background:var(--nav_bar_bg);/* to do : reflect changes in Outline CSS / Web Dev Agent */
+      background:var(--nav_bar_bg);
       color:var(--nav_bar_text_color);
       -webkit-box-flex:0;
       -ms-flex-positive:0;
@@ -368,29 +364,16 @@ nav ul.menu li ul li a {margin:1rem;} /* important : maintains <a> spacing on tr
       transition:unset;
       opacity:unset;
    }
-   /*to do : reflect changes in Outline CSS / Web Dev Agent */
-   nav ul.menu > li, 
-   nav ul.menu > li > a {border:solid 1px blue;
-      /* background-color:white; 
-      /* min-height:var(--nav_bar_height);  : WordPress - we can't place height on non-existing menu_label */
-   }
    nav ul.menu li a.menu_label {padding:0 2rem;}   /* for WordPress */
    /* reset from mobile */
-   nav div.nav_toggle_wrap, nav div.nav_toggle {display:none;}   
-   /* nav ul.menu *, nav ul.menu li ul, nav ul.menu li a  {display:block;} */
+   nav div.nav_toggle_wrap, nav div.nav_toggle {display:none;} 
    nav ul.menu, 
-   /* nav ul.menu > li > a,  */
-   /* nav ul.menu:hover, 
-   nav ul.menu:hover > li > a,  */
    nav ul.menu.extended_sm_nav_dropdown {
       transform:unset;
       -webkit-transition:none;
       -o-transition:none;
       transition:none;
       opacity:1;
-   }
-   nav ul.menu > li {
-      height:100%;
    }
    nav ul.menu > li > a {
       margin:0 auto 0 auto;
@@ -427,11 +410,10 @@ nav ul.menu li ul li a {margin:1rem;} /* important : maintains <a> spacing on tr
       -ms-transform:translateY(-100%);
       transform:translateY(-100%);
       opacity:0;
-      -webkit-transition:opacity 3s ease-in-out .25s,border .25s ease-in-out,-webkit-transform .6s ease-in-out .25s;
-      -o-transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out;
-      transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out,-webkit-transform .6s ease-in-out .25s;
+      -webkit-transition:opacity 3s ease-in-out .25s,border .5s ease-in-out,-webkit-transform .6s ease-in-out .25s;
+      -o-transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .5s ease-in-out;
+      transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .5s ease-in-out,-webkit-transform .6s ease-in-out .25s;
    }
-   /* nav ul.menu:hover li a  {display:block;} */
    nav ul.menu .sub-menu li {
       max-width:20%;
       margin:0 2rem;
@@ -447,18 +429,10 @@ nav ul.menu li ul li a {margin:1rem;} /* important : maintains <a> spacing on tr
       transform:translateY(var(--nav_bar_height));
       opacity:1;
       border-bottom:solid 3px hsl(0, 0%, 96%);
-      -webkit-transition:opacity .5s ease-in-out,border .1s ease-in-out,-webkit-transform .75s ease-in-out;
+      -webkit-transition:opacity .5s ease-in-out,border .5s ease-in-out,-webkit-transform .75s ease-in-out;
       -o-transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .1s ease-in-out;
       transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .1s ease-in-out,-webkit-transform .75s ease-in-out;
    }
-   /* to do : temp attempt to hide sub-menu on exiting <a> label */
-   /* nav ul.menu > li:hover ul.sub-menu {
-      -webkit-transform:translateY(-100%);
-      -ms-transform:translateY(-100%);
-      transform:translateY(-100%);
-      opacity:0;
-      background:yellow;
-   } */
 }
 
 /* we use section as the base element of several component blocks */
@@ -486,7 +460,7 @@ a {
    color:blue;
    text-decoration:none;
    cursor:pointer;
-   /* white-space:nowrap; : we rely on single word labels since this breaks our navigation */
+   white-space:nowrap; /* to do : review :  breaks our navigation? */
 }
 a:hover {
    text-decoration:none;
