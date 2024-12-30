@@ -73,12 +73,13 @@ add_action( 'pre_get_posts', 'te_enable_query_post_types' );
 function te_load_stylesheets() {
    wp_register_style('outline',get_template_directory_uri() . '/css/outline.css',array(),1,'all');
    wp_enqueue_style('outline');
-   wp_register_style('outline_custom_props',get_template_directory_uri() . '/css/outline-custom-props.css',array(),1,'all');
-   wp_enqueue_style('outline_custom_props');
-   wp_register_style('outline_layouts',get_template_directory_uri() . '/css/outline-layouts.css',array(),1,'all');
-   wp_enqueue_style('outline_layouts');
-   wp_register_style('outline_utilities',get_template_directory_uri() . '/css/outline-utilities.css',array(),1,'all');
-   wp_enqueue_style('outline_utilities');
+   // to do : remove depr outline files
+   // wp_register_style('outline_custom_props',get_template_directory_uri() . '/css/outline-custom-props.css',array(),1,'all');
+   // wp_enqueue_style('outline_custom_props');
+   // wp_register_style('outline_layouts',get_template_directory_uri() . '/css/outline-layouts.css',array(),1,'all');
+   // wp_enqueue_style('outline_layouts');
+   // wp_register_style('outline_utilities',get_template_directory_uri() . '/css/outline-utilities.css',array(),1,'all');
+   // wp_enqueue_style('outline_utilities');
    // wp_register_style('te_stylesheet',get_template_directory_uri() . '/css/the-educator.css',array(),1,'all');
    // wp_enqueue_style('te_stylesheet');
 }
@@ -91,12 +92,12 @@ function te_load_admin_stylesheets($hook) {
    if ('post.php' === $hook ||  'post-new.php' === $hook || 'site-editor.php' === $hook) {
       wp_register_style('outline',get_template_directory_uri() . '/css/outline.css',array(),1,'all');
       wp_enqueue_style('outline');
-      wp_register_style('outline_custom_props',get_template_directory_uri() . '/css/outline-custom-props.css',array(),1,'all');
-      wp_enqueue_style('outline_custom_props');
-      wp_register_style('outline_layouts',get_template_directory_uri() . '/css/outline-layouts.css',array(),1,'all');
-      wp_enqueue_style('outline_layouts');
-      wp_register_style('outline_utilities',get_template_directory_uri() . '/css/outline-utilities.css',array(),1,'all');
-      wp_enqueue_style('outline_utilities');
+      // wp_register_style('outline_custom_props',get_template_directory_uri() . '/css/outline-custom-props.css',array(),1,'all');
+      // wp_enqueue_style('outline_custom_props');
+      // wp_register_style('outline_layouts',get_template_directory_uri() . '/css/outline-layouts.css',array(),1,'all');
+      // wp_enqueue_style('outline_layouts');
+      // wp_register_style('outline_utilities',get_template_directory_uri() . '/css/outline-utilities.css',array(),1,'all');
+      // wp_enqueue_style('outline_utilities');
    }
 }
 add_action('admin_enqueue_scripts', 'te_load_admin_stylesheets');

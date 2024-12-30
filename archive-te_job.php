@@ -4,10 +4,10 @@
 // 
 
 get_header();
+?>
 
 <!-- The Educator Theme : Jobs Archive -->
 
-?>
 
 <section class="feed_list fade_in">
 
