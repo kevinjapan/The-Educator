@@ -2,64 +2,8 @@
   "I have made this letter longer than usual, only because I have not had time to make it shorter"
    Blaise Pascal, 17th Century French philosopher and mathematician. */
 
-/* Custom Properties ----------------------  */
-:root {
+@import "outline-custom-props.css";
 
-   /* Custom Props Color Schemes */
-   --primary_bg:  hsl(41, 44%, 57%);   /* #c2a361 */
-   --secondary_bg:hsl(64, 53%, 57%);   /* #c4cb57 */
-   --light_bg:    hsl(49, 8%, 62%);    /* #a6a396 */
-   --dark_bg:     hsl(206, 3%, 46%);   /* #727679 */
-   --accent_bg:hsl(50, 99%, 48%);
-   --semantic_pos_bg:    hsl(120, 93%, 79%);  /* green  - positive */
-   --semantic_neg_bg:    hsl(0, 100%, 75%);   /* red    - negative */
-   --semantic_warn_bg:   hsl(39, 100%, 75%);  /* orange - warning  */
-   --semantic_neutral_bg:hsl(240, 100%, 75%); /* blue   - neutral  */
-
-   /* Fonts */
-   /* sans|serif */
-   --font_family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-   /* --font_family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
-   --font-size:18px;
-
-   --light_text:white;
-   --dark_text:black;
-
-   /* Navigation */
-   --nav_mobile_dropdown_bg:blue;  
-   --nav_mobile_dropdown_color:white;
-
-/* top level nav items - dropdown in sm/mobile */
-   /* md-lg screen navigation */
-   --nav_bar_height:90px; /* used by header/header bg_img */
-   --nav_bar_bg:          blue;
-   --nav_bar_text_color:  white;
-   --nav_dropdown_bg:     white;
-   --nav_dropdown_color:  black;
-   /* item link highlight on hover */
-   --nav_item_bottom_border:solid 1px transparent;
-   --align_items_lg_dropdown:flex-end;
-
-   /* Paragraphs  */
-   --paragraph_width:50rem;
-   --paragraph_padding:1rem;
-
-   /* z-index layers */
-   --app_status_layer:1100;
-   --over_over_over_nav_layer:1000;
-   --over_over_nav_layer:999;
-   --over_nav_layer:998;
-   --nav_layer:900;
-   --under_nav_layer:-10;
-   
-   /* Component properties */    
-   --cover_block_height:500px;   
-   --feature_tiles_gap:1rem;
-
-   /* Utility properties */
-   --rounded_border:.5rem;
-   --img_border_radius:.25rem;
-}
 
 /* reset */
 *,*::before,*::after {
