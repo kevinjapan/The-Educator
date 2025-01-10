@@ -1,35 +1,17 @@
-/* to do : this file is no longer called - but may be required - keep a while!
-   - remove once no issues arise  (removed 13 Mar 2024) 
-
-   likely we need te_template_domain_frontpage class below -  see About page
-*/
-html {
-   margin:0;
-   padding:0;   
-}
-body {
-   margin:0;
-   padding:0;
-}
+/* to do : review this file content */
 header {
    background:white;
    width:100%;
    height:100px;
    margin:0;
 }
-
 .menu-top-menu {
    display:flex;
-}
-
-ul {
-   list-style:none;
 }
 ul.menu{
    display:flex;
    gap:1rem;
 }
-
 /* to keep track of templates during dev */
 .dev_notes {
    width:fit-content;
@@ -43,9 +25,7 @@ ul.menu{
 }
 
 
-/* 
-   adapt outlinecss nav to wordpress menu structure 
-*/
+/* adapt outlinecss nav to wordpress menu structure */
 
 /* style selection of menu item on top nav */
 li.menu-item {width:100%;}
@@ -54,27 +34,17 @@ li.menu-item.current-menu-item > a {
    width:fit-content;
    border:solid 1px transparent;
 }
-/* li.menu-item:hover > a {
-   border-bottom:solid 1px white;
-}
-li.menu-item.current-menu-item > a {
-   border-bottom:solid 1px white;
-} */
-
 .list_style_bullets {
    list-style:circle;
 }
 
 
 
-/* 
-   customizing Block Patterns 
-*/
+/* customizing Block Patterns */
 
 
 /* 
    Single Feature Columns
-   -------------------------------------------------------------
    We build from WordPress media-text which only stacks at v. sm
    We want it consistent w/ two-feature-columns breakpoints etc.
    Also, image was distorted by resizing screen width.
@@ -116,7 +86,6 @@ li.menu-item.current-menu-item > a {
 
 /* 
    Stacking Column Block Patterns
-   -------------------------------------------------------------
    we incrse gap btwn 'columns' when stacking in sm/mobile for readability
 */
 div.te-columns img {
@@ -137,12 +106,6 @@ future :
 - layout of text on columns when stacked retains height and spacing 
   of horizontal alignment - may look better more compact. 
 */
-
-
-
-.te_card {
-   border:solid 3px orange;
-}
 
 
 
@@ -167,8 +130,7 @@ nav ul.sub-menu li.menu-item:hover > a {
 
 
 /* 
-dynamic underline on hover <a>
-to do : disabled since it breaks new outline nav implementation
+dynamic underline on hover <a> : disabled since it breaks new outline nav implementation
 */
 /* nav ul.menu li > a::after {
    content:'';
@@ -234,8 +196,6 @@ debug template hierarchy!
 }
 
 
-
-
 /* 
    Domain FrontPage layout
 */
@@ -276,7 +236,6 @@ section.te_template_domain_frontpage ul {
    flex-wrap:wrap;
    gap:.5rem;
 }
-
 section.te_template_domain_frontpage ul li {
    margin-top:.5rem;
    width:fit-content;
@@ -306,12 +265,9 @@ section.te_template_domain_frontpage div:nth-child(3) {order:2;}
    section.te_template_domain_frontpage div:nth-child(3) {order:3;}
 }
 
-
-
 .test_dim_featured_img {
    opacity:.2;
 }
-
 .bg_yellow {
    background:yellow !important;
 }

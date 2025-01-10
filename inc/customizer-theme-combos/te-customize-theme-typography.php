@@ -6,8 +6,6 @@ function te_customize_theme_typography($wp_customize) {
       
    // Custom Fonts
 
-   // to do : review and simplify
-
    /* Title & Tagline Custom Fonts */
    $wp_customize->add_setting( 'te_title_fonts',
       array('default'    => 'Roboto', 

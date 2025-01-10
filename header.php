@@ -6,6 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title><?php echo get_bloginfo('name');?></title>
       <?php wp_head(); ?>
+      <link rel="shortcut icon" href="#">
    </head>
 
 

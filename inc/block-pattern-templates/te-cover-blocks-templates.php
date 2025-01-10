@@ -42,6 +42,8 @@ function te_register_cover_blocks_templates($site_uri) {
 	]);
 
    // Cover Block Template
+   // to do : integrate Outline CSS into my block patterns.
+   // - first make sure I understand how my current cover_block etc are being styled w/out it !!! 
 	register_block_pattern('te-cover', [
 		'title' => __('Cover Block', 'the-educator'),
       'description' => _x( 'Cover Block.', 'A Cover block with a single feature.', 'the-educator' ),            
@@ -49,7 +51,7 @@ function te_register_cover_blocks_templates($site_uri) {
 		'categories' => ['te-cover-blocks'],
 		'viewportWidth' => 1000,
 		'content' =>  
-         '<!-- wp:cover {"url":"' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg","id":248,"dimRatio":50,"className":"te-cover"} -->
+         '<!-- wp:cover {"url":"' . $site_uri .'/imgs/kae-anderson-7KLv5TOKOrM-unsplash.jpg","id":248,"dimRatio":50,"className":"cover_block te-cover"} -->
          <div class="wp-block-cover has-text-color has-background-dim te-cover">
 
             <img class="wp-block-cover__image-background wp-image-248" 
@@ -97,6 +99,29 @@ function te_register_cover_blocks_templates($site_uri) {
             </div>
          </div>
          <!-- /wp:cover -->'
+	]);
+
+   // Custom Cover Block
+   // non-WordPress blocks - using Outline CSS 
+   // to do : review custom html solution - does it work in WordPress editor?
+   //         we are trying to bring in Outline CSS custom html solution but it must work w/ WordPress editing
+   //         (we know it will work on UI front-end)
+   //         just use same te- css classes for styling - will customize same for both versions of blocks
+   register_block_pattern('te-cover', [
+		'title' => __('Custom Cover Block', 'the-educator'),
+      'description' => _x( 'Cover Block.', 'A Custom Cover block with a single feature.', 'the-educator' ),            
+		'keywords' => ['cover'],
+		'categories' => ['te-cover-blocks'],
+		'viewportWidth' => 1000,
+		'content' =>  
+         '<section class="cover_block bg_navy fade_in darken_img_4" style="margin-bottom:1rem;">
+            <img class="bg_img" src="../assets/imgs/susan-q-yin-2JIvboGLeho-unsplash.jpg" />
+            <div class="text_overlay">
+               <h1>Custom Cover Block - does it work in editor?</h1>
+               <p>Start your academic journey with your first step today</p>
+               <button>Find out more ></button>
+            </div>
+         </section>'
 	]);
 }
 

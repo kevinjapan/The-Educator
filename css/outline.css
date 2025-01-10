@@ -17,7 +17,7 @@ html {scroll-behavior: smooth;}
 /* Block layouts */
 body, address, article, aside, footer, header, main, nav, section {
    width:100%;
-   margin:0 auto 0 auto;
+   margin:0 auto 0 auto;margin:auto;
    padding:0;
 }
 
@@ -90,7 +90,6 @@ footer a {
 }
 
 h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;text-wrap: balance;padding:1rem;}
-h4, h5, h6 {padding:.5rem;}
 h1 {font-size:4rem;line-height:4.25rem;}
 h2 {font-size:3rem;line-height:3.25rem;}
 h3 {font-size:2.5rem;line-height:2.75rem;}
@@ -404,7 +403,7 @@ a {
    color:blue;
    text-decoration:none;
    cursor:pointer;
-   white-space:nowrap; /* to do : review :  breaks our navigation? */
+   white-space:nowrap; /* review :  breaks our navigation? */
 }
 a:hover {
    text-decoration:none;
@@ -738,7 +737,6 @@ section.feature_tiles h5,
 section.feature_tiles h6 {
    width:fit-content;
    text-align:left;
-   margin:0 auto 0 auto; /* to do : surely these are set in base level headings? */
 }
 section.feature_tiles *.align_start {
    margin-left:0;
@@ -795,6 +793,7 @@ section.feature_tiles > ul > li > button {
 section.cover_block {
    position:relative;
    height:var(--cover_block_height);
+   margin:auto;
    padding-top:5rem;
    padding-bottom:5rem;
    overflow:hidden;

@@ -17,7 +17,7 @@ get_header();
       <?php if(has_post_thumbnail()):?>
          <img class="bg_img" src="<?php the_post_thumbnail_url('cover'); ?>"/>
       <?php endif;?>
-      <!-- <?php the_post_thumbnail( 'thumbnail' ); ?> to do : review -->
+      <!-- <?php // the_post_thumbnail( 'thumbnail' ); ?> -->
       <div class="overlay">
          <h2><?php the_title(); ?></h2>
          <p><?php echo get_post_meta( get_the_ID(), 'te_course_teacher', true ); ?></p>

@@ -14,18 +14,6 @@
 //
 function te_customize_cover_block($wp_customize) {
 
-   //
-   // to do : future : review - align labels along-side controls 
-   //         default doesn't do this - labels/desc sit above number ctrls
-   //         (investigated using CSS only - not practical - html is too inflexible)
-   //         perhaps create custom control wrappers to provide styling around a ctrl?
-   //         see eg 
-   //         https://www.tech-prastish.com/blog/create-custom-controls-for-theme-customizer-wordpress/
-   //         https://themetrust.com/how-to-create-custom-controls-for-wordpress-theme-customizer/
-   //         https://wpmudev.com/blog/creating-custom-controls-wordpress-theme-customizer/   
-   //        
-
-   
    // Hero Cover Block Patterns
    //
    $wp_customize->add_setting( 'te_hero_v_align',

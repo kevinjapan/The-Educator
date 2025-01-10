@@ -71,7 +71,6 @@ nav_toggle.addEventListener('click',() => {
 })
 
 // page transitions - we retract dropdown on item clicked & fade out content
-// to do : create react/vue components to encapsulate this functionality?
 const menu_items = document.querySelectorAll('.menu-item')
 menu_items.forEach((menu_item) => {
    menu_item.addEventListener('click',() => {
